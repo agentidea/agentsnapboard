@@ -29,6 +29,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="aspNetEmail, Version=3.5.2.0, Culture=neutral, PublicKeyToken=bc571e8da1c1f543" />
+    <Reference Include="Strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\strategy\Strategy.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
@@ -104,10 +108,6 @@
     <ProjectReference Include="..\AgentStoryConfig\AgentStoryConfig.csproj">
       <Project>{AD536794-E31E-4B90-8ADC-4BF87D610314}</Project>
       <Name>AgentStoryConfig</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\SmartOrg\Strategy\Strategy.csproj">
-      <Project>{61130B83-C23D-4A24-A892-5B5D5C7B8FB0}</Project>
-      <Name>Strategy</Name>
     </ProjectReference>
     <ProjectReference Include="..\FlickrNet\FlickrNet.csproj">
       <Project>{5F017126-C1FF-4996-85CC-6150E80C6AFC}</Project>
