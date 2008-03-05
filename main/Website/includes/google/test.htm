@@ -1,0 +1,87 @@
+﻿<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Video Search in Social Networking Apps</title>
+
+  <!-- NOTE: change ../../ to http://www.google.com/uds if you plan on cloning this -->
+  <link href="http://www.google.com/uds/css/gsearch.css" rel="stylesheet" type="text/css"/>
+  <script src="http://maps.google.com/maps?file=api&v=2" type="text/javascript"></script>
+  <script src="./a.js" type="text/javascript"></script>
+  
+  <link href="http://www.google.com/uds/solutions/mapsearch/gsmapsearch.css" rel="stylesheet" type="text/css"/>
+  <script src="http://www.google.com/uds/solutions/mapsearch/gsmapsearch.js" type="text/javascript"></script>
+  <script src="runtime.js" type="text/javascript"></script>
+  <link href="styles.css" rel="stylesheet" type="text/css"/>
+  
+  <script type="text/javascript">
+    function OnLoad() {
+    var container = document.getElementById("profileMap");
+    new GSmapSearchControl(container,
+             "745 Lilac Drive, 93108",
+             { title : "Mark's Crib",
+               url : "http://www.myspace.com"
+             }
+             );
+      new MsPageControl();
+    }
+    GSearch.setOnLoadCallback(OnLoad);
+  </script>
+</head>
+<body>
+<h1>Integrating Video Search into Social Apps - <a href="http://code.google.com/apis/ajaxsearch/index.html"><span class="tagline">powered by The Google AJAX Search API</span></a></h1>
+
+<div id="mySample" class="reading">
+  <table class="intro" border=1>
+    <td class="profile-pane">
+      <div id="profile">
+       
+        <h3>Reggae / Hip Hop / Rock</h2>
+        <table class="details">
+          <td class="profile-image">
+            <img src="profilepic.jpg"/>
+          </td>
+          <td class="profile-text">
+            <div class="quote">
+              "every man gotta right to decide his own destiny"
+            </div>
+            <div class="location">
+              <div class="text-section">
+                the 805, usa
+              </div>
+              <div id="profileMap" class="location-label">Loading...</div>
+            </div>
+          </td>
+        </table>
+        <div class="footer">
+          profile views: 12,349 last login: aug, 22, 2006
+        </div>
+      </div>
+
+      <div id="talktome">
+        <h2>Talk to me</h2>
+        <div id="sendMessage">leave me a note</div>
+      </div>
+
+      <div id="videos">
+        <h2 class="inlined">Check out my videos</h2>
+        <div id="somethingElse">Loading...</div>
+        <div id="videoSearchExpressions" class="pre-canned">
+          <div id="videoPreCanned">Loading... pre-canned terms</div>
+          <div id="videoDynamic">Loading... search form</div>
+        </div>
+        <div id="videoSearchControl">Loading... search results</div>
+        
+      </div>
+
+    </td>
+    <td class="content-pane">
+      <div id="notes">
+        <h2>Notes from my friends</h2>
+        <div id="newMessageArea">Loading...</div>
+        <div id="savedMessages">looser...</div>
+      </div>
+    </td>
+  </table>
+</div>
+</body>
+</html>

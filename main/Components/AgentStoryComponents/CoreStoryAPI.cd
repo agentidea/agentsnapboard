@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="8.25" />
+  <Class Name="AgentStoryComponents.Story" Collapsed="true">
+    <Position X="1" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Story.cs</FileName>
+      <HashCode>wCglQMIRQIAwxcVkQDGQCkrAAAHQ4AkNAbKIDVAEIIA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+  </Class>
+  <Class Name="AgentStoryComponents.Group" Collapsed="true">
+    <Position X="1" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Group.cs</FileName>
+      <HashCode>AAFAIIAQAAAioAQMAIAAIQQAAAEEAAAoAQAAAAAEAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.Page" Collapsed="true">
+    <Position X="1.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Page.cs</FileName>
+      <HashCode>AADAIIAAAAKAhAQAAKBgIAQAAgEQEAAIBYQQBAAhAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.PageElement" Collapsed="true">
+    <Position X="1.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PageElement.cs</FileName>
+      <HashCode>ABBAAMAAAAAAgAQAAKBgIAAAAAGAAFAoAUAgAABgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.PageElementMap" Collapsed="true">
+    <Position X="2" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PageElementMap.cs</FileName>
+      <HashCode>AABAAIABEAIAgAQAAIBgAAAAggEAABAIAQAQAAAgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.stats" Collapsed="true">
+    <Position X="1.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>stats.cs</FileName>
+      <HashCode>AAAAAEAAChAQAAAAAAAAAIAAAAIAAAAIAAAAAAJgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.StoryChangeEvent" Collapsed="true">
+    <Position X="1.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>StoryChangeEvent.cs</FileName>
+      <HashCode>AQAAAIAAQACghAQUICBAIAAAAAAAAQAIAQAiAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.StoryLog" Collapsed="true">
+    <Position X="1.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>StoryLog.cs</FileName>
+      <HashCode>AEAAAAAAAAEAAAAAAAAQAAAAAAAABAAIAEAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.StoryLogMessage" Collapsed="true">
+    <Position X="1.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>StoryLog.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAEAAgA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.StoryState" Collapsed="true">
+    <Position X="1.5" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>StoryState.cs</FileName>
+      <HashCode>AAAAAAAAAAAgAEAAAAAAAAAAAAACAAAIAAABAAEAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.User" Collapsed="true">
+    <Position X="0.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>User.cs</FileName>
+      <HashCode>ABUBMMAEACAAkQQAQCFSCUSAChOBAEgKAwIBBAKsRAs=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdAddNewStory" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>commands\cmdAddNewStory.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdAddNewPage" Collapsed="true">
+    <Position X="4.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>commands\cmdAddNewPage.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdMarkStoryState" Collapsed="true">
+    <Position X="8.75" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <FileName>commands\cmdMarkStoryState.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdRemovePage" Collapsed="true">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>commands\cmdRemovePage.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdRemovePageElement" Collapsed="true">
+    <Position X="7" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>commands\cmdRemovePageElement.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdUpdatePage" Collapsed="true">
+    <Position X="7.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>commands\cmdUpdatePage.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdUpdatePageElement" Collapsed="true">
+    <Position X="4.75" Y="2.25" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>commands\cmdUpdatePageElement.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdUpdatePageElementXYZ" Collapsed="true">
+    <Position X="8" Y="1.75" Width="2.25" />
+    <TypeIdentifier>
+      <FileName>commands\cmdUpdatePageElementXYZ.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdUpdateStoryMeta" Collapsed="true">
+    <Position X="7.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>commands\cmdUpdateStoryMeta.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdPostLogMessage" Collapsed="true">
+    <Position X="4.25" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <FileName>commands\cmdPostLogMsg.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdHeartBeat" Collapsed="true">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>commands\cmdHeartBeat.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="AgentStoryComponents.commands.cmdAddNewPageElementAndMap" Collapsed="true">
+    <Position X="5.5" Y="1.75" Width="2.5" />
+    <TypeIdentifier>
+      <FileName>commands\cmdAddNewPageElement.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+</ClassDiagram>

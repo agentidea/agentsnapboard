@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="10" />
+  <Class Name="AgentStoryComponents.UserExistsException" Collapsed="true">
+    <Position X="8.75" Y="3.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.InvalidGroupActionException" Collapsed="true">
+    <Position X="8.75" Y="2.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.InsufficientPermissionsException" Collapsed="true">
+    <Position X="12.25" Y="2.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.MessageNotSentException" Collapsed="true">
+    <Position X="12.25" Y="7.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.ServiceTimeoutException" Collapsed="true">
+    <Position X="12.25" Y="6.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.UnableToDeleteUserException" Collapsed="true">
+    <Position X="8.75" Y="6.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.CommandExecuteException" Collapsed="true">
+    <Position X="8.75" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.PossibleHackException" Collapsed="true">
+    <Position X="12.25" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.InvitationDoesNotExistException" Collapsed="true">
+    <Position X="12.25" Y="3.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.UserDoesNotExistException" Collapsed="true">
+    <Position X="8.75" Y="4.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.GroupDoesNotExistException" Collapsed="true">
+    <Position X="12.25" Y="5.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.GroupExistsException" Collapsed="true">
+    <Position X="8.75" Y="5.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.CommandDoesNotExistException" Collapsed="true">
+    <Position X="12.25" Y="1.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.ParameterNotFoundException" Collapsed="true">
+    <Position X="8.75" Y="7.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.ParameterNotNumberException" Collapsed="true">
+    <Position X="8.75" Y="1.75" Width="3.25" />
+    <TypeIdentifier>
+      <FileName>Exceptions.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>

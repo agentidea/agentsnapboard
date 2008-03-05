@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<license version="1.1">
+  <Customer>
+    <name>advancedintellect-3872
+SmartOrg Inc.   (Inc., SmartOrg)
+855 Oak Grove Avenue
+suite 202
+Menlo Park, CA	 94025
+US United States
+415 7130705
+num:1</name>
+  </Customer>
+  <products>
+    <Product>
+      <name>aspNetEmail</name>
+      <version>3</version>
+      <licensetype>server</licensetype>
+      <expires>-1</expires>
+    </Product>
+  </products>
+  <LicenseInformation>
+    <Version>1.1</Version>
+    <H1>0</H1>
+    <H2>FGRzv6uWRJ/Vp+FVBQ6ZKw==</H2>
+  </LicenseInformation>
+  <Signature xmlns="http://www.w3.org/2000/09/xmldsig#">
+    <SignedInfo>
+      <CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315" />
+      <SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1" />
+      <Reference URI="">
+        <Transforms>
+          <Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" />
+        </Transforms>
+        <DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
+        <DigestValue>2XsDP27lSko70B6LDVVTcHQVfr0=</DigestValue>
+      </Reference>
+    </SignedInfo>
+    <SignatureValue>YBryUZcYm7Y0mua2eTmPw9kswcoC7YW1hKz11/mZ+LD1obPsEJH0pfGWJLVmDb4iBWe/mbaabSxO105m1404c3A0ot4JjIA/q8VqT+yOXfU/vlSK2ldQWuZmBqQeC8GyVoaWfw4ujlrXa/L6zS6xra2xML9R5sZjFyyehg2MqM4=</SignatureValue>
+  </Signature>
+</license>

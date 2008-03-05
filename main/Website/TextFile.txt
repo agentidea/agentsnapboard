@@ -1,0 +1,17 @@
+{
+	 'stories':
+	 {
+		story_1
+		{
+			'Title':'how this software came to be',
+			'ID':30
+		},
+		story_2{'Title':'story about elves','ID':40},
+		story_3{'Title':'how noa came to be known as strange','ID':48},
+		story_4{'Title':'how the stove came to be in the garden','ID':49},
+		story_5{'Title':'new stove','ID':50},
+		story_6{'Title':'Chicken Broth','ID':51},
+		story_7{'Title':'how the shim came to fall out of the bench','ID':52},
+		story_8{'Title':'car towed!','ID':53},
+		story_9{'Title':'dont let them \"\"steal\"\" your ideas, make them buy em','ID':54},
+		story_10{'Title':'new netscape on my desktop','ID':56},story_11{'Title':'how the page element editor was born','ID':57},story_12{'Title':'thanksgiving 2006','ID':58},story_13{'Title':'how the demo with the boys failed','ID':68},story_14{'Title':'john kents underwater shots','ID':85},story_15{'Title':'aG93IG5vYSBjYW1lIHRvIGJlIGtub3cgYXMgLi4u','ID':86},story_16{'Title':'cGFnZWxlc3Mgc3Rvcnk=','ID':87},story_17{'Title':'YWJvdXQgdG8gYmF0aA==','ID':88},story_18{'Title':'cmVhbGx5IHJlYWxseSBiYXRoIG5vdyE=','ID':89},}}"
