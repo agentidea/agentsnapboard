@@ -56,10 +56,6 @@
       <Project>{AD536794-E31E-4B90-8ADC-4BF87D610314}</Project>
       <Name>AgentStoryConfig</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\SmartOrg\Strategy\Strategy.csproj">
-      <Project>{61130B83-C23D-4A24-A892-5B5D5C7B8FB0}</Project>
-      <Name>Strategy</Name>
-    </ProjectReference>
     <ProjectReference Include="..\FlickrNet\FlickrNet.csproj">
       <Project>{5F017126-C1FF-4996-85CC-6150E80C6AFC}</Project>
       <Name>FlickrNet</Name>
