@@ -14,6 +14,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentStoryConfig", "AgentSt
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlickrNet", "FlickrNet\FlickrNet.csproj", "{5F017126-C1FF-4996-85CC-6150E80C6AFC}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "C:\...\Website\", "..\Website\", "{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}"
+	ProjectSection(WebsiteProperties) = preProject
+		ProjectReferences = "{C9B2BC5D-C95C-4678-9083-5AFFF94A5039}|AgentStoryComponents.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/Website"
+		Debug.AspNetCompiler.PhysicalPath = "..\Website\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/Website"
+		Release.AspNetCompiler.PhysicalPath = "..\Website\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\Website\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "1076"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|.NET = Debug|.NET
@@ -64,6 +84,16 @@ Global
 		{5F017126-C1FF-4996-85CC-6150E80C6AFC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F017126-C1FF-4996-85CC-6150E80C6AFC}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{5F017126-C1FF-4996-85CC-6150E80C6AFC}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Debug|.NET.ActiveCfg = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Debug|.NET.Build.0 = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Release|.NET.ActiveCfg = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Release|.NET.Build.0 = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{F4563C8D-A170-4F7D-AE6D-1EBC55A527EE}.Release|Mixed Platforms.Build.0 = Debug|.NET
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

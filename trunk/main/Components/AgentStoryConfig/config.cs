@@ -15,7 +15,7 @@ namespace AgentStoryComponents
         public static string storyToolbarStartMode = "BASIC"; //NONE NAV MIN ALL NOCHAT
         public static string conn = "Provider=sqloledb;Data Source=127.0.0.1;Initial Catalog=AgentStory;User Id=sa;Password=smartorg;";
         public static string aspNetEmailLicensePath = @"C:\data\aspNetEmail.xml.lic";
-        public static string host = "localhost:2014";
+        public static string host = "localhost:1076";
         public static string app = "AgentStory";
         public static int helpStoryID = 69;
 
