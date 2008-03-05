@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- http://developer.mozilla.org/en/docs/Traversing_an_HTML_table_with_JavaScript_and_DOM_Interfaces -->
+<html>
+<head>
+<title>Sample code - Traversing an HTML Table with JavaScript and DOM Interfaces</title>
+<script>
+
+    function findElement(key,elementTagName)
+    {
+        //seems to be ie specific????
+        //var elem = document.all.item("divA");
+
+        var tags = document.getElementsByTagName(elementTagName);
+        
+        for(var i=0;i<tags.length;i++)
+        {
+           //alert("found divs " + tags[i].id);
+            if(tags[i].id == key)
+            {
+                return tags[i];
+            }
+        }
+    }
+    
+    
+    function newGrid(numRows,numCols)
+    {
+        var grid = document.createElement("table");
+        var gridBody = document.createElement("tbody");
+        
+         // creating all cells
+        for(var j = 0; j < numRows; j++) {
+            // creates a <tr> element
+            mycurrent_row = document.createElement("tr");
+
+            for(var i = 0; i < numCols; i++) {
+                // creates a <td> element
+                mycurrent_cell = document.createElement("td");
+                // creates a Text Node
+                currenttext = document.createTextNode("cell is row " + j + ", column " + i);
+                // appends the Text Node we created into the cell <td>
+                mycurrent_cell.appendChild(currenttext);
+                // appends the cell <td> into the row <tr>
+                mycurrent_row.appendChild(mycurrent_cell);
+            }
+            // appends the row <tr> into <tbody>
+            gridBody.appendChild(mycurrent_row);
+        }
+
+        // appends <tbody> into <table>
+        grid.appendChild(gridBody);
+       
+        // sets the border attribute of mytable to 2;
+        grid.setAttribute("border","8");
+        
+        return grid;
+        
+    
+    }
+    
+    
+    function start() {
+        // get the reference for the body
+       // var myAttachPoint = document.getElementsByTagName("body")[0];
+       
+       //get a reference the the elment you want to attach to, for example to 
+       //connect to <div id='divA'> use:
+       //var myDiv = findElement("divA","div");
+       var myAttachPoint = findElement("divA","div");
+       
+       myAttachPoint.appendChild(newGrid(5,2));
+        
+
+/*
+        // creates <table> and <tbody> elements
+        mytable     = document.createElement("table");
+        mytablebody = document.createElement("tbody");
+
+        // creating all cells
+        for(var j = 0; j < 2; j++) {
+            // creates a <tr> element
+            mycurrent_row = document.createElement("tr");
+
+            for(var i = 0; i < 2; i++) {
+                // creates a <td> element
+                mycurrent_cell = document.createElement("td");
+                // creates a Text Node
+                currenttext = document.createTextNode("cell is row " + j + ", column " + i);
+                // appends the Text Node we created into the cell <td>
+                mycurrent_cell.appendChild(currenttext);
+                // appends the cell <td> into the row <tr>
+                mycurrent_row.appendChild(mycurrent_cell);
+            }
+            // appends the row <tr> into <tbody>
+            mytablebody.appendChild(mycurrent_row);
+        }
+
+        // appends <tbody> into <table>
+        mytable.appendChild(mytablebody);
+        // appends <table> into <body>
+        myAttachPoint.appendChild(mytable);
+        // sets the border attribute of mytable to 2;
+        mytable.setAttribute("border","2");
+        
+        */
+    }
+</script>
+</head>
+<body onload="start()">
+<form id="frmMain">
+
+<div id="divA" style="position:absolute; top:13px;background-color:Lime;left:25;">this is where the table will appear!</div>
+
+</form>
+</body>
+</html>

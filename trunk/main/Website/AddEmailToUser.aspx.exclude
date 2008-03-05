@@ -1,0 +1,23 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="AddEmailToUser.aspx.cs" Inherits="AddEmailToUser" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head runat="server">
+    <title>Agent Story - associate with email</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div id="divEmailInfo" runat="server" style="width:200px;height:120px;">
+    
+    </div>
+    <pre>
+    Your account does not have an email address yet.  Working email addresses are one way to ensure identity ( short of DNA samples )
+    Please enter a valid email address ( to be confirmed by receipt of a mail sent by our mail bot ): 
+    </pre>
+        <input id="txtEmailAddress" runat="server" type="text" />
+        <input id="cmdEnterEmailAddress" runat="server" onserverclick="cmdEnterEmailAddress_ServerClick"
+            type="button" value="add email address" />
+    </form>
+</body>
+</html>

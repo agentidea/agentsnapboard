@@ -1,0 +1,33 @@
+
+.clsReportPane
+{
+	width: expression(document.body.clientWidth - 35);
+	height:expression(document.body.clientHeight - 94);
+	overflow:auto;
+}
+
+.clsStratListScrollingDiv
+{
+	overflow:auto;
+	width:163px;
+	height:expression(document.body.clientHeight-64);	
+	
+}
+.clsDecisionContainerScrollingDiv
+{
+	overflow:auto;
+	width: expression(document.body.clientWidth-195);
+	height:expression(document.body.clientHeight-101);
+	background-color:white;	
+}
+
+.clsDecisionContainerScrollingHeaderDiv
+{
+	overflow:hidden;
+	width: expression(document.body.clientWidth-195);
+	height:30px;
+	background-color:#e0e0e0;	
+	padding-right:100px;
+	padding-left:1px;
+}
+

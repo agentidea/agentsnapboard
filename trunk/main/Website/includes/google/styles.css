@@ -1,0 +1,459 @@
+body {
+  background-color: #fff;
+  background-image : url('background.gif');
+  background-position:left center;
+  background-attachment:fixed;
+  margin-left: 10px;
+  padding: 0;
+  font-family: Arial,Sans-serif;
+  font-size: 13px;
+  color: #000;
+  display: block;
+  height: 100%;
+}
+
+table *,
+body * {
+  margin: 0;
+  padding: 0;
+  font-family: Arial,Sans-serif;
+  font-size: 13px;
+  color: #000;
+}
+
+h1 {
+  font-size : 16px;
+  font-weight : bold;
+  background-color : #f9f9f9;
+  border-top : 2px solid #676767;
+  text-align : center;
+  margin-bottom : 10px;
+  padding-bottom : 4px;
+  color : #676767;
+}
+
+h1 .tagline,
+h1 a .tagline {
+  font-size : 13px;
+  font-weight : normal;
+  color : #676767;
+  text-decoration : underline;
+  cursor : pointer;
+}
+
+h3 {
+  font-size : 16px;
+  font-weight : bold;
+}
+
+h4 {
+  color : #676767;
+}
+
+td {
+  vertical-align : top;
+}
+
+table.intro {
+  width : 100%;
+}
+
+td.profile-pane {
+  width : 350px;
+  padding-right : 20px;
+}
+
+td.content-pane div,
+td.profile-pane div {
+  font-size : 12px;
+  color : rgb(204, 0 ,0);
+}
+
+td.profile-pane table.details {
+  width : 350px;
+}
+
+td.content-pane {
+  width : 600px;
+}
+
+/* common profile pane element styling */
+td.content-pane h2,
+td.profile-pane h2 {
+  color : rgb(204,0,0);
+  font-size : 16px;
+  font-weight : bold;
+}
+
+td.profile-pane h2.inlined {
+  display : inline;
+  margin-right : 4px;
+}
+
+td.profile-pane h3 {
+  color : rgb(3,51,48);
+  font-size : 10px;
+  font-weight : 400;
+}
+
+td.profile-pane .footer {
+  color : rgb(204, 0 ,0);
+  margin-bottom : 4px;
+  text-align : center;
+}
+
+td.profile-pane .quote {
+  color : rgb(3, 51, 48);
+  margin-bottom : 12px;
+  font-weight : bold;
+}
+
+td.profile-pane .text-section {
+  margin-bottom : 10px;
+}
+
+/* profile box */
+#profile {
+  border : 2px solid #000000;
+  padding : 4px;
+  margin-bottom : 6px;
+}
+
+td.profile-image {
+  width : 180px;
+}
+
+td.profile-image img {
+  border : none;
+  width : 170px;
+  height : 170px;
+}
+
+td.profile-text {
+  width : 170px;
+  padding-left : 10px;
+}
+
+td.profile-text .location {
+  margin-bottom : 12px;
+}
+
+#profileMap {
+  font-size : 10px;
+  color : #676767;
+}
+
+#profileMap .gsmsc-mapDiv {
+  display : none;
+}
+
+#profileMap .gsmsc-idleMapDiv {
+  margin-top : 0px;
+  margin-bottom : 10px;
+  width : 170px;
+  height : 100px;
+}
+
+#profileMap .gsmsc-idleMapDiv span {
+  display : none;
+}
+
+#profileMap .gsmsc-controls {
+  display : none;
+}
+
+/* talk to me */
+#talktome {
+  border : 2px solid #000000;
+  padding : 4px;
+  margin-bottom : 6px;
+}
+
+#sendMessage {
+  height : 16px;
+  margin-left : 4px;
+  padding-left : 18px;
+  background-repeat: no-repeat;
+  background-position: center left;
+  background-image: url('talktome.gif');
+  cursor : pointer;
+}
+
+/* videos */
+#videos {
+  border : 2px solid #000000;
+  padding : 4px;
+  margin-bottom : 6px;
+}
+
+#videos .footer {
+  text-align : right;
+  margin-bottom : 0px;
+}
+
+#videos .footer a {
+  color : #676767;
+  font-size : 11px;
+  cursor : pointer;
+  text-decoration : none;
+}
+
+#videos .footer a:hover {
+  text-decoration : underline;
+  color : rgb(204, 0 ,0);
+}
+
+#somethingElse {
+  display : inline;
+  font-size : 11px;
+  cursor : pointer;
+  color : #676767;
+}
+
+#somethingElse:hover {
+  text-decoration : underline;
+  color : rgb(204, 0 ,0);
+}
+
+#videoSearchControl .gsc-search-box,
+#videoSearchControl .gsc-resultsHeader {
+  display : none;
+}
+
+#videos .gsc-trailing-more-results {
+  color : rgb(204, 0 ,0);
+}
+
+#videos .gs-videoResult .gs-title {
+  color : rgb(204, 0 ,0);
+}
+
+#videos .gs-videoResult .gs-publishedDate,
+#videos .gs-videoResult .gs-snippet {
+  color : #676767;
+}
+
+#videoSearchControl .gsc-keeper {
+  background-image: url('http://www.google.com/uds/css/darkgrey_check.gif');
+}
+
+#mySample.reading #videoSearchControl .gsc-keeper {
+  display : none;
+}
+
+#mySample.editing #videoSearchControl .gsc-keeper {
+  display : block;
+}
+
+
+#videoSearchExpressions.pre-canned #videoDynamic {
+  display : none;
+}
+
+#videoSearchExpressions.dynamic #videoDynamic {
+  display : block;
+}
+
+#videoSearchExpressions.pre-canned #videoPreCanned {
+  display : block;
+}
+
+#videoSearchExpressions.dynamic #videoPreCanned {
+  display : none;
+}
+
+
+#videoDynamic {
+  margin-bottom : 10px;
+}
+
+#videoDynamic .search-form {
+  color : #676767;
+  margin-bottom : 0px;
+}
+
+#videoDynamic .search-form input {
+  padding-left : 1px;
+  font-size : 11px;
+  color : #676767;
+  border : 1px solid #e0e0e0;
+  width : 200px;
+}
+
+#videoDynamic .search-button {
+  height : 16px;
+  display : inline;
+  margin-left : 4px;
+  padding-left : 29px;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url('http://www.google.com/uds/css/search.gif');
+  cursor : pointer;
+}
+
+#videoDynamic .save-query-button {
+  font-size : 11px;
+  display : inline;
+  margin-left : 10px;
+  cursor : pointer;
+  color : #676767;
+}
+
+#videoDynamic div.save-query-button:hover {
+  text-decoration : underline;
+  color : rgb(204, 0 ,0);
+}
+
+
+#videoPreCanned {
+  text-align : center;
+  padding-left : 10px;
+  padding-right : 10px;
+  margin-bottom : 10px;
+}
+
+#videoPreCanned .pre-canned {
+  display : inline;
+  margin-right : 6px;
+  cursor : pointer;
+}
+
+#videoPreCanned div.pre-canned:hover {
+  text-decoration : underline;
+}
+
+#videoPreCanned div.pre-canned-selected {
+  color : rgb(3, 51, 48);
+  background-color : #f0f0f0;
+}
+#videoPreCanned div.pre-canned-selected:hover {
+  text-decoration : none;
+}
+
+#videoPreCanned .pre-canned-0 {
+  font-size : 11px;
+}
+
+#videoPreCanned .pre-canned-1 {
+  font-size : 12px;
+}
+
+#videoPreCanned .pre-canned-2 {
+  font-size : 14px;
+}
+
+#videoPreCanned .pre-canned-3 {
+  font-weight : bold;
+  font-size : 16px;
+}
+
+#videoPreCanned .pre-canned-4 {
+  font-weight : bold;
+  font-size : 18px;
+}
+
+#videoPreCanned .pre-canned-5 {
+  font-weight : bold;
+  font-size : 20px;
+}
+
+/* messages */
+
+.message-form textarea {
+  padding : 2px;
+  margin-bottom : 4px;
+  border : 1px solid #f9f9f9;
+  color : #676767;
+  padding : 2px;
+  height : 10em;
+  width : 25em;
+}
+
+.message-form .button {
+  padding-left : 2px;
+  padding-right : 2px;
+  margin-right : 4px;
+  font-size : 11px;
+  color : #676767;
+}
+
+.message-buttons {
+}
+
+#notes .gs-videoResult div.gs-image-box {
+  width : 62px;
+  height : 47px;
+}
+
+#notes .gs-videoResult div.gs-text-box {
+  width : 0px;
+  display : none;
+}
+
+#notes .gs-videoResult div.gs-watermark {
+  display : none;
+}
+
+#notes td.message-text {
+  width : 25em;
+}
+
+#notes .gs-videoResult {
+  margin-bottom : 4px;
+}
+
+#savedMessages {
+  margin-top : 10px;
+}
+
+#savedMessages table.message-table {
+  margin-bottom : 10px;
+  padding-top : 4px;
+  padding-right : 4px;
+  padding-left : 4px;
+  border : 1px solid #e1e1e1;
+}
+
+#savedMessages table.message-table .footer {
+  text-align : center;
+  margin-bottom : 0px;
+}
+
+#savedMessages table.message-table .footer a {
+  color : #676767;
+  font-size : 11px;
+  cursor : pointer;
+  text-decoration : none;
+}
+
+#savedMessages table.message-table .footer a:hover {
+  text-decoration : underline;
+  color : rgb(204, 0 ,0);
+}
+
+#savedMessages .message-header {
+  color : rgb(204,0,0);
+  font-size : 16px;
+  font-weight : bold;
+}
+
+#mySample.reading #savedMessages {
+  display : block;
+}
+
+#mySample.editing #savedMessages {
+  margin-top : 20px;
+}
+
+#mySample.reading #newMessageArea {
+  display : none;
+}
+
+#mySample.editing #newMessageArea {
+  display : block;
+  border-bottom : 2px solid rgb(204,0,0);
+  padding-bottom : 8px;
+}
+
+
+

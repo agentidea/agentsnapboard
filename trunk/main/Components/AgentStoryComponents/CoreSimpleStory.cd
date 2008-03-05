@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="10" />
+  <Class Name="AgentStoryComponents.Story" Collapsed="true">
+    <Position X="1.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Story.cs</FileName>
+      <HashCode>wCglQMIRQIAwxcVkQDGQCkrAAAHQ4AkNAbKIDVAEIIA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.Page" Collapsed="true">
+    <Position X="3" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>Page.cs</FileName>
+      <HashCode>AADAIIAAAAKAhAQAAKBgIAQAAgEQEAAIBYQQBAAhAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.PageElementMap" Collapsed="true">
+    <Position X="2.75" Y="2" Width="2.75" />
+    <TypeIdentifier>
+      <FileName>PageElementMap.cs</FileName>
+      <HashCode>AABAAIABEAIAgAQAAIBgAAAAggEAABAIAQAQAAAgAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.PageElement" Collapsed="true">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>PageElement.cs</FileName>
+      <HashCode>ABBAAMAAAAAAgAQAAKBgIAAAAAGAAFAoAUAgAABgAAA=</HashCode>
+    </TypeIdentifier>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+  </Class>
+</ClassDiagram>

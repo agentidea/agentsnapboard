@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Font Name="Tahoma" Size="10" />
+  <Class Name="AgentStoryComponents.core.MacroUtils">
+    <Position X="9" Y="0.5" Width="3" />
+    <TypeIdentifier>
+      <FileName>core\macro.cs</FileName>
+      <HashCode>AEAAAAAAgAAAEAAAAAAAAAAAiAAAAAAAEBAAAACAABA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.core.MacroEnvelope">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>core\macro.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAACAgBAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.core.Macro">
+    <Position X="6" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>core\macro.cs</FileName>
+      <HashCode>AAAAIAQAAAAAAQAAAAIAAAwAAAAAAAAIAYAAAAAAIAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="AgentStoryComponents.core.Parameter">
+    <Position X="7.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <FileName>core\macro.cs</FileName>
+      <HashCode>AAAAIAAAAACAAAAAAAgAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+</ClassDiagram>
