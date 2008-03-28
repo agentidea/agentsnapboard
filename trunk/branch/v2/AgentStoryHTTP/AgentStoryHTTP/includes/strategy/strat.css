@@ -1,0 +1,373 @@
+﻿body 
+{
+	background-color:#999999;
+	font-family:Verdana;	
+}
+
+.clsBody
+{
+		background-color:#999999;
+	font-family:Verdana;	
+	
+}
+
+.DecisionAreaHeader
+{
+	width:20px;
+	height:31px;
+	background-color:#888888;
+	font-family:Verdana;
+}
+
+.stratList
+{
+	background-color:#e0e0e0;
+	font-family:Verdana;
+}
+
+.clsStrategyHeader
+{
+	background-color:#6699cc;
+	color:#01349A;
+	font-family:Arial;
+	font-size:10pt;
+	font-weight:bold;
+	
+	padding: 10 5 10 5;
+}
+
+.clsStratTitle
+{
+	background-color:#000000;
+	color:#e0e0e0;
+	font-family:Arial;
+	font-size:10pt;
+	font-weight:bold;
+	
+	padding: 10 5 10 5;
+}
+
+.clsCommentArea
+{
+	font-family:Verdana;
+	color:Black;
+	background-color:white;	
+	width:500px;
+}
+
+.clsGridCell
+{
+	font-size:xx-small;
+	font-family:Arial;
+}
+
+.stratListHead
+{
+	background-color:#888888;
+	font-family:Verdana;
+}
+
+.cls_dahHeader
+{
+	font-size:8pt;
+	text-align:center;
+	background-color:#555555; color:#ffffff; font-style:normal; font-weight: bolder;width:160px;height:23px;
+	padding-top:5px;
+	overflow:auto;
+	font-family:Verdana;
+}
+.clsControlWidgets
+{
+	background-color:#e0e0e0;
+	color:White;
+	
+}
+.cls_cmdResize
+{
+	width:15px;height:25px;
+	
+}
+.clsBottomResizer
+{
+	background-color:Lime;
+	height:15px;
+}
+
+
+.clsUrl
+{
+	cursor:hand;
+	color:Blue;
+	font-family:Verdana;
+	font-size:10pt;
+}
+
+.clsFauxButton
+{
+	cursor:default;
+	font-size:8pt;
+	border-style: outset;
+    border-color: #e0e0e0;
+    background-color: #999999;
+    color:White;
+    width: 140px;
+    text-align: center;
+    padding: 0 0 2 0;
+        
+}
+
+
+.clsStageUpper
+{
+	
+	background-color:#ff0000;
+	top:0px;
+	left:0px;
+	width:300;
+	height:100;
+	background-color:white;
+	border:solid 1px black;
+	z-index:200;
+	display:none;
+}
+
+.clsPaletteBackground
+{
+	background-color:#ffffff;
+	font-family:Verdana;
+	font-size:9pt;
+}
+
+.clsChk
+{
+	font-size:8pt;
+	font-family:Verdana;
+}
+
+.clsDecisionAreaScrollingDiv
+{
+	
+	overflow:auto;
+	height:333;
+	
+}
+
+
+
+
+
+.clsMsgArea
+{
+	width:800px;
+	background-color:Yellow;
+	color:Black;
+}
+
+.cls_FE9ACE
+{
+	background-color:#FE9ACE;
+	font-style:normal;
+	font-family:Verdana;
+}
+.cls_FECF9C
+{
+	background-color:#FECF9C;
+	font-style:normal;
+	font-family:Verdana;
+}
+.cls_FEFE9C
+{
+	background-color:#FEFE9C;
+	font-style:normal;
+	font-family:Verdana;
+}
+.cls_CC99FE
+{
+	background-color:#CC99FE;
+	font-style:normal;
+	font-family:Verdana;
+}
+.cls_99CCFE
+{
+	background-color:#99CCFE;
+	font-style:normal;
+	font-family:Verdana;
+}
+.cls_CCFECC
+{
+	background-color:#CCFECC;
+	font-style:normal;
+	font-family:Verdana;
+}
+
+.cls_000000
+{
+	background-color:#70FDA8;
+	color:#000000;
+	font-style:normal;
+	font-family:Verdana;
+}
+.cls_FFFFFF
+{
+	background-color:#FF0000;
+	color:teal;
+	font-style:normal;
+	font-family:Verdana;
+}
+
+
+.cls_A5CBFE
+{
+	background-color:#A5CBFE;
+	font-style:normal;
+	font-family:Verdana;
+}
+
+
+
+/**/
+
+
+.pushedIn  
+{
+	background-color:#000000; color: #ffffff; font-style:normal;width:150px;
+}
+
+.poppedOut 
+{
+	background-color:white; color: black; font-style: normal;width:150px;
+}
+
+.decisionChoicePoppedOut
+{
+	background-color:#e0e0e0; color: black; font-style: normal;width:150px;height:100px;
+	font-family:Verdana;
+}
+.decisionChoicePushedIn
+{
+	background-color:#000000; color: white;width:150px;height:100px;
+	font-style:normal;
+	font-weight:normal;
+	font-family:Verdana;
+}
+
+.buttonSmall
+{
+	background-color:#e0e0e0; color: black; font-style: normal; height:12px;width:12px;
+}
+.buttonSmallWhite
+{
+	background-color:#ff0000; color: black; font-style: normal; height:12px;width:12px;
+}
+
+.clsButtonRegular
+{
+	background-color:#999999; color: white; font-style: normal;
+}
+
+.decisionAreaHeaderPoppedOut
+{
+	background-color:Silver; color:Black; font-style:normal; font-weight: bolder;width:150px;height:57px;
+	font-family:Verdana;
+}
+.decisionAreaHeaderPushedIn
+{
+	font-family:Verdana;
+	background-color:#000000; color:#ffffff;
+	 font-style:normal;
+	 font-weight:bolder;
+	 width:150px;height:57px;
+}
+
+.StratLabel
+{
+	width:20px;
+	font-family:Verdana;
+	font-size:12pt;
+	padding-top:23px;
+	background-color:transparent;
+	color:#ffffff;
+
+}
+
+
+.clsDcMatrix
+{
+	background-color:#e0e0e0; color: black; font-style: normal;width:150px;height:100px; overflow:auto;
+	font-size:10pt;
+}
+
+.clsGridHead
+{
+	background-color:#999999;
+	color:Black;	
+	font-weight:bold;
+	
+}
+
+.cls_dcStratDIV
+{
+	width:15px;
+	height:15px;
+	font-size:1pt;
+	border-style:solid;
+	border-width:1pt;
+	border-color:Black;
+	background-color:#e0e0e0;
+	
+}
+
+.clsSpacer
+{
+	width:25px;
+}
+
+.clsDC_cell
+{
+	background-color:#CCCCCC;
+}
+
+
+
+
+
+.clsStage
+{
+	
+	background-color:#e0e0e0;
+	top:0px;
+	left:0px;
+}
+
+
+
+
+
+.debugLog
+{
+	width:800px;
+	background-color:Black;
+	color:Yellow;	
+	font-family:Verdana;
+}
+
+.clsAuditRegularLine
+{
+	font-family:Verdana;
+	font-size:8pt;
+}
+.clsAuditCommentLine
+{
+	font-family:Verdana;
+	font-size:10pt;
+	background-color:Yellow;
+	color:Black;
+}
+.clsAuditSavePointLine
+{
+	font-family:Verdana;
+	font-size:10pt;
+	background-color:red;
+	color:white;
+}
+
