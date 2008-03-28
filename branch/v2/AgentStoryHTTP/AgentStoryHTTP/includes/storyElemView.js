@@ -1,51 +1,6 @@
 ﻿/*
 
     AgentIdea - Story Story Element Viewer
-    Copyright AgentIdea 2007
-    
-    please note this is private and a copyrighted original work by Grant Steinfeld.
-    
-    
-    
-1. Registration Number:    TXu-959-906  
-Title:    AgentIdea application studio for IE : version 1.0. 
-Description:    Computer program. 
-Note:    Printout only deposited. 
-Claimant:    AgentIdea, LLC 
-Created:    2000 
-
-Registered:    10Jul00
-
-Author on © Application:    text of computer program: Grant Steinfeld , 1967- & Oren Kredo , 1966-. 
-Special Codes:   1/C 
-
---------------------------------------------------------------------------------
-2. Registration Number:    TXu-960-165  
-Title:    AgentIdea application studio for Java : version 1.0. 
-Description:    Computer program. 
-Note:    Printout only deposited. 
-Claimant:    AgentIdea, LLC 
-Created:    2000 
-
-Registered:    10Jul00
-
-Author on © Application:    program text: Grant Steinfeld , 1967-, & Oren Kredo , 1966-. 
-Special Codes:   1/C 
-
---------------------------------------------------------------------------------
-3. Registration Number:    TXu-961-904  
-Title:    AgentIdea application studio for IIS : version 1.0 / authors, Grant Steinfeld, Oren Kredo. 
-Description:    Computer program. 
-Note:    Printout only deposited. 
-Claimant:    cAgentIdea, LLC 
-Created:    2000 
-
-Registered:    10Jul00
-
-Special Codes:   1/C 
-
-to verify search for Grant Steinfeld or Oren Kredo
-http://www.copyright.gov/records/cohm.html
 
 */
     
@@ -1008,31 +963,10 @@ function getPropertiesPanel(id)
 
 function HandleDoubleClick(ev)
 {
+
+
 //not used as handle double click seemed unintuitive
-   ev = ev || window.event;
-   
-   var idBits = this.id.split('_');
-   var indexNumber = idBits[1];
-   
-   var key = "widgetProperties_" + indexNumber;
-   var propPage = document.getElementById(key);
-   
-    if( propPage.style.display == "none")
-    {
-        propPage.style.display = "inline";
-       
-    }
-    else
-    {
-        propPage.style.display = "none";
-     
-    }
-    
-
-    ev.cancelBubble = true;  //mozilla
-
-        
-     
+   alert("deprecated method:: HandleDoubleClick() ");
 
 }
 
