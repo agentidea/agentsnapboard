@@ -1,6 +1,6 @@
-﻿/*
-    AgentIdea - Story viewer/editor
-*/
+﻿
+//    AgentIdea - Story viewer and editor ( cartesian matrix )
+
 
 function OffsetCoord(aX,aY)
 {
@@ -362,9 +362,7 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     this.storyViewDoublClick = function ()
     {
     
-        alert("double clicking");
-        
-        if( storyView.StoryController.CurrentStory.CanEdit == 0)
+       if( storyView.StoryController.CurrentStory.CanEdit == 0)
             return;
     
     

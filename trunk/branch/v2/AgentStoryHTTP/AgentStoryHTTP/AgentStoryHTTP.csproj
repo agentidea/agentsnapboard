@@ -106,8 +106,11 @@
     <Content Include="screens\basicFooter.ascx" />
     <Content Include="screens\basicHozToolbar.ascx" />
     <Content Include="screens\login.aspx" />
+    <Content Include="screens\logout.aspx" />
     <Content Include="screens\platform2.aspx" />
     <Content Include="screens\StoryEditor4.aspx" />
+    <Content Include="screens\StoryPageView2.aspx" />
+    <Content Include="style\list.css" />
     <Content Include="style\main.css" />
     <Content Include="Web.config" />
     <Content Include="webservices\daemon.asmx" />
@@ -151,6 +154,13 @@
     <Compile Include="screens\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="screens\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\platform2.aspx.cs">
       <DependentUpon>platform2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -164,6 +174,13 @@
     </Compile>
     <Compile Include="screens\StoryEditor4.aspx.designer.cs">
       <DependentUpon>StoryEditor4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StoryPageView2.aspx.cs">
+      <DependentUpon>StoryPageView2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryPageView2.aspx.designer.cs">
+      <DependentUpon>StoryPageView2.aspx</DependentUpon>
     </Compile>
     <Compile Include="webservices\daemon.asmx.cs">
       <DependentUpon>daemon.asmx</DependentUpon>
