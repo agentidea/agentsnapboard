@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentStoryHTTP", "AgentStoryHTTP\AgentStoryHTTP\AgentStoryHTTP.csproj", "{77BEC621-7A5C-4D17-9B25-AA53DECF4A87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentStoryComponents", "AgentStoryComponents\AgentStoryComponents\AgentStoryComponents.csproj", "{41C94A56-3294-4CA2-831D-5E5B30CAA112}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentStoryConfig", "AgentStoryConfig\AgentStoryConfig\AgentStoryConfig.csproj", "{6413A0F2-A5E2-445C-8A15-FAE159F95CDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentStoryTests", "AgentStoryTests\AgentStoryTests\AgentStoryTests.csproj", "{4CF27EAC-E7FE-4FF1-ABCC-F43E96F1DFC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B6F727B9-8BE6-4D53-A67F-898F7EF828E5}"
+	ProjectSection(SolutionItems) = preProject
+		AgentStoryHTTP\AgentStory.vsmdi = AgentStoryHTTP\AgentStory.vsmdi
+		AgentStoryHTTP\LocalTestRun.testrunconfig = AgentStoryHTTP\LocalTestRun.testrunconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlickrNet", "FlickrNet\FlickrNet\FlickrNet.csproj", "{0A8FAFD3-83BE-4EE4-8C13-74D8317A48B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgentStoryData", "AgentStoryData\AgentStoryData.csproj", "{521DAE1F-3E1E-4FC7-B3B2-BBDFE394295A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77BEC621-7A5C-4D17-9B25-AA53DECF4A87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77BEC621-7A5C-4D17-9B25-AA53DECF4A87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77BEC621-7A5C-4D17-9B25-AA53DECF4A87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77BEC621-7A5C-4D17-9B25-AA53DECF4A87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41C94A56-3294-4CA2-831D-5E5B30CAA112}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41C94A56-3294-4CA2-831D-5E5B30CAA112}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41C94A56-3294-4CA2-831D-5E5B30CAA112}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41C94A56-3294-4CA2-831D-5E5B30CAA112}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6413A0F2-A5E2-445C-8A15-FAE159F95CDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6413A0F2-A5E2-445C-8A15-FAE159F95CDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6413A0F2-A5E2-445C-8A15-FAE159F95CDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6413A0F2-A5E2-445C-8A15-FAE159F95CDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CF27EAC-E7FE-4FF1-ABCC-F43E96F1DFC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CF27EAC-E7FE-4FF1-ABCC-F43E96F1DFC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CF27EAC-E7FE-4FF1-ABCC-F43E96F1DFC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CF27EAC-E7FE-4FF1-ABCC-F43E96F1DFC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A8FAFD3-83BE-4EE4-8C13-74D8317A48B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A8FAFD3-83BE-4EE4-8C13-74D8317A48B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A8FAFD3-83BE-4EE4-8C13-74D8317A48B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A8FAFD3-83BE-4EE4-8C13-74D8317A48B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{521DAE1F-3E1E-4FC7-B3B2-BBDFE394295A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{521DAE1F-3E1E-4FC7-B3B2-BBDFE394295A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{521DAE1F-3E1E-4FC7-B3B2-BBDFE394295A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{521DAE1F-3E1E-4FC7-B3B2-BBDFE394295A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{521DAE1F-3E1E-4FC7-B3B2-BBDFE394295A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{521DAE1F-3E1E-4FC7-B3B2-BBDFE394295A}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
