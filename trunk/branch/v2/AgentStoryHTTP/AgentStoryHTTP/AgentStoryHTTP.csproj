@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Core">
@@ -105,11 +106,13 @@
     <Content Include="includes\timer.js" />
     <Content Include="screens\basicFooter.ascx" />
     <Content Include="screens\basicHozToolbar.ascx" />
+    <Content Include="screens\CreateNewStory.aspx" />
     <Content Include="screens\login.aspx" />
     <Content Include="screens\logout.aspx" />
     <Content Include="screens\platform2.aspx" />
     <Content Include="screens\StoryEditor4.aspx" />
     <Content Include="screens\StoryPageView2.aspx" />
+    <Content Include="screens\StrategyPortal.aspx" />
     <Content Include="style\list.css" />
     <Content Include="style\main.css" />
     <Content Include="Web.config" />
@@ -147,6 +150,13 @@
     <Compile Include="screens\basicHozToolbar.ascx.designer.cs">
       <DependentUpon>basicHozToolbar.ascx</DependentUpon>
     </Compile>
+    <Compile Include="screens\CreateNewStory.aspx.cs">
+      <DependentUpon>CreateNewStory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\CreateNewStory.aspx.designer.cs">
+      <DependentUpon>CreateNewStory.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -181,6 +191,13 @@
     </Compile>
     <Compile Include="screens\StoryPageView2.aspx.designer.cs">
       <DependentUpon>StoryPageView2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StrategyPortal.aspx.cs">
+      <DependentUpon>StrategyPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StrategyPortal.aspx.designer.cs">
+      <DependentUpon>StrategyPortal.aspx</DependentUpon>
     </Compile>
     <Compile Include="webservices\daemon.asmx.cs">
       <DependentUpon>daemon.asmx</DependentUpon>

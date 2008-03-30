@@ -21,6 +21,9 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     this.LEFT_ADJUST_PANEL_OPEN = 385;
     this.LEFT_ADJUST_PANEL_CLOSED = 5;
     
+    this.TOP_ADJUST_PANEL_OPEN = 10;
+    this.TOP_ADJUST_PANEL_CLOSED = 200;
+    
     var _offsetX = 5;
     var _offsetY = 0;
     this.getOffSetX = function() { return _offsetX; }
@@ -112,6 +115,18 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     
     var _container = null;
     this.container = _container;
+    
+    
+   this.binderOpen = function()
+   {
+            storyView.adjustHook(0,storyView.TOP_ADJUST_PANEL_OPEN);
+            storyView.setOffSetY(storyView.TOP_ADJUST_PANEL_OPEN);
+   }
+   this.binderClose = function()
+   {
+            storyView.adjustHook(0,storyView.TOP_ADJUST_PANEL_CLOSED);
+            storyView.setOffSetY(storyView.TOP_ADJUST_PANEL_CLOSED);
+   }
     
     //
     // library panel
@@ -947,6 +962,9 @@ function PageNavigatorPanel( aoStoryController )
            storyView.setOffSetX(storyView.LEFT_ADJUST_PANEL_CLOSED);
         }
    }
+   
+   
+
 
     this.init = function ( oPage, bReadOnly )
     {
@@ -1230,6 +1248,8 @@ function panel( aInputArea,aOutputArea )
             _collapseExpandBar.style.display="block";
             _collapseExpandBody.style.display="block";
             _toggleDiv.title = "click here to hide binder";
+          
+            storyView.binderClose();
 
         }
         else
@@ -1237,6 +1257,8 @@ function panel( aInputArea,aOutputArea )
             _collapseExpandBar.style.display="none";
             _collapseExpandBody.style.display="none";
             _toggleDiv.title = "click here to show binder";
+          
+            storyView.binderOpen();
             
         }
     }

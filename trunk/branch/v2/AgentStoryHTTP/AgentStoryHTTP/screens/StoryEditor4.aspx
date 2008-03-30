@@ -99,6 +99,7 @@
     <div id ="TheHook" style="left:5;top:0;position:absolute;background-color:Green;width:0px;height:0px;display:block;"></div>
     <div id="MainContent"></div>
     <div id ="TheTempHook" style="left:1px;top:1px;position:absolute;background-color:Transparent;width:10px;height:10px;"></div>
+    <div id ="FrontHook" style="left:1;top:1;position:absolute;background-color:Orange;width:1px;height:1px;"></div>
  
     <div id="LogDiv" style="left:1000px;position:absolute;" ></div>
     <div id="divLog" style="left:1000px;position:absolute;" ></div>
