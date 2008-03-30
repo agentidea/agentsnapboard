@@ -12,7 +12,7 @@ using System.Xml.Linq;
 using AgentStoryComponents;
 using AgentStoryComponents.core;
 
-namespace AgentStoryHTTP.basewebforms
+namespace AgentStoryHTTP.screens
 {
     public class SessionAwareWebForm : System.Web.UI.Page
     {
