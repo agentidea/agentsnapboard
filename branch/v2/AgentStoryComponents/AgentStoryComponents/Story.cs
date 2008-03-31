@@ -804,6 +804,11 @@ namespace AgentStoryComponents
             return this.GetStoryJSON(this);
         }
 
+        public string GetStoryJSON2()
+        {
+            return this.GetStoryJSON2(this);
+        }
+
         public string GetStoryJSON(Story st)
         {
             //gets the story JSON representation.
@@ -1099,6 +1104,78 @@ namespace AgentStoryComponents
             sbJSON.Append("'PageCount':");
             sbJSON.Append(pageIndex);
 
+            sbJSON.Append("}");
+
+            return sbJSON.ToString();
+        }
+
+        public string GetStoryJSON2(Story st)
+        {
+            //gets the story JSON representation.
+            System.Text.StringBuilder sbJSON = new StringBuilder();
+
+            sbJSON.Append("{");
+            sbJSON.Append("'ID':");
+            sbJSON.Append(st.ID);
+            sbJSON.Append(",");
+            sbJSON.Append("'Title':");
+            sbJSON.Append("'");
+            sbJSON.Append(st.Title);
+            sbJSON.Append("'");
+            sbJSON.Append(",");
+            sbJSON.Append("'Description':");
+            sbJSON.Append("'");
+            sbJSON.Append(st.Description);
+            sbJSON.Append("'");
+            sbJSON.Append(",");
+
+            sbJSON.Append("'PageElements':[");
+              int pageElementIndex = 0;
+            if (st.PageElements != null)
+            {
+                foreach (PageElement pe in st.PageElements)
+                {
+                    pageElementIndex++;
+
+                    sbJSON.Append("{");
+                    sbJSON.Append("'ID':");
+                    sbJSON.Append(pe.ID);
+                    sbJSON.Append(",");
+
+                    sbJSON.Append("'Value':");
+                    sbJSON.Append("'");
+                    sbJSON.Append(pe.Value);
+                    sbJSON.Append("'");
+                    sbJSON.Append(",");
+
+                    sbJSON.Append("'DateAdded':");
+                    sbJSON.Append("'");
+                    sbJSON.Append(Convert.ToString(pe.DateAdded));
+                    sbJSON.Append("'");
+                    sbJSON.Append(",");
+
+                  
+                    sbJSON.Append("'GUID':");
+                    sbJSON.Append("'");
+                    sbJSON.Append(pe.GUID);
+                    sbJSON.Append("'");
+
+                    sbJSON.Append(",");
+                    sbJSON.Append("'BY':");
+                    sbJSON.Append("'");
+                    sbJSON.Append(pe.by.UserName);
+                    sbJSON.Append("'");
+                    sbJSON.Append("}");
+                    sbJSON.Append(",");
+
+                }
+                
+                sbJSON.Remove(sbJSON.Length - 1, 1);
+                
+            }
+
+            sbJSON.Append("]");
+   
             sbJSON.Append("}");
 
             return sbJSON.ToString();

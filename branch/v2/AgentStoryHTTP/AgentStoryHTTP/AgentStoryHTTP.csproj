@@ -112,6 +112,7 @@
     <Content Include="screens\platform2.aspx" />
     <Content Include="screens\StoryEditor4.aspx" />
     <Content Include="screens\StoryPageView2.aspx" />
+    <Content Include="screens\StoryReplay.aspx" />
     <Content Include="screens\StrategyPortal.aspx" />
     <Content Include="style\list.css" />
     <Content Include="style\main.css" />
@@ -191,6 +192,13 @@
     </Compile>
     <Compile Include="screens\StoryPageView2.aspx.designer.cs">
       <DependentUpon>StoryPageView2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StoryReplay.aspx.cs">
+      <DependentUpon>StoryReplay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryReplay.aspx.designer.cs">
+      <DependentUpon>StoryReplay.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\StrategyPortal.aspx.cs">
       <DependentUpon>StrategyPortal.aspx</DependentUpon>
