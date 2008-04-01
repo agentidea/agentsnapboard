@@ -14,7 +14,14 @@ function StoryToc(aStories,aAttachPoint,aKlubName,loginCallBack)
 
     this.init = function ()
     {
-    
+        if(! _stories.count)
+        {
+                alert("no stories yet for this user");
+                return;
+        }
+        
+      
+            
         var outerGridValues = new Array();
     
         //hoz toolbar

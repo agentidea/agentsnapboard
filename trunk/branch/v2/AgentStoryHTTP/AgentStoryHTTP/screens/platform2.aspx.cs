@@ -79,7 +79,7 @@ namespace AgentStoryHTTP.screens
             if (ms.Stories == null)
             {
                 Response.Write("no stories for this user yet.");
-                Response.End();
+                _storiesJSON = "{}";
                 return;
 
             }
