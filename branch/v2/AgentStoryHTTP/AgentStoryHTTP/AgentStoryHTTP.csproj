@@ -110,6 +110,7 @@
     <Content Include="screens\login.aspx" />
     <Content Include="screens\logout.aspx" />
     <Content Include="screens\platform2.aspx" />
+    <Content Include="screens\ShareStory.aspx" />
     <Content Include="screens\StoryEditor4.aspx" />
     <Content Include="screens\StoryPageView2.aspx" />
     <Content Include="screens\StoryReplay.aspx" />
@@ -178,6 +179,13 @@
     </Compile>
     <Compile Include="screens\platform2.aspx.designer.cs">
       <DependentUpon>platform2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\ShareStory.aspx.cs">
+      <DependentUpon>ShareStory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\ShareStory.aspx.designer.cs">
+      <DependentUpon>ShareStory.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\StoryEditor4.aspx.cs">
       <DependentUpon>StoryEditor4.aspx</DependentUpon>
