@@ -1,8 +1,4 @@
-//
-// web service endpoint
-//
-
-
+// web service URL endpoint
 var url = "http://localhost:1585/webservices/daemon.asmx/ProcessMacro";
 //var url = "http://www.agentidea.com/daemon.asmx/ProcessMacro";
 
@@ -11,13 +7,6 @@ var gBufferDisplay = 24;
 var gRefreshRate = 1000;
 var gDelay = 5;
 
-
-// so for every three seconds
-// 20 in a minute
-// 400 in twenty minutes
-// 800 in forty
-// 1200 in hour
-// 2400 in 2 hours
 
 var maxHeartbeatsBeforeRefresh = 2400;  //to prevent browser leaks ( possible )
 

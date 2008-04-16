@@ -25,6 +25,15 @@ a
 	
 }
 
+.clsHaze
+{
+	width:100%;
+	height:100%;
+	background-image: http://www.agentidea.com/images/haze.png;
+	background-repeat:repeat;
+		
+}
+
 .clsBodyStoryEditor
 {
 	background-color:#ffffff;
