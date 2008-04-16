@@ -3,16 +3,6 @@
     AgentIdea - Story Story Element Viewer
 
 */
-    
-    
-    
-    
-    
-    
-    
-    
-
-
 function storyElemView(aID,aCount,aX,aY,aZ,aGUID,aBY,abShowEditor,aDateAdded, abCanEdit)
 {
 
@@ -56,6 +46,10 @@ function storyElemView(aID,aCount,aX,aY,aZ,aGUID,aBY,abShowEditor,aDateAdded, ab
     var _srcText = TheUte().getTextArea("" ,"txtSource_" + aID,null,null,"clsSrcCode");
     this.srcText = _srcText;
     
+    this.NewEdit_click = function()
+    {
+            storyView.hazeScreen(_GUID,_srcText);
+     }
     
     this.showProps = function()
     {
@@ -642,6 +636,7 @@ function storyElemViewInit()
     var _dvMidPane = null;
     var _dvPropertiesContextButtons = null;
     var _cmdToggleSrc = null;
+    var _NewEditor = null;
     
     var bShowEditStuff = false;
     
@@ -699,12 +694,19 @@ function storyElemViewInit()
         _cmdToggleSrc = TheUte().getButton("cmdToggleSrc_" + this.count,"edit","edit source HTML",null,"clsButtonSEV")
         _dvToggleSrc.appendChild( _cmdToggleSrc );
         
+        var _NewEditor = TheUte().getButton("cmdToggleSrc2_" + this.count,"ne","edit via rich text box",null,"clsButtonSEV")
+        _dvToggleSrc.appendChild( _NewEditor );
+        
         var _cmdMoveBack = TheUte().getButton("cmdMoveDown_" + this.count," Back","Send this Element to the Back",this.cmdMoveBack,"clsButtonSEV");
         var _cmdMoveFront = TheUte().getButton("cmdMoveUp_" + this.count,"bring to front","Bring this Element to the Front",this.cmdMoveFront,"clsButtonSEV");
         var _cmdDelete = TheUte().getButton("cmdDelete_" + this.count,"delete","Delete this element",this.cmdDeleteElement,"clsButtonSEV");
        
         //touchy buttons
         _cmdToggleSrc.ondblclick = function (ev) {
+            ev = ev || window.event;
+            ev.cancelBubble = true;  
+        }
+         _NewEditor.ondblclick = function (ev) {
             ev = ev || window.event;
             ev.cancelBubble = true;  
         }
@@ -786,7 +788,11 @@ function storyElemViewInit()
         
         var toggleCount = 0;
         var dvView = this.dvWidgetView;
+    
+        
 
+        _NewEditor.onclick = this.NewEdit_click;
+        
         _cmdToggleSrc.onclick = function ()
         {
 
@@ -924,8 +930,6 @@ function getHandleBar(count, title)
     {
         ev = ev || window.event;
         ev.cancelBubble = true;
-        
-    
     }
     
 

@@ -14,6 +14,31 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     var _StoryController = aoController;
     this.StoryController = _StoryController;
     
+    var _refFrontHook = null;
+    this.refFrontHookSet = function(rhs) { _refFrontHook = rhs; }
+    this.refFrontHookGet = function() { return _refFrontHook; }
+    
+    this.hazeScreen = function(guid,srcText)
+    {
+        _refFrontHook.style.width = "100%";
+        _refFrontHook.style.height = "100%";
+        _refFrontHook.style.textAlign = "center";
+        _refFrontHook.style.paddingTop = 88;
+        
+        var _StoryElementEditor = new StoryElementEditor(44,guid,srcText);
+        _StoryElementEditor.init( _refFrontHook );
+        _StoryElementEditor.focus();
+        
+    }
+    
+    this.unHaze = function()
+    {
+        TheUte().removeChildren( _refFrontHook );
+        _refFrontHook.style.width = "1";
+        _refFrontHook.style.height = "1";
+    }
+
+    
     var _Bod = aoBod;
     var _name = null;
     this.name = _name;
@@ -553,8 +578,17 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
 }
     
 
-function storyView2init(attachPoint)
+function storyView2init(attachPoint,aFrontHook)
 {
+
+    aFrontHook.ondblclick = function (ev)
+    {
+        ev = ev || window.event;
+        ev.cancelBubble = true;
+    }
+    
+    this.refFrontHookSet(aFrontHook);
+    
     if( this.StoryController.CurrentStory.TypeStory != 1 )
     {
         //alert("incorrect story type for this editor");

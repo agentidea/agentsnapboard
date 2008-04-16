@@ -6,6 +6,9 @@
         <title><%= PageTitle %> </title>
 
     <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    <link rel="stylesheet" type="text/css" href="../style/StoryElements.css" />
+      
+    
     
     <!--
 
@@ -44,7 +47,7 @@
 
         var storyController = newStoryController( story,currUser );
         storyView = new storyView2(storyController, document.getElementById("TheBod"),story.LastSeq,story.ID,gToolBarVisible );
-        storyView.init( document.getElementById("TheTempHook") );
+        storyView.init( document.getElementById("TheTempHook") , document.getElementById("FrontHook"));
         InitializeTimer(storyView.heartbeat,gDelay,true,gRefreshRate);
     }
     
@@ -89,6 +92,23 @@
 <script type="text/javascript" src="../includes/YUI/build/logger/logger-min.js"></script>
 <script type="text/javascript" src="../includes/YUI/build/dragdrop/dragdrop-debug.js" ></script>
 
+
+   <!-- YUI -->
+    <!-- Skin CSS file -->  
+    <!-- Utility Dependencies -->  
+    <script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/yahoo-dom-event/yahoo-dom-event.js"></script>    
+    <script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/element/element-beta-min.js"></script>    
+    <!-- Needed for Menus, Buttons and Overlays used in the Toolbar -->  
+    <script  type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/container/container_core-min.js"></script>  
+    <script  type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/menu/menu-min.js"></script>  
+    <script  type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/button/button-min.js"></script>  
+     <!-- Source file for Rich Text Editor-->  
+     <script  type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/editor/editor-beta-min.js"></script>  
+    <!-- YUI -->
+
+    <script  type="text/javascript" src="../includes/PageUtils.js"></script>
+    <script  type="text/javascript" src="../includes/StoryElementEditor.js"></script>
+
 <script  type="text/javascript" src="../includes/storyViewr2.js" ></script>
 <script src="../includes/storyElemView.js" type="text/javascript"></script>
 <script type="text/javascript" src="../includes/StoryElementDragOnTop.js" ></script>
@@ -99,7 +119,7 @@
     <div id ="TheHook" style="left:5;top:0;position:absolute;background-color:Green;width:0px;height:0px;display:block;"></div>
     <div id="MainContent"></div>
     <div id ="TheTempHook" style="left:1px;top:1px;position:absolute;background-color:Transparent;width:10px;height:10px;"></div>
-    <div id ="FrontHook" style="left:1;top:1;position:absolute;background-color:Orange;width:1px;height:1px;"></div>
+    <div id ="FrontHook" style="left:1;top:1;position:absolute; background-image: url(../images/haze.png) ; background-repeat:repeat; width:1px;height:1px;"></div>
  
     <div id="LogDiv" style="left:1000px;position:absolute;" ></div>
     <div id="divLog" style="left:1000px;position:absolute;" ></div>
