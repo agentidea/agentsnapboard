@@ -20,9 +20,9 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     
     this.hazeScreen = function(guid,srcText)
     {
-        _refFrontHook.style.width = "100%";
-        _refFrontHook.style.height = "100%";
-        _refFrontHook.style.textAlign = "center";
+        _refFrontHook.style.width = "1000%";
+        _refFrontHook.style.height = "1000%";
+        _refFrontHook.style.textAlign = "left";
         _refFrontHook.style.paddingTop = 88;
         
         var _StoryElementEditor = new StoryElementEditor(44,guid,srcText);

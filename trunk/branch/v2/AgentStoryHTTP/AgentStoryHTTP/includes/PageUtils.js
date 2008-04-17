@@ -516,6 +516,7 @@ function removeChildrenElements(parentElem)
 			textArea.value = val;
 			textArea.title = val;
 			textArea.id = id;
+			textArea.name = id;
 			
 			if(focusHandler != null)
 				textArea.onfocus = focusHandler;
