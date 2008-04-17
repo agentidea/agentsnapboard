@@ -92,23 +92,11 @@
 <script type="text/javascript" src="../includes/YUI/build/logger/logger-min.js"></script>
 <script type="text/javascript" src="../includes/YUI/build/dragdrop/dragdrop-debug.js" ></script>
 
+<script type="text/javascript" src="../includes/tiny_mce/tiny_mce.js" ></script>
 
-   <!-- YUI -->
-    <!-- Skin CSS file -->  
-    <!-- Utility Dependencies -->  
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/yahoo-dom-event/yahoo-dom-event.js"></script>    
-    <script type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/element/element-beta-min.js"></script>    
-    <!-- Needed for Menus, Buttons and Overlays used in the Toolbar -->  
-    <script  type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/container/container_core-min.js"></script>  
-    <script  type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/menu/menu-min.js"></script>  
-    <script  type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/button/button-min.js"></script>  
-     <!-- Source file for Rich Text Editor-->  
-     <script  type="text/javascript" src="http://yui.yahooapis.com/2.5.1/build/editor/editor-beta-min.js"></script>  
-    <!-- YUI -->
 
-    <script  type="text/javascript" src="../includes/PageUtils.js"></script>
-    <script  type="text/javascript" src="../includes/StoryElementEditor.js"></script>
-
+<script  type="text/javascript" src="../includes/PageUtils.js"></script>
+<script  type="text/javascript" src="../includes/StoryElementEditor.js"></script>
 <script  type="text/javascript" src="../includes/storyViewr2.js" ></script>
 <script src="../includes/storyElemView.js" type="text/javascript"></script>
 <script type="text/javascript" src="../includes/StoryElementDragOnTop.js" ></script>
