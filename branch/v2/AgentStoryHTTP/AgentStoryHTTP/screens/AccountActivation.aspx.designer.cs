@@ -11,60 +11,69 @@
 namespace AgentStoryHTTP.screens {
     
     
-    public partial class platform2 {
+    public partial class AccountActivation {
         
         /// <summary>
-        /// TheForm control.
+        /// Head1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm TheForm;
+        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// divToolBarAttachPoint control.
+        /// form1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divToolBarAttachPoint;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// divMsgAttachPoint control.
+        /// lblMsg control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divMsgAttachPoint;
+        protected global::System.Web.UI.WebControls.Label lblMsg;
         
         /// <summary>
-        /// divBodyAttachPoint control.
+        /// txtActivationCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divBodyAttachPoint;
+        protected global::System.Web.UI.WebControls.TextBox txtActivationCode;
         
         /// <summary>
-        /// divFooter control.
+        /// lblTOS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFooter;
+        protected global::System.Web.UI.WebControls.Label lblTOS;
         
         /// <summary>
-        /// divLog control.
+        /// chkAcceptTOS control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLog;
+        protected global::System.Web.UI.WebControls.CheckBox chkAcceptTOS;
+        
+        /// <summary>
+        /// cmdActivate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button cmdActivate;
     }
 }

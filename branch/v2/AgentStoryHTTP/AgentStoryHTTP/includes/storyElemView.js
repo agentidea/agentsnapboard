@@ -64,6 +64,17 @@ function storyElemView(aID,aCount,aX,aY,aZ,aGUID,aBY,abShowEditor,aDateAdded, ab
             
     }
     
+    this.hideProps = function()
+    {
+        var widgetProp =  document.getElementById("widgetProperties_" + _count);
+        if( widgetProp != null )
+            widgetProp.style.display = "none";
+        var widgetPropCB =  document.getElementById("widgetPropertiesContext_" + _count);
+        if( widgetPropCB != null )
+            widgetPropCB.style.display = "none";
+    
+    }
+    
     var _currMacro = null;
     
     //STACK FUNCTIONS
@@ -468,6 +479,72 @@ function storyElemView(aID,aCount,aX,aY,aZ,aGUID,aBY,abShowEditor,aDateAdded, ab
     }
 
 
+    this.save = function()
+    {
+    
+        var s = null;
+
+        if( _srcText != null)
+        {
+            s =  _srcText.value;
+        }
+        else
+        {
+            s = _origVal;
+        }
+
+        if(s.trim().length == 0) return;
+
+        s = applyHTMLai(s);
+        var sContentVal64 = TheUte().encode64( s );
+ 
+ 
+                if(_dbID == -1)
+                {
+                
+                //new
+                  var currPage = storyView.StoryController.GetPage(storyView.StoryController.getCurrentPageCursor());
+
+                   var macroCreateNewPageElementAndMap = newMacro("CreateNewPageElementAndMap");
+                   addParam( macroCreateNewPageElementAndMap,"currentPageCursor",storyView.StoryController.getCurrentPageCursor());
+                   addParam( macroCreateNewPageElementAndMap,"PageID",currPage.ID);
+                   addParam( macroCreateNewPageElementAndMap,"sevTmpGUID",_GUID);
+                   addParam( macroCreateNewPageElementAndMap,"GridX",_x);
+                   addParam( macroCreateNewPageElementAndMap,"GridY",_y);
+                   addParam( macroCreateNewPageElementAndMap,"GridZ",_count);
+                   addParam( macroCreateNewPageElementAndMap,"Value",sContentVal64);
+                   addParam( macroCreateNewPageElementAndMap,"tags","xyz");
+                   addParam( macroCreateNewPageElementAndMap,"TypeID",5 ); //storyView.ThePageElementEditor.TypeID  //"random"
+                   addParam( macroCreateNewPageElementAndMap,"StoryID",storyView.StoryController.CurrentStory.ID );
+                   addParam( macroCreateNewPageElementAndMap,"StoryOpenedBy", storyView.StoryController.CurrentStory.StoryOpenedBy);
+                  
+                   processRequest( macroCreateNewPageElementAndMap ); 
+                   
+                
+                }
+                else
+                {
+                    //
+                    //update
+                    //
+                    var macroUpdatePageElementAndMap = newMacro("UpdatePageElement");
+                    addParam( macroUpdatePageElementAndMap,"PageElementID",_dbID);
+                    addParam( macroUpdatePageElementAndMap,"PageElementMapGUID", _GUID);
+                    addParam( macroUpdatePageElementAndMap,"currentPageCursor",storyView.StoryController.getCurrentPageCursor() );
+                    addParam( macroUpdatePageElementAndMap,"GridX",_x);
+                    addParam( macroUpdatePageElementAndMap,"GridY",_y);
+                    addParam( macroUpdatePageElementAndMap,"GridZ",_count);
+                    addParam( macroUpdatePageElementAndMap,"StoryID",storyView.StoryController.CurrentStory.ID);
+                    addParam( macroUpdatePageElementAndMap,"Value",sContentVal64);
+                    addParam( macroUpdatePageElementAndMap,"tags","xyzR");
+                    addParam( macroUpdatePageElementAndMap,"TypeID",5);
+                    addParam( macroUpdatePageElementAndMap,"StoryOpenedBy", storyView.StoryController.CurrentStory.StoryOpenedBy);
+                    
+                    processRequest( macroUpdatePageElementAndMap );  
+                }
+        
+    }
+    
     this.updateViewHTML =  function (bSaveIfInDB)
     {
            
@@ -485,7 +562,7 @@ function storyElemView(aID,aCount,aX,aY,aZ,aGUID,aBY,abShowEditor,aDateAdded, ab
             
            
             var key = "txtSource_propPanel_" + indexNumber;
-            var s = null;//document.getElementById(key);
+            var s = null;
 
             if( _srcText != null)
             {
@@ -499,7 +576,7 @@ function storyElemView(aID,aCount,aX,aY,aZ,aGUID,aBY,abShowEditor,aDateAdded, ab
             if(s.trim().length == 0) return;
             
             s = applyHTMLai(s);
-            
+           
             var srcEventID = this.id;
             
             var srcEventBits = srcEventID.split("_");
@@ -696,6 +773,8 @@ function storyElemViewInit()
         
         var _NewEditor = TheUte().getButton("cmdToggleSrc2_" + this.count,"ne","edit via rich text box",null,"clsButtonSEV")
         _dvToggleSrc.appendChild( _NewEditor );
+        
+         storyView.setCurrElement( this );
         
         var _cmdMoveBack = TheUte().getButton("cmdMoveDown_" + this.count," Back","Send this Element to the Back",this.cmdMoveBack,"clsButtonSEV");
         var _cmdMoveFront = TheUte().getButton("cmdMoveUp_" + this.count,"bring to front","Bring this Element to the Front",this.cmdMoveFront,"clsButtonSEV");
