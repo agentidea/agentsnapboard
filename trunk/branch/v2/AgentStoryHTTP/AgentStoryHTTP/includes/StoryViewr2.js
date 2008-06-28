@@ -37,6 +37,28 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
         _refFrontHook.style.width = "1";
         _refFrontHook.style.height = "1";
     }
+    
+    this.saveCurrentElement = function()
+    {
+        
+       // alert("SAVING: " + storyView.getCurrElement().GUID );
+       
+       try
+       {
+        var currElem = storyView.getCurrElement();
+        if(currElem != null)
+        {
+            currElem.save();
+            currElem.updateViewHTML(currElem.id);
+            currElem.hideProps();
+        }
+       }
+       catch(Erro)
+       {
+        alert("Error saving current element " + Erro.description);
+       }
+        
+    }
 
     
     var _Bod = aoBod;
@@ -61,6 +83,10 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     var _busyWithEditor = 0;
     this.getBusy = function() { return _busyWithEditor; }
     this.setBusy = function(rhs) { _busyWithEditor = rhs; }
+    
+    var _currElement = null;
+    this.getCurrElement = function() { return _currElement;}
+    this.setCurrElement = function(rhs) { _currElement = rhs; }
     
     var _seq = 0;
     this.getSeq = function(){ return _seq; }
@@ -452,6 +478,7 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
             {
                 newWid.srcText.focus();
                 newWid.contextButtons.style.display = "block";
+               
             }
             catch(ex)
             {

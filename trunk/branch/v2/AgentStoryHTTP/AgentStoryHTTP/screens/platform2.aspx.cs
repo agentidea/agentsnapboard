@@ -57,10 +57,14 @@ namespace AgentStoryHTTP.screens
             string msg = Request["msg"];
             if (msg != null)
             {
-                this.divMsgAttachPoint.Visible = false; //$to do fix page level messaging!
+                this.divMsgAttachPoint.Visible = true; 
                 this.divMsgAttachPoint.InnerHtml = msg;
             }
-
+            else
+            {
+                this.divMsgAttachPoint.Visible = false;
+                this.divMsgAttachPoint.InnerHtml = "";
+            }
 
             if (base.currentUser.State == (int)UserStates.pending_email_confirm)
             {

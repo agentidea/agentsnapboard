@@ -1,4 +1,8 @@
 // web service URL endpoint
+
+//http://www.hornywolf.com/galleries/1373/12.jpg
+
+
 var url = "http://localhost:1585/webservices/daemon.asmx/ProcessMacro";
 //var url = "http://www.agentidea.com/daemon.asmx/ProcessMacro";
 

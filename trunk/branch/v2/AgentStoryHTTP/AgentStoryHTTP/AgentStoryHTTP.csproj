@@ -106,13 +106,21 @@
     <Content Include="includes\StoryViewer.js" />
     <Content Include="includes\StoryViewr2.js" />
     <Content Include="includes\timer.js" />
+    <Content Include="screens\AccountActivation.aspx" />
+    <Content Include="screens\AccountActivationPost.aspx" />
+    <Content Include="screens\addSingleUser.aspx" />
     <Content Include="screens\basicFooter.ascx" />
     <Content Include="screens\basicHozToolbar.ascx" />
     <Content Include="screens\CreateNewStory.aspx" />
+    <Content Include="screens\EditUserInfo.aspx" />
+    <Content Include="screens\ListMembers.aspx" />
     <Content Include="screens\login.aspx" />
     <Content Include="screens\logout.aspx" />
+    <Content Include="screens\ManageUsersGroups.aspx" />
+    <Content Include="screens\MessageManager.aspx" />
     <Content Include="screens\PageElementEditor.aspx" />
     <Content Include="screens\platform2.aspx" />
+    <Content Include="screens\SendNewEmail.aspx" />
     <Content Include="screens\ShareStory.aspx" />
     <Content Include="screens\StoryEditor4.aspx" />
     <Content Include="screens\StoryPageView2.aspx" />
@@ -123,6 +131,7 @@
     <Content Include="style\StoryElements.css" />
     <Content Include="Web.config" />
     <Content Include="webservices\daemon.asmx" />
+    <Content Include="webservices\StoryExtAPI.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="basewebforms\LoginBase.cs">
@@ -142,6 +151,27 @@
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="screens\AccountActivation.aspx.cs">
+      <DependentUpon>AccountActivation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\AccountActivation.aspx.designer.cs">
+      <DependentUpon>AccountActivation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\AccountActivationPost.aspx.cs">
+      <DependentUpon>AccountActivationPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\AccountActivationPost.aspx.designer.cs">
+      <DependentUpon>AccountActivationPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\addSingleUser.aspx.cs">
+      <DependentUpon>addSingleUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\addSingleUser.aspx.designer.cs">
+      <DependentUpon>addSingleUser.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\basicFooter.ascx.cs">
       <DependentUpon>basicFooter.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -163,6 +193,20 @@
     <Compile Include="screens\CreateNewStory.aspx.designer.cs">
       <DependentUpon>CreateNewStory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="screens\EditUserInfo.aspx.cs">
+      <DependentUpon>EditUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\EditUserInfo.aspx.designer.cs">
+      <DependentUpon>EditUserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\ListMembers.aspx.cs">
+      <DependentUpon>ListMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\ListMembers.aspx.designer.cs">
+      <DependentUpon>ListMembers.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -177,6 +221,20 @@
     <Compile Include="screens\logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="screens\ManageUsersGroups.aspx.cs">
+      <DependentUpon>ManageUsersGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\ManageUsersGroups.aspx.designer.cs">
+      <DependentUpon>ManageUsersGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\MessageManager.aspx.cs">
+      <DependentUpon>MessageManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\MessageManager.aspx.designer.cs">
+      <DependentUpon>MessageManager.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\PageElementEditor.aspx.cs">
       <DependentUpon>PageElementEditor.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -190,6 +248,13 @@
     </Compile>
     <Compile Include="screens\platform2.aspx.designer.cs">
       <DependentUpon>platform2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\SendNewEmail.aspx.cs">
+      <DependentUpon>SendNewEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\SendNewEmail.aspx.designer.cs">
+      <DependentUpon>SendNewEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\ShareStory.aspx.cs">
       <DependentUpon>ShareStory.aspx</DependentUpon>
@@ -228,6 +293,10 @@
     </Compile>
     <Compile Include="webservices\daemon.asmx.cs">
       <DependentUpon>daemon.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="webservices\StoryExtAPI.asmx.cs">
+      <DependentUpon>StoryExtAPI.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
   </ItemGroup>
