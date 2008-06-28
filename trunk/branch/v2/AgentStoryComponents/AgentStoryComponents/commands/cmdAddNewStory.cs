@@ -13,14 +13,15 @@ namespace AgentStoryComponents.commands
             utils ute = new utils();
             // add new story to db.
             string storyTitle = MacroUtils.getParameterString("txtStoryName", macro);
-            string chatEnabled = MacroUtils.getParameterString("chatEnabled", macro);
+            string storyDescription = MacroUtils.getParameterString("txtStoryDescription", macro);
+            // string chatEnabled = MacroUtils.getParameterString("chatEnabled", macro);
 
             string decodedTitle = ute.decode64(storyTitle);
 
             if (decodedTitle.Trim().Length == 0)
-                throw new Exception("Try to be a bit more original with your story title :) ");
+                throw new Exception("Invalid story title");
 
-            string storyDescription = MacroUtils.getParameterString("txtStoryDescription", macro);
+            
             int userID = MacroUtils.getParameterInt("UserID", macro);
 
            
