@@ -145,7 +145,7 @@ Welcome to " + config.Orginization;
                     body += @"
 Please activate your account by clicking on the url below ";
 
-                    body += config.protocol + "://" + config.host + "/" + config.app + "/AccountActivation.aspx?ac=" + activationCode;
+                    body += config.protocol + "://" + config.host + "/" + config.app + "/screens/AccountActivation.aspx?ac=" + activationCode;
                     body += @"
                             ";
                     body += @"
@@ -158,7 +158,7 @@ Key:";
                     body += @"
 If you can't activate your account using the URL above,
 try to the above Key at: ";
-                    body += config.protocol + "://" + config.host + "/" + config.app + "/AccountActivation.aspx";
+                    body += config.protocol + "://" + config.host + "/" + config.app + "/screens/AccountActivation.aspx";
                     body += @"
                             ";
                     body += @"Thanks, 

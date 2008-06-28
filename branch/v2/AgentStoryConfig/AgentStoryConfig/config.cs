@@ -4,15 +4,15 @@ namespace AgentStoryComponents
     public static class config
     {
 
-        public static string db = "AgentStory";
-        //public static string db = "AgentStoryOLDDEV";
+      //  public static string db = "AgentStory";
+        public static string db = "AgentStoryOLDDEV";
         
 
         //
         //   LOCAL - DEV
         //
 
-        public static int startStoryID = 38;
+        public static int startStoryID = 83;
         public static int startStoryPage = 0;
         public static string startStoryToolBR = "ALL";
         public static string defaultStoryToolBR = "BASIC";    //platform
@@ -20,7 +20,7 @@ namespace AgentStoryComponents
         public static string conn = "Provider=sqloledb;Data Source=127.0.0.1;Initial Catalog=" + db + ";User Id=sa;Password=agentidea;";
         public static string aspNetEmailLicensePath = @"C:\data\dev\AgentStoryHTTP\AgentStoryHTTP\bin\aspNetEmail.xml.lic";
         public static string host = "localhost:1585";
-        public static string app = "AgentStory";
+        public static string app = "";
         public static int helpStoryID = 69;
 
         
@@ -39,6 +39,9 @@ namespace AgentStoryComponents
         //public static string host = "story.agentidea.com";
         //public static string app = "";
         //public static int helpStoryID = 37;
+
+        //public static string db = "AgentStory";
+        //public static string conn = "provider=sqloledb;data source=sql349.mysite4now.com;initial catalog=" + db + ";user id=agentstoryuser;password=jy1met2;";
 
         
         public static string includeMasterURL = "./includes/YUI";
