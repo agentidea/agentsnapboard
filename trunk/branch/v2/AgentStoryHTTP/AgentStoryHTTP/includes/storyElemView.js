@@ -777,7 +777,7 @@ function storyElemViewInit()
          storyView.setCurrElement( this );
         
         var _cmdMoveBack = TheUte().getButton("cmdMoveDown_" + this.count," Back","Send this Element to the Back",this.cmdMoveBack,"clsButtonSEV");
-        var _cmdMoveFront = TheUte().getButton("cmdMoveUp_" + this.count,"bring to front","Bring this Element to the Front",this.cmdMoveFront,"clsButtonSEV");
+        var _cmdMoveFront = TheUte().getButton("cmdMoveUp_" + this.count,"front","Bring this Element to the Front",this.cmdMoveFront,"clsButtonSEV");
         var _cmdDelete = TheUte().getButton("cmdDelete_" + this.count,"delete","Delete this element",this.cmdDeleteElement,"clsButtonSEV");
        
         //touchy buttons

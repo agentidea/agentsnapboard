@@ -27,6 +27,8 @@ namespace AgentStoryHTTP.screens
 
         }
 
+            
+
         public int HelpStoryID
         {
             get { return config.helpStoryID; }
@@ -39,20 +41,19 @@ namespace AgentStoryHTTP.screens
             if (currentUser != null) ;
             this.divUserNameAttachPoint.InnerHtml = currentUser.UserName;
 
-            //this.mnuActivity.Visible = false;
-            //this.mnuCreateNewStory.Visible = true;
-            //this.mnuMemberOperations.Visible = true;
-            //this.mnuMessageManager.Visible = true;
-
-            //if (currentUser.isRoot() || currentUser.isAdmin() )
-            //{
-            //    this.mnuActivity.Visible = true;
-            //}
-
             if (currentUser.ID == config.publicUserID)
             {
+                this.dvLogIn.Visible = true;
                 this.dvLogOut.Visible = false;
+
             }
+            else
+            {
+                this.dvLogIn.Visible = false;
+                this.dvLogOut.Visible = true;
+            }
+
+
         }
     }
 }

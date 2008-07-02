@@ -73,7 +73,7 @@ namespace AgentStoryComponents
 
                 string todayDate = year + "-" + month + "-" + day;
 
-                DateTime y = n.Subtract(new TimeSpan(3, 0, 0, 0, 0));
+                DateTime y = n.Subtract(new TimeSpan(30, 0, 0, 0, 0));
 
                 string yesterdayDate = y.Year + "-" + y.Month + "-" + y.Day;
 

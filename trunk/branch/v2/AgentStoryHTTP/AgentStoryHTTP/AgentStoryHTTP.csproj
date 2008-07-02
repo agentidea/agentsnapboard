@@ -108,18 +108,24 @@
     <Content Include="includes\timer.js" />
     <Content Include="screens\AccountActivation.aspx" />
     <Content Include="screens\AccountActivationPost.aspx" />
+    <Content Include="screens\AddNewGroup.aspx" />
     <Content Include="screens\addSingleUser.aspx" />
     <Content Include="screens\basicFooter.ascx" />
     <Content Include="screens\basicHozToolbar.ascx" />
     <Content Include="screens\CreateNewStory.aspx" />
     <Content Include="screens\EditUserInfo.aspx" />
+    <Content Include="screens\fauxIRC.aspx" />
     <Content Include="screens\ListMembers.aspx" />
     <Content Include="screens\login.aspx" />
     <Content Include="screens\logout.aspx" />
+    <Content Include="screens\logReader.aspx" />
+    <Content Include="screens\logViewer.aspx" />
     <Content Include="screens\ManageUsersGroups.aspx" />
     <Content Include="screens\MessageManager.aspx" />
     <Content Include="screens\PageElementEditor.aspx" />
+    <Content Include="screens\PageElementViewer.aspx" />
     <Content Include="screens\platform2.aspx" />
+    <Content Include="screens\sendEmail.aspx" />
     <Content Include="screens\SendNewEmail.aspx" />
     <Content Include="screens\ShareStory.aspx" />
     <Content Include="screens\StoryEditor4.aspx" />
@@ -165,6 +171,13 @@
     <Compile Include="screens\AccountActivationPost.aspx.designer.cs">
       <DependentUpon>AccountActivationPost.aspx</DependentUpon>
     </Compile>
+    <Compile Include="screens\AddNewGroup.aspx.cs">
+      <DependentUpon>AddNewGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\AddNewGroup.aspx.designer.cs">
+      <DependentUpon>AddNewGroup.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\addSingleUser.aspx.cs">
       <DependentUpon>addSingleUser.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -200,6 +213,13 @@
     <Compile Include="screens\EditUserInfo.aspx.designer.cs">
       <DependentUpon>EditUserInfo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="screens\fauxIRC.aspx.cs">
+      <DependentUpon>fauxIRC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\fauxIRC.aspx.designer.cs">
+      <DependentUpon>fauxIRC.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\ListMembers.aspx.cs">
       <DependentUpon>ListMembers.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -220,6 +240,20 @@
     </Compile>
     <Compile Include="screens\logout.aspx.designer.cs">
       <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\logReader.aspx.cs">
+      <DependentUpon>logReader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\logReader.aspx.designer.cs">
+      <DependentUpon>logReader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\logViewer.aspx.cs">
+      <DependentUpon>logViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\logViewer.aspx.designer.cs">
+      <DependentUpon>logViewer.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\ManageUsersGroups.aspx.cs">
       <DependentUpon>ManageUsersGroups.aspx</DependentUpon>
@@ -242,12 +276,26 @@
     <Compile Include="screens\PageElementEditor.aspx.designer.cs">
       <DependentUpon>PageElementEditor.aspx</DependentUpon>
     </Compile>
+    <Compile Include="screens\PageElementViewer.aspx.cs">
+      <DependentUpon>PageElementViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\PageElementViewer.aspx.designer.cs">
+      <DependentUpon>PageElementViewer.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\platform2.aspx.cs">
       <DependentUpon>platform2.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="screens\platform2.aspx.designer.cs">
       <DependentUpon>platform2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\sendEmail.aspx.cs">
+      <DependentUpon>sendEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\sendEmail.aspx.designer.cs">
+      <DependentUpon>sendEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\SendNewEmail.aspx.cs">
       <DependentUpon>SendNewEmail.aspx</DependentUpon>

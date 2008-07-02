@@ -38,6 +38,8 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
         _refFrontHook.style.height = "1";
     }
     
+   
+    
     this.saveCurrentElement = function()
     {
         
@@ -522,6 +524,15 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     }
     
     this.pageNavPanel = _pageNavPanel;
+    
+
+    this.addNewPagePlease = function()
+    {
+        alert("new page " + _pageNavPanel.id);
+    
+    }
+    
+    
     this.init = storyView2init;
     
     //marks this object as an observer
@@ -1040,11 +1051,11 @@ function PageNavigatorPanel( aoStoryController )
         PageNavValues.push( TheUte().getButton("cmdLastPage",">>","go to last page",this.page_last,"clsButton"));
 
         var grdPageEditControlsVals = new Array();
-        grdPageEditControlsVals.push( TheUte().getButton("cmdAddPage","add page","add new page",this.page_new,"clsButton"));
-        grdPageEditControlsVals.push( TheUte().getButton("cmdRemovePage","delete page","remove page",this.page_remove,"clsButton"));
-        grdPageEditControlsVals.push( TheUte().getButton("cmdRemovePage","order pages","change page order",this.page_reorder,"clsButton"));
+        grdPageEditControlsVals.push( TheUte().getButton("cmdAddPage","+","add new page",this.page_new,"clsButton"));
+        grdPageEditControlsVals.push( TheUte().getButton("cmdRemovePage","-","remove page",this.page_remove,"clsButton"));
+        grdPageEditControlsVals.push( TheUte().getButton("cmdRemovePage","order","re-order pages",this.page_reorder,"clsButton"));
         
-        grdPageEditControlsVals.push( TheUte().getButton("cmdPageProperties","library","toggle library",this.lib_toggle,"clsButton"));
+        grdPageEditControlsVals.push( TheUte().getButton("cmdPageProperties","lib","toggle library",this.lib_toggle,"clsButton"));
 
         
         var aPageNames = storyView.StoryController.getPageNameArray();
@@ -1554,7 +1565,7 @@ function initPanel(title,author,desc,canEdit)
         var actionValues = new Array();
         var cmdShare = TheUte().getButton("cmdShareStory","share","set who can view and edit this story",this.share_story,"clsButton");
         var cmdDelete = TheUte().getButton("cmdDeleteStory","delete","delete this story",this.delete_story,"clsButton");
-        var cmdClone  = TheUte().getButton("cmdCloneStory","clone","make a personal copy",this.clone_story,"clsButton");
+        var cmdClone  = TheUte().getButton("cmdCloneStory","copy","make a personal copy",this.clone_story,"clsButton");
         
        
         
@@ -1566,7 +1577,7 @@ function initPanel(title,author,desc,canEdit)
         //actionValues.push( this.OutputAreaREF );
         actionValues.push( this.getLockCheck( storyView.StoryController ) );
         
-        var actionButtonsGrid  = newGrid2("actionButtonsGrid",1,actionValues.length,actionValues);
+        var actionButtonsGrid  = newGrid2("actionButtonsGrid",1,actionValues.length,actionValues,0);
         actionButtonsGrid.init( actionButtonsGrid );
         
          HandleBarValues.push( actionButtonsGrid.gridTable );
