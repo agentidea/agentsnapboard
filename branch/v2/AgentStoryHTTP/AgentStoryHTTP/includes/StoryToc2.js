@@ -45,15 +45,14 @@ function StoryToc(aStories,aAttachPoint,aKlubName,loginCallBack)
         
    
         // TOC
-       
-        
+  
         var storyTocValues = new Array();
         var totalNumberStories = _stories.count;
         var i = 1;
         
         for ( ; i< totalNumberStories + 1; i++ )
         {
-            var storyTocItem = document.createElement("DIV");
+            var storyTocItem = document.createElement("SPAN");
             storyTocItem.className="clsStoryTitle";
             eval(" var story = _stories.stories.story_" + i + ";");
             var storyTocItemText = document.createTextNode( TheUte().decode64( story.Title) );
@@ -63,11 +62,11 @@ function StoryToc(aStories,aAttachPoint,aKlubName,loginCallBack)
             anchorText.appendChild( storyTocItemText );
             storyTocItem.appendChild( anchorText );
             
-             var anchorViewItem = document.createElement("DIV");
+             var anchorViewItem = document.createElement("SPAN");
              anchorViewItem.className="clsStoryTitle";
             var anchorViewText2 = document.createElement("A");
             anchorViewText2.href = "./StoryReplay.aspx?StoryID=" + story.ID;
-             var viewReplayTXT = document.createTextNode(" (replay...)");
+             var viewReplayTXT = document.createTextNode(" ...");
              anchorViewText2.appendChild(viewReplayTXT);
              
             anchorViewItem.appendChild( anchorViewText2 );
@@ -78,7 +77,7 @@ function StoryToc(aStories,aAttachPoint,aKlubName,loginCallBack)
              
         } 
         
-        var oStoryTocGrid = newGrid2("storyTocGrid", storyTocValues.length ,1,storyTocValues,1);
+        var oStoryTocGrid = newGrid2("storyTocGrid", storyTocValues.length ,1,storyTocValues,0);
         oStoryTocGrid.init( oStoryTocGrid );
 
         outerGridValues.push( oStoryTocGrid.gridTable );

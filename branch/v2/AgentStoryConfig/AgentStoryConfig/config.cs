@@ -4,14 +4,11 @@ namespace AgentStoryComponents
     public static class config
     {
 
-      //  public static string db = "AgentStory";
-        public static string db = "AgentStoryOLDDEV";
-        
-
         //
         //   LOCAL - DEV
         //
 
+        public static string db = "AgentStoryOLDDEV";
         public static int startStoryID = 83;
         public static int startStoryPage = 0;
         public static string startStoryToolBR = "ALL";
@@ -29,6 +26,7 @@ namespace AgentStoryComponents
         //   WEBHOSTING 4 LIFE - PRODUCTION
         //
 
+        //public static string db = "AgentStory";
         //public static int startStoryID = 76;
         //public static int startStoryPage = 0;
         //public static string startStoryToolBR = "NONE";
@@ -40,9 +38,7 @@ namespace AgentStoryComponents
         //public static string app = "";
         //public static int helpStoryID = 37;
 
-        //public static string db = "AgentStory";
-        //public static string conn = "provider=sqloledb;data source=sql349.mysite4now.com;initial catalog=" + db + ";user id=agentstoryuser;password=jy1met2;";
-
+        
         
         public static string includeMasterURL = "./includes/YUI";
         public static string protocol = "http";

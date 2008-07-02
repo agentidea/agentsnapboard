@@ -35,7 +35,8 @@ function simplePageNavigatorPanel( aoStoryController )
 
         var PageNavValues = new Array();
         var grdPageEditControlsVals = new Array();
-        var cmdAddNewButton = TheUte().getButton("cmdAddElem","+Note","add new note",null,"clsButtonAction2LGE");
+        var cmdAddNewButton = TheUte().getButton("cmdAddElem","Note","add new note",null,"clsButtonAction2LGE");
+         var cmdAddNewPage = TheUte().getButton("cmdAddElem","Page","add new page",null,"clsButtonAction2LGE");
         
         cmdAddNewButton.onclick = function()
         {
@@ -53,6 +54,20 @@ function simplePageNavigatorPanel( aoStoryController )
         }
         
         grdPageEditControlsVals.push( cmdAddNewButton );
+        
+        cmdAddNewPage.onclick = function()
+        {
+           storyView.pageNavPanel.page_new();
+        }
+        
+        cmdAddNewPage.ondblclick = function (ev) {
+            ev = ev || window.event;
+            ev.cancelBubble = true;  
+        }
+        
+        grdPageEditControlsVals.push( cmdAddNewPage );
+        
+        
         
          
          
@@ -127,7 +142,55 @@ function simplePageNavigatorPanel( aoStoryController )
     this.page_next = function ()
     {
         _StoryController.pageNext();
-    }   
+    }  
+    
+     this.page_new = function ()
+    {
+        var pageName = window.prompt("What is the new Page Name","");
+        
+    
+        if(pageName == null)
+        {
+            return;
+        }
+        else
+        if(pageName.trim() == "" )
+        {
+            alert("Please provide a page name");
+            return;
+        }      
+        
+        var xy = "800 600"; //window.prompt("enter page pixel dimensions eg 800x600 ","800 600");
+       // if(xy ==null)
+       //     xy = "800 600";
+       // stage no longer used, could be useful for portal mask though.
+        
+        var dimsArray = xy.split(' ');
+        
+        var x = dimsArray[0]*1;
+        var y = dimsArray[1]*1;
+        
+        pageName = TheUte().encode64( TheUte().filterText( pageName ) );
+
+        try
+        {
+            //upadate server ( callback will update model  + view )
+            var macroCreateNewPage = newMacro("CreateNewPage");
+            addParam( macroCreateNewPage,"pageName",pageName);
+            addParam( macroCreateNewPage,"gridCols",y);
+            addParam( macroCreateNewPage,"gridRows",x);
+            addParam( macroCreateNewPage,"gridLayers",0);
+            addParam( macroCreateNewPage,"StoryID",_StoryController.CurrentStory.ID );
+            addParam( macroCreateNewPage,"StoryOpenedBy",_StoryController.CurrentStory.StoryOpenedBy );
+            processRequest( macroCreateNewPage ); 
+       }
+       catch(e)
+       {
+            alert("page add error " + e.description);
+       }
+    }
+  
+   
 }
 
 

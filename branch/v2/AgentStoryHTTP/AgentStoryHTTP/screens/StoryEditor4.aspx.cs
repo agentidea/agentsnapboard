@@ -140,6 +140,7 @@ namespace AgentStoryHTTP.screens
             string sPageCursor = Request["PageCursor"];
             string sViewMode = Request["Mode"];
             string sToolBarVisible = Request["toolBR"];
+            if (sToolBarVisible != null) sToolBarVisible.ToUpper();
 
             if (sStoryID == null)
             {
