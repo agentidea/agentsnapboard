@@ -259,7 +259,7 @@ function cmdProcessTerminateProfile(macro)
 {
     var msg = TheUte().decode64(getParameterVal("msg",macro));
     alert(msg);
-    location.href = "default.aspx?msg=Goodbye";
+    location.href = "./../default.aspx?msg=Goodbye";
 }
 function cmdProcessChangeOfProfile(macro)
 {

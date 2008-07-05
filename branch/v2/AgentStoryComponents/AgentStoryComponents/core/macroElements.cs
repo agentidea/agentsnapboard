@@ -16,6 +16,7 @@ namespace AgentStoryComponents.core
         public static void LogStoryEvent(string eventMessage64, Story story, Macro m, int priority)
         {
             //log to StoryChangeLog table 
+            
             StoryChangeEvent sce = new StoryChangeEvent(config.conn, m.RunningMe, eventMessage64, story, priority, true);
         }
 

@@ -526,12 +526,12 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     this.pageNavPanel = _pageNavPanel;
     
 
-    this.addNewPagePlease = function()
-    {
-        alert("new page " + _pageNavPanel.id);
-    
-    }
-    
+//    this.addNewPagePlease = function()
+//    {
+//        alert("new page " + _pageNavPanel.id);
+//    
+//    }
+//    
     
     this.init = storyView2init;
     

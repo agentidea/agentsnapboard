@@ -50,7 +50,6 @@ namespace AgentStoryComponents
             {
                 while (dbHelper.reader.Read())
                 {
-                    //this.StateID = Convert.ToInt32(dbHelper.reader["ID"]);
                     this.StateName = Convert.ToString(dbHelper.reader["StateName"]);
                 }
             }

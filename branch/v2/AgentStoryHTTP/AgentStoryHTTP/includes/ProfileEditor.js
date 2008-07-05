@@ -7,7 +7,9 @@ function ProfileEditor()
     var _operatorID = 0;
     this.operatorID = _operatorID;
  
- 
+    var _profileID = 0;
+    this.profileID = _profileID;
+    
     this.init = ProfileEditorInit;
     this.terminateUser_event = terminateUser_event;
     this.saveUser_event = saveUser_event;
@@ -18,6 +20,8 @@ function ProfileEditorInit(userData,operator,operatorName)
 {
          
          this.operatorID = operator;
+         this.profileID = userData.id;
+         
          var values = new Array();
         
         values[0] = document.createTextNode("Username: ");
@@ -111,6 +115,7 @@ function saveUser_event()
     addParam(m,"inviteCode",TheUte().encode64(txtInviteCode.value));
     addParam(m,"tags",TheUte().encode64(txtTags.value));
     addParam(m,"operatorID",oProfileEditor.operatorID);
+    addParam(m,"ProfileID",oProfileEditor.profileID);
     addParam(m,"action","save_existing");
     
     processRequest( m );
@@ -121,12 +126,13 @@ function saveUser_event()
 function terminateUser_event()
 {
 
-    var res = confirm("Are you sure you want to terminate your account?");
+    var res = confirm("Are you sure you want to terminate this account?");
     if(res)
     {
 
         var m = new macro();
         m.name = "TerminateUser";
+        addParam(m,"ProfileID",oProfileEditor.profileID);
         addParam(m,"UserID",oProfileEditor.operatorID);
         processRequest( m );
     }

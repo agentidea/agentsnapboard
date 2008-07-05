@@ -16,14 +16,15 @@ namespace AgentStoryComponents.commands
                 throw new InvalidOperationException("Observers may not alter user profiles");
 
 
+            int profileID = MacroUtils.getParameterInt("ProfileID", macro);
             int userID = MacroUtils.getParameterInt("UserID", macro);
-            
-            User userToTerm = new User(config.conn, userID);
+
+            User userToTerm = new User(config.conn, profileID);  //terminate this user profile
             userToTerm.State = (int)UserStates.terminated;
             userToTerm.Save();
 
             
-            //terminate this user profile
+           
             User by = macro.RunningMe;
 
           
@@ -44,11 +45,3 @@ namespace AgentStoryComponents.commands
         }
     }
 }
-
-
-
- //                   Session["user"] = null;
- //                   Session["loggedIn"] = false;
- //                   Session.Clear();
- //                   Session.Abandon();
- //                   Response.Redirect("default.aspx?msg=" + Server.UrlEncode(" Goodbye! ('" + base.currentUser.UserName + "')."));
