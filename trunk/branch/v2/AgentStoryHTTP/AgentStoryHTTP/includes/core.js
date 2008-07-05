@@ -1,16 +1,12 @@
 // web service URL endpoint
-
-//http://www.hornywolf.com/galleries/1373/12.jpg
-
-
-var url = "http://localhost:1585/webservices/daemon.asmx/ProcessMacro";
-//var url = "http://www.agentidea.com/daemon.asmx/ProcessMacro";
+//var url = "http://localhost:1585/webservices/daemon.asmx/ProcessMacro";
+var url = "http://www.agentidea.com/webservices/daemon.asmx/ProcessMacro";
 
 var bCallBusyLock = false; 
 var gBufferDisplay = 24;
 var gRefreshRate = 1000;
 var gDelay = 5;
-
+var gDisableAJAXcalls = 0; 
 
 var maxHeartbeatsBeforeRefresh = 2400;  //to prevent browser leaks ( possible )
 
@@ -105,8 +101,9 @@ function processResponse(res)
      
      if(json == null)
      {
-        //alert("unable to process response " + res);
-        location.href = location.href;
+        alert("unable to process response " + res);
+        //location.href = location.href;
+        gDisableAJAXcalls = 1;
         return;
      }
 
@@ -122,12 +119,13 @@ function processResponse(res)
      {
        //$to do: understand what the error was.
        // alert("truncated process response - eval error :: " + e.description );
-       // alert("JSON WAS " + json);
+       alert("JSON response was \r\n " + json);
        
        //Refresh Story
        //alert("It's possible your session has ended. \r\n\r\n Story page is been auto-refreshed.  \r\n\r\n You may need to relogin to get write and read access rights.");
-       location.href = location.href;
-        
+       //location.href = location.href;
+       alert(e.description);
+        gDisableAJAXcalls = 1;
      }
      
      
@@ -151,11 +149,10 @@ function executeLocalCommand(macro)
 function processRequest(macro)
 {
 
-    if(bCallBusyLock == true)
+    if(bCallBusyLock == true || gDisableAJAXcalls == 1)
     {
-     //log("<div style='color:red'>busy</div>");
-     //$to do: why are some browsers re-entrant and others not????
-     return;
+         //$to do: why are some browsers re-entrant and others not????
+        return;
     }
      
      
@@ -166,24 +163,31 @@ function processRequest(macro)
    
     if (xmlHttpLocal!=null)
     {
-        //xmlHttpLocal.onreadystatechange=state_Change;
-        xmlHttpLocal.open("POST",url,SYNC);
-        xmlHttpLocal.setRequestHeader("Accept","text/xml");
-        xmlHttpLocal.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-       //xmlHttpLocal.setRequestHeader("SOAPAction","''");
-       // xmlHttpLocal.setRequestHeader("Cache-Control","no-cache");
+        try
+        {
+           // alert("posting to " + url);
+            
+            //xmlHttpLocal.onreadystatechange=state_Change;
+            xmlHttpLocal.open("POST",url,SYNC);
+            xmlHttpLocal.setRequestHeader("Accept","text/xml");
+            xmlHttpLocal.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+           //xmlHttpLocal.setRequestHeader("SOAPAction","''");
+           // xmlHttpLocal.setRequestHeader("Cache-Control","no-cache");
 
-        
-        //alert("before encoding  \r\n\r\n" + macroTxt);
-        //log("ajax request: \r\n\r\n" + macroTxt);
-        macroTxt = TheUte().URLEncode( macroTxt );
-        
-        
-        xmlHttpLocal.send("serializedMacro=" + macroTxt);
-
-        //var res = xmlHttpLocal.responseText;
-        //log(res);
-        //processResponse(res);
+            
+            //alert("before encoding  \r\n\r\n" + macroTxt);
+            //log("ajax request: \r\n\r\n" + macroTxt);
+            macroTxt = TheUte().URLEncode( macroTxt );
+            
+            
+            xmlHttpLocal.send("serializedMacro=" + macroTxt);
+        }
+        catch(exp)
+        {
+            alert("XMLHTTP COM error " + exp.description);
+            gDisableAJAXcalls = 1;
+        }
+     
     }
     else
     {

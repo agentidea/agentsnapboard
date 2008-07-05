@@ -122,6 +122,7 @@
     <Content Include="screens\logViewer.aspx" />
     <Content Include="screens\ManageUsersGroups.aspx" />
     <Content Include="screens\MessageManager.aspx" />
+    <Content Include="screens\msg.aspx" />
     <Content Include="screens\PageElementEditor.aspx" />
     <Content Include="screens\PageElementViewer.aspx" />
     <Content Include="screens\platform2.aspx" />
@@ -268,6 +269,13 @@
     </Compile>
     <Compile Include="screens\MessageManager.aspx.designer.cs">
       <DependentUpon>MessageManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\msg.aspx.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\msg.aspx.designer.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\PageElementEditor.aspx.cs">
       <DependentUpon>PageElementEditor.aspx</DependentUpon>

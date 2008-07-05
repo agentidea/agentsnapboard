@@ -148,7 +148,22 @@ namespace AgentStoryComponents
                     {
                         try
                         {
-                            this.SendStoryChangeEventEmail(by, changeEvent, story, pm, u);
+                            //only send notifications to users who are active
+                            if (u.State >= 0 && u.State <= 3)
+                            {
+                                if (u.NotificationFrequency == 0)
+                                {
+                                    //NEVER option selected, no updates
+                                }
+                                else
+                                {
+                                    this.SendStoryChangeEventEmail(by, changeEvent, story, pm, u);
+                                }
+                            }
+                            else
+                            {
+                                //user account is no longer active so no notifications.
+                            }
                         }
                         
                         catch (Exception ex)
@@ -177,7 +192,7 @@ namespace AgentStoryComponents
                 clickBackURL += config.protocol + "://" + config.host;
                 if (config.app.Trim().Length > 0)
                     clickBackURL += "/" + config.app;
-                clickBackURL += "/";
+                clickBackURL += "/screens/";
                 clickBackURL += "StoryEditor4.aspx?StoryID=";
                 clickBackURL += story.ID;
                 clickBackURL += "&PageCursor=";

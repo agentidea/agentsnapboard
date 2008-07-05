@@ -30,8 +30,9 @@ namespace AgentStoryComponents.commands
             string roles64        = MacroUtils.getParameterString("roles", macro);
             string tags64         = MacroUtils.getParameterString("tags", macro);
             //string inviteCode64   = MacroUtils.getParameterString("inviteCode", macro);
-            int operatorID      = MacroUtils.getParameterInt("operatorID", macro);
-            string action =         MacroUtils.getParameterString("action", macro);
+            int profileID = MacroUtils.getParameterInt("ProfileID", macro);
+            int operatorID = MacroUtils.getParameterInt("operatorID", macro);
+            string action =         MacroUtils.getParameterString("action", macro);  //$to do: updateUserCMD???
             int notificationSchedule = MacroUtils.getParameterInt("notificationSchedule", macro);
 
             utils ute = new utils();
@@ -71,19 +72,19 @@ namespace AgentStoryComponents.commands
             }
 
 
-            User newUser = null;
+            User _user = null;
 
 
             if (action.Trim().ToLower() == "save_new")
             {
-                //save a new user.
-                newUser = new User(config.conn);
-                if (newUser.UsernameExists(username.Trim()))
+                #region save a new user.
+                _user = new User(config.conn);
+                if (_user.UsernameExists(username.Trim()))
                 {
                     throw new UserExistsException(" username " + username.Trim() + " in use");
                 }
 
-                if (newUser.UserExists(email.Trim()))
+                if (_user.UserExists(email.Trim()))
                 {
 
                     //if (email.Trim() == config.webMasterEmail.Trim() && config.allowMulipleWebmasterAliases)
@@ -93,33 +94,33 @@ namespace AgentStoryComponents.commands
                    // }
                    // else
                    // {
-                        throw new UserExistsException("user with email email " + email.Trim() + " already registered");
+                        throw new UserExistsException("user with email " + email.Trim() + " already registered");
                    // }
                 }
 
-                newUser.FirstName = firstName.Trim();
-                newUser.LastName = lastName.Trim();
-                newUser.UserName = username.Trim();
-                newUser.Password = password.Trim();
-                newUser.Email = email.Trim();
-                newUser.Roles = roles.Trim();
+                _user.FirstName = firstName.Trim();
+                _user.LastName = lastName.Trim();
+                _user.UserName = username.Trim();
+                _user.Password = password.Trim();
+                _user.Email = email.Trim();
+                _user.Roles = roles.Trim();
 
                 if (tags != null && tags.Trim().Length > 0)
                 {
-                    newUser.Tags = tags.Trim();
+                    _user.Tags = tags.Trim();
                 }
 
-                newUser.SponsorID = operatorID;
-                newUser.OrigInviteCode = inviteCode.Trim();
+                _user.SponsorID = operatorID;
+                _user.OrigInviteCode = inviteCode.Trim();
                 
-                newUser.NotificationFrequency = 1;  //immediate?
+                _user.NotificationFrequency = 1;  //immediate?
 
-                int newUserID = newUser.Save();
+                int newUserID = _user.Save();
 
 
                 if (config.bRequireVerificationForUserReg)
                 {
-                    newUser.State = (int)UserStates.pending_email_confirm;
+                    _user.State = (int)UserStates.pending_email_confirm;
 
                     EmailMsg eMsg = new EmailMsg(config.conn, macro.RunningMe);
 
@@ -129,9 +130,9 @@ namespace AgentStoryComponents.commands
 
                     eMsg.ReplyToAddress = config.webMasterEmail;
 
-                    string activationCode = ute.encode64(newUser.PendingGUID);
+                    string activationCode = ute.encode64(_user.PendingGUID);
 
-                    string body = "Dear " +  newUser.UserName;
+                    string body = "Dear " +  _user.UserName;
                     body += @"
                             ";
                     body += @"
@@ -171,7 +172,7 @@ try to the above Key at: ";
                     eMsg.body = ute.encode64( body );
 
                     eMsg.from = config.webMasterEmail;
-                    eMsg.to = newUser.Email;
+                    eMsg.to = _user.Email;
 
                     eMsg.Save();
 
@@ -194,85 +195,55 @@ try to the above Key at: ";
                 }
                 else
                 {
-                    newUser.State = (int)UserStates.pre_approved;
+                    _user.State = (int)UserStates.pre_approved;
                 }
 
-                newUser.Save();
+                _user.Save();
 
 
 
                 returnMacroToRun = "AddNewUser";
 
-                msg = macro.RunningMe.UserName + " [" + macro.UserCurrentTxID +  " ]("+macro.RunningMe.ID +") added user profile for (" + newUser.UserName + ") to system with an ID of " + newUser.ID + " GUID of " + newUser.UserGUID + " sponsored by user of id of " + operatorID;
-            
+                msg = macro.RunningMe.UserName + " [" + macro.UserCurrentTxID +  " ]("+macro.RunningMe.ID +") added user profile for (" + _user.UserName + ") to system with an ID of " + _user.ID + " GUID of " + _user.UserGUID + " sponsored by user of id of " + operatorID;
+                #endregion
             }
             else
-                if (action.Trim().ToLower() == "save_existing")
+            if (action.Trim().ToLower() == "save_existing")
+            {
+                #region update existing user
+
+                
+                _user = new User(config.conn, profileID);
+
+                _user.FirstName = firstName.Trim();
+                _user.LastName = lastName.Trim();
+                _user.UserName = username.Trim();
+                _user.Password = password.Trim();
+
+                if (_user.Password.ToLower() == config.defaultPassword)
                 {
-                    try
-                    {
-                        newUser = new User(config.conn, email.Trim());
-                    }
-                    catch (UserDoesNotExistException unex)
-                    {
-
-                        //try lookup user via username
-                        try
-                        {
-                            newUser = new User(config.conn, username.Trim(), true);
-                        }
-                        catch (UserDoesNotExistException unex2)
-                        {
-
-                            //try lookup via user operator ID
-                            newUser = new User(config.conn, macro.RunningMe.ID);
-
-                            //smell and slippery when wet, what if other than user is been 
-                            //changed say by admin, no worries pass up user id then
-                            //$todo:
-
-                        }
-                    }
-
-
-
-                    newUser.FirstName = firstName.Trim();
-                    newUser.LastName = lastName.Trim();
-                    newUser.UserName = username.Trim();
-                    newUser.Password = password.Trim();
-
-                    if (newUser.Password.ToLower() == config.defaultPassword)
-                    {
-                        newUser.State = (int)UserStates.signed_in;
-                        Logger.log(" user changed default password ");
-                    }
-
-
-                    newUser.Email = email.Trim();
-                    newUser.Roles = roles.Trim();
-                    newUser.Tags = tags.Trim();
-                    newUser.NotificationFrequency = notificationSchedule;
-
-                    
-
-                   
-
-                    newUser.Save();
-                    returnMacroToRun = "SaveExistingUser";
-
-
-                    if (macro.RunningMe.Email == config.publicUserEmail)
-                    {
-                        msg = "Thank you, " + newUser.UserName + ") - please check your email for account activation instructions.";
-                    }
-                    else
-                    {
-                        msg = "Saved user profile for (" + newUser.UserName + ") - they will be sent an email with account activation instructions.";
-                    }
-
-                    Logger.log(msg);
-                  
+                    _user.State = (int)UserStates.signed_in;
+                    Logger.log(" user changed default password ");
                 }
+
+
+                _user.Email = email.Trim();
+                _user.Roles = roles.Trim();
+                _user.Tags = tags.Trim();
+                _user.NotificationFrequency = notificationSchedule;
+
+                
+
+               
+
+                _user.Save();
+                returnMacroToRun = "SaveExistingUser";
+  
+               msg = "Saved user profile for (" + _user.UserName + ")";
+               
+                Logger.log(msg);
+                #endregion
+            }
 
 
            
