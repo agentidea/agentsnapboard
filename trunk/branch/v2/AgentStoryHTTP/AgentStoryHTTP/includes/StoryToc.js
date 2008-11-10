@@ -63,7 +63,7 @@ function GetStoryTocLine(story)
     var url = document.createElement("A");
     if(typeStory == 0)
     {
-        url.href = "story.aspx?StoryID=" + story.ID;
+        url.href = "StoryOrig.aspx?StoryID=" + story.ID;
     }
     else
     {

@@ -188,7 +188,7 @@ function getStoryHeader()
     var values = new Array();
     
      var viewLink = document.createElement("a");
-     viewLink.href = "Story.aspx?StoryID=" + this.StoryController.CurrentStory.ID;
+     viewLink.href = "StoryOrig.aspx?StoryID=" + this.StoryController.CurrentStory.ID;
      
      var propertiesLink = document.createElement("a");
      propertiesLink.href = "StoryProperties.aspx?StoryID=" + this.StoryController.CurrentStory.ID;
@@ -683,7 +683,7 @@ function updatePageInfo(pageID,rows,cols,storyID,pageName)
        addParam( macroUpdatePage,"StoryID",storyID);
        addParam( macroUpdatePage,"PageName",pageName );
        
-       //alert( serializeMacroForRequest( macroUpdatePage) );
+       alert( serializeMacroForRequest( macroUpdatePage) );
        processRequest( macroUpdatePage );  	   
 
 }

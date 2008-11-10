@@ -8,17 +8,17 @@ namespace AgentStoryComponents
         //   LOCAL - DEV
         //
 
-        //public static string db = "AgentStoryOLDDEV";
-        //public static int startStoryID = 83;
-        //public static int startStoryPage = 0;
-        //public static string startStoryToolBR = "ALL";
-        //public static string defaultStoryToolBR = "BASIC";              //platform
-        //public static string storyToolbarStartMode = "BASIC";           //NONE NAV MIN ALL NOCHAT
-        //public static string conn = "Provider=sqloledb;Data Source=127.0.0.1;Initial Catalog=" + db + ";User Id=sa;Password=agentidea;";
-        //public static string aspNetEmailLicensePath = @"C:\data\dev\AgentStoryHTTP\AgentStoryHTTP\bin\aspNetEmail.xml.lic";
-        //public static string host = "localhost:1585";
-        //public static string app = "";
-        //public static int helpStoryID = 69;
+        public static string db = "AgentStoryOLDDEV";
+        public static int startStoryID = 83;
+        public static int startStoryPage = 0;
+        public static string startStoryToolBR = "ALL";
+        public static string defaultStoryToolBR = "BASIC";              //platform
+        public static string storyToolbarStartMode = "BASIC";           //NONE NAV MIN ALL NOCHAT
+        public static string conn = "Provider=sqloledb;Data Source=127.0.0.1;Initial Catalog=" + db + ";User Id=sa;Password=agentidea;";
+        public static string aspNetEmailLicensePath = @"C:\data\dev\AgentStoryHTTP\AgentStoryHTTP\bin\aspNetEmail.xml.lic";
+        public static string host = "localhost:1585";
+        public static string app = "";
+        public static int helpStoryID = 69;
 
         
 
@@ -26,17 +26,17 @@ namespace AgentStoryComponents
         //   WEBHOSTING 4 LIFE - PRODUCTION
         //
 
-        public static string db = "AgentStory";
-        public static int startStoryID = 76;
-        public static int startStoryPage = 0;
-        public static string startStoryToolBR = "NONE";
-        public static string defaultStoryToolBR = "BASIC";
-        public static string storyToolbarStartMode = "BASIC";    //platform
-        public static string aspNetEmailLicensePath = @"c:\hosting\webhost4life\member\agentidea\apps\agentidea\bin\aspnetemail.xml.lic";
-        public static string conn = "provider=sqloledb;data source=sql349.mysite4now.com;initial catalog=" + db + ";user id=agentstorydbo;password=jy1met2;";
-        public static string host = "www.agentidea.com";
-        public static string app = "";
-        public static int helpStoryID = 37;
+        //public static string db = "AgentStory";
+        //public static int startStoryID = 76;
+        //public static int startStoryPage = 0;
+        //public static string startStoryToolBR = "NONE";
+        //public static string defaultStoryToolBR = "BASIC";
+        //public static string storyToolbarStartMode = "BASIC";    //platform
+        //public static string aspNetEmailLicensePath = @"c:\hosting\webhost4life\member\agentidea\apps\agentidea\bin\aspnetemail.xml.lic";
+        //public static string conn = "provider=sqloledb;data source=sql349.mysite4now.com;initial catalog=" + db + ";user id=agentstorydbo;password=jy1met2;";
+        //public static string host = "www.agentidea.com";
+        //public static string app = "";
+        //public static int helpStoryID = 37;
 
         
         

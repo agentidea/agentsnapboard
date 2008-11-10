@@ -135,7 +135,7 @@ function getStoryHeader()
     var values = new Array();
     
      var viewLink = document.createElement("a");
-     viewLink.href = "Story.aspx?StoryID=" + this.StoryController.CurrentStory.ID;
+     viewLink.href = "StoryOrig.aspx?StoryID=" + this.StoryController.CurrentStory.ID;
      
      var propertiesLink = document.createElement("a");
      propertiesLink.href = "StoryProperties.aspx?StoryID=" + this.StoryController.CurrentStory.ID;
@@ -904,6 +904,7 @@ function PageElement_Update()
        var macroCreateNewPageElementAndMap = newMacro("CreateNewPageElementAndMap");
        addParam( macroCreateNewPageElementAndMap,"CurrentPageCursor",oStoryEditor2.StoryController.CurrentPageCursor);
        addParam( macroCreateNewPageElementAndMap,"PageID",currPage.ID);
+       addParam( macroCreateNewPageElementAndMap,"sevTmpGUID","tmp");
        addParam( macroCreateNewPageElementAndMap,"GridX",posX);
        addParam( macroCreateNewPageElementAndMap,"GridY",posY);
        addParam( macroCreateNewPageElementAndMap,"Value",sContentVal64);
