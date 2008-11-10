@@ -129,7 +129,9 @@
     <Content Include="screens\sendEmail.aspx" />
     <Content Include="screens\SendNewEmail.aspx" />
     <Content Include="screens\ShareStory.aspx" />
+    <Content Include="screens\StoryEditor.aspx" />
     <Content Include="screens\StoryEditor4.aspx" />
+    <Content Include="screens\StoryOrig.aspx" />
     <Content Include="screens\StoryPageView2.aspx" />
     <Content Include="screens\StoryReplay.aspx" />
     <Content Include="screens\StrategyPortal.aspx" />
@@ -319,12 +321,26 @@
     <Compile Include="screens\ShareStory.aspx.designer.cs">
       <DependentUpon>ShareStory.aspx</DependentUpon>
     </Compile>
+    <Compile Include="screens\StoryEditor.aspx.cs">
+      <DependentUpon>StoryEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryEditor.aspx.designer.cs">
+      <DependentUpon>StoryEditor.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\StoryEditor4.aspx.cs">
       <DependentUpon>StoryEditor4.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="screens\StoryEditor4.aspx.designer.cs">
       <DependentUpon>StoryEditor4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StoryOrig.aspx.cs">
+      <DependentUpon>StoryOrig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryOrig.aspx.designer.cs">
+      <DependentUpon>StoryOrig.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\StoryPageView2.aspx.cs">
       <DependentUpon>StoryPageView2.aspx</DependentUpon>

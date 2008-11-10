@@ -1,6 +1,6 @@
 // web service URL endpoint
-//var url = "http://localhost:1585/webservices/daemon.asmx/ProcessMacro";
-var url = "http://www.agentidea.com/webservices/daemon.asmx/ProcessMacro";
+var url = "http://localhost:1585/webservices/daemon.asmx/ProcessMacro";
+//var url = "http://www.agentidea.com/webservices/daemon.asmx/ProcessMacro";
 
 var bCallBusyLock = false; 
 var gBufferDisplay = 24;

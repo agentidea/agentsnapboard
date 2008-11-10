@@ -630,7 +630,7 @@ function storyView2init(attachPoint,aFrontHook)
     if( this.StoryController.CurrentStory.TypeStory != 1 )
     {
         //alert("incorrect story type for this editor");
-        location.href = "./Story.aspx?StoryID=" + this.StoryController.CurrentStory.ID;
+        location.href = "./StoryOrig.aspx?StoryID=" + this.StoryController.CurrentStory.ID;
         return;
     }
 
