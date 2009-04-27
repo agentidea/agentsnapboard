@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>9.0.21022</ProductVersion>
+    <ProductVersion>9.0.30729</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{77BEC621-7A5C-4D17-9B25-AA53DECF4A87}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
@@ -140,7 +140,6 @@
     <Content Include="style\StoryElements.css" />
     <Content Include="Web.config" />
     <Content Include="webservices\daemon.asmx" />
-    <Content Include="webservices\StoryExtAPI.asmx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="basewebforms\LoginBase.cs">
@@ -367,10 +366,6 @@
       <DependentUpon>daemon.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="webservices\StoryExtAPI.asmx.cs">
-      <DependentUpon>StoryExtAPI.asmx</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\AgentStoryComponents\AgentStoryComponents\AgentStoryComponents.csproj">
@@ -403,12 +398,15 @@
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
+          <AutoAssignPort>False</AutoAssignPort>
           <DevelopmentServerPort>1585</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>

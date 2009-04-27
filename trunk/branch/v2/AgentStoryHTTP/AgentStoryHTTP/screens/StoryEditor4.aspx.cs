@@ -87,6 +87,39 @@ namespace AgentStoryHTTP.screens
             set { _viewMode = value; }
         }
 
+
+        public string currUserStoriesJSON
+        {
+            get
+            {
+                MyStories ms = new MyStories(base.currentUser.ID);
+
+
+                //sort by story id with lamda
+                ms.Stories.Sort(
+
+                    delegate(Story s1, Story s2)
+                    {
+                        return s2.ID.CompareTo(s1.ID);
+                    }
+                );
+
+                //filter out deleted stories.
+                ms.Stories = ms.Stories.FindAll(
+
+                    delegate(Story s) { return s.State < 5; }
+
+                    );
+
+
+
+
+                return ms.StoriesMetaJSON;
+            }
+
+        }
+
+
         public string currUserJSON
         {
             get
