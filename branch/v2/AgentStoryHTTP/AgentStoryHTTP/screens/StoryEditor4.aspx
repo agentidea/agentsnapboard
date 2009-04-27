@@ -39,13 +39,16 @@
 
         gUserCurrentTxID = "<%= currTx %>";
         var currUserJSON = "<%= currUserJSON %>";
+        var currUserStoriesJSON = "<%= currUserStoriesJSON %>";
+        
         gPageCursor = <%= PageCursor %>;
         gViewMode = "<%= ViewMode %>";
         gToolBarVisible = "<%= ToolBarVisible %>";
         eval(" var currUser = " + currUserJSON + ";");
+        eval(" var currStoryToc = " + currUserStoriesJSON + ";");
         eval(" var story = " + storyJSON + ";");
 
-        var storyController = newStoryController( story,currUser );
+        var storyController = newStoryController( story,currUser,currStoryToc );
         storyView = new storyView2(storyController, document.getElementById("TheBod"),story.LastSeq,story.ID,gToolBarVisible );
         storyView.init( document.getElementById("TheTempHook") , document.getElementById("FrontHook"));
         InitializeTimer(storyView.heartbeat,gDelay,true,gRefreshRate);

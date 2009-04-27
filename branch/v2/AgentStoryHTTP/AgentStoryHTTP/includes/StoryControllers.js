@@ -1,61 +1,17 @@
 ﻿/*
 
     AgentIdea - Story story controller
-    Copyright AgentIdea 2007
-    
-    please note this is private and a copyrighted original work by Grant Steinfeld.
-    
-    
-    
-1. Registration Number:    TXu-959-906  
-Title:    AgentIdea application studio for IE : version 1.0. 
-Description:    Computer program. 
-Note:    Printout only deposited. 
-Claimant:    AgentIdea, LLC 
-Created:    2000 
-
-Registered:    10Jul00
-
-Author on © Application:    text of computer program: Grant Steinfeld , 1967- & Oren Kredo , 1966-. 
-Special Codes:   1/C 
-
---------------------------------------------------------------------------------
-2. Registration Number:    TXu-960-165  
-Title:    AgentIdea application studio for Java : version 1.0. 
-Description:    Computer program. 
-Note:    Printout only deposited. 
-Claimant:    AgentIdea, LLC 
-Created:    2000 
-
-Registered:    10Jul00
-
-Author on © Application:    program text: Grant Steinfeld , 1967-, & Oren Kredo , 1966-. 
-Special Codes:   1/C 
-
---------------------------------------------------------------------------------
-3. Registration Number:    TXu-961-904  
-Title:    AgentIdea application studio for IIS : version 1.0 / authors, Grant Steinfeld, Oren Kredo. 
-Description:    Computer program. 
-Note:    Printout only deposited. 
-Claimant:    cAgentIdea, LLC 
-Created:    2000 
-
-Registered:    10Jul00
-
-Special Codes:   1/C 
-
-to verify search for Grant Steinfeld or Oren Kredo
-http://www.copyright.gov/records/cohm.html
+   
 
 */
-function newStoryController(aStory,aCurrUser)
+function newStoryController(aStory,aCurrUser,aToc)
 {
-    var sc = new StoryController(aCurrUser,aStory);
+    var sc = new StoryController(aCurrUser, aStory, aToc);
     sc.setCurrentPageCursor(  0 );
     return sc;
 }
 
-function StoryController(aCurrUser,aStory)
+function StoryController(aCurrUser,aStory,aToc)
 {
     
     var _observers = new Array();
@@ -66,6 +22,9 @@ function StoryController(aCurrUser,aStory)
     
     var _currUser = aCurrUser;
     this.CurrentUser = _currUser;
+
+    var _storyToc = aToc;
+    this.StoryToc = _storyToc;
     
     var _currPageCursor = 0;
     
@@ -95,8 +54,62 @@ function StoryController(aCurrUser,aStory)
        
        
        return pageArray;
-    
-    }
+
+   }
+
+    //return toc select box
+   this.getTocItems = function(id, callback, selSelStory, aClassName) {
+
+       //  alert(_storyToc.count);
+
+
+       var totalNumberStories = _storyToc.count;
+       var i = 1;
+       var sel = document.createElement("SELECT");
+       sel.id = id;
+       sel.className = aClassName;
+
+       if (callback != null) {
+           sel.onchange = callback;
+          // alert("set callback");
+       }
+
+       for (; i < totalNumberStories + 1; i++) {
+
+           eval(" var story = _storyToc.stories.story_" + i + ";");
+           var storyTocItemText = TheUte().decode64(story.Title);
+           var storyID = story.ID;
+           // storyTocItem.title = " by " + story.Author + " viewed " + story.UniqueHits + " times";
+
+
+
+           if (document.all) {
+               //ie
+               var ooption = document.createElement("OPTION");
+               sel.options.add(ooption);
+               ooption.innerText = storyTocItemText;
+               ooption.value = storyID;
+               if (selSelStory == storyID) {
+                   ooption.selected = true;
+               }
+           }
+           else {
+               //netscape
+               sel.options[i] = new Option(storyTocItemText, storyID + "");
+
+
+               if (selSelStory == storyID) {
+
+                   sel.options[i].selected = true;
+               }
+           }
+       }
+
+       return sel;
+
+
+
+   }
     
     this.pagNavChanged = function(ev)
     {

