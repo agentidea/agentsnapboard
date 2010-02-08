@@ -1,0 +1,87 @@
+<html>
+<head><title>SmartOrg Portfolio Game</title>
+</head>
+<script src="js/jquery.js"></script>
+<script src="js/portfolio.js"></script>	
+<script src="js/game.js"></script>	
+<script src="js/gameController.js"></script>
+<script src="js/dieImages.js"></script>
+<script src="js/pickFive.js"></script>
+<script src="js/animatedDice.js"></script>
+<script src="js/dieRolls.js"></script>
+<script src="js/projectSelection.js"></script>
+<body>
+<form name="interface">
+<table cellspacing=15 cellpadding=15>
+<tr><td>
+<span class="test" id="portfolioSelectionStep">
+<h2>Fund Your Projects (pick any 5)</h2>
+<table>
+<tr>
+<td valign="top">
+<b>Unfunded Projects</b><br/>
+<select id="portfolioOptions" size="10" multiple="yes">
+	<option value="A">Pearl</option>
+	<option value="B">Oyster</option>
+	<option value="C">Oyster</option>
+	<option value="D">Oyster</option>
+	<option value="E">Oyster</option>
+	<option value="F">Bread and Butter</option>
+	<option value="G">Bread and Butter</option>
+	<option value="H">Bread and Butter</option>
+	<option value="I">Bread and Butter</option>
+	<option value="J">White Elephant</option>
+</select>
+</td>
+<td valign="top">
+<br/>
+<input type=button name=button value="Add to Portfolio" onclick="projectSelection.addSelectionToPortfolio(portfolioOptions, portfolioSelected,5);"/><br/>
+<input type=button name=button value="Remove from Portfolio" onclick="projectSelection.addSelectionToPortfolio(portfolioSelected, portfolioOptions,10);"/>
+</td>
+<td valign="top">
+<b>Funded Projects</b><br/>
+<select id ="portfolioSelected" size="5" multiple="yes">
+
+</td>
+</tr>
+</table>
+<p/>
+<hr/>
+<input type=button value="Roll Dice for Unfunded Projects" onclick="nextStepToRollDiceForUnfunded(portfolioSelected);">
+</span>
+
+<span class="test" id="rollDiceForUnfundedStep">
+<h2>Roll Dice for Unfunded Projects</h2>
+
+<span id="unfundedProjectList">
+</span>
+<p></p>
+<input type=button value="Back to Portfolio Selection" onclick="nextStep(portfolioSelectionStep,rollDiceForUnfundedStep);">
+<input type=button id="rollFundedBtn" value="Roll Dice for Funded Projects" onclick="nextStepToRollFunded(rollDiceForFundedStep,rollDiceForUnfundedStep);">
+</span>
+
+<span class="test" id="rollDiceForFundedStep">
+<h2>Roll Dice for Funded Projects</h2>
+<span id="fundedProjectList">
+</span>
+<p></p>
+<hr/>
+<input type=button value="Back to Roll Dice for Unfunded Projects" onclick="nextStep(rollDiceForUnfundedStep,rollDiceForFundedStep);">
+<input type=button id="selectFiveBestBtn" value="Pick Five Best Projects" onclick="nextStepToSelectFiveBest(selectFiveBestStep,rollDiceForFundedStep);">
+</span>
+
+<span class="test" id="selectFiveBestStep">
+<h2>Pick Five Best Projects</h2>
+If you knew the outcomes that you've just seen, which projects would you have selected in your portfolio (pick no more than five)?
+<p></p>
+<span id="allProjectList">
+</span>
+<br/>
+<input type=button value="Back to Roll Dice for Funded Projects" onclick="nextStep(rollDiceForFundedStep,selectFiveBestStep);">
+</span>
+
+</td></tr>
+</table>
+</form>
+</body>
+</html>

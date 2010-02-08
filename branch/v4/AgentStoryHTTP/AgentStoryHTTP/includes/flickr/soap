@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+	<s:Body>
+		<s:Fault>
+			<faultcode>flickr.error.0</faultcode>
+			<faultstring>Invalid SOAP envelope.</faultstring>
+			<faultactor>http://www.flickr.com/services/soap/</faultactor>
+			<details>Please see http://www.flickr.com/services/api/ for more details</details>
+		</s:Fault>
+	</s:Body>
+</s:Envelope>

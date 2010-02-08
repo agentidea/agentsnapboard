@@ -1,0 +1,180 @@
+
+<span class="clsGameShow" id="portfolioSelectionStep">
+<h2>Fund Your Projects (pick any 5)</h2>
+<table>
+<tr>
+<td valign="top">
+<b>Unfunded Projects</b><br/>
+<select id="portfolioOptions" size="10" multiple="yes">
+	<option value="A">Pearl</option>
+	<option value="B">Oyster</option>
+	<option value="C">Oyster</option>
+	<option value="D">Oyster</option>
+	<option value="E">Oyster</option>
+	<option value="F">Bread and Butter</option>
+	<option value="G">Bread and Butter</option>
+	<option value="H">Bread and Butter</option>
+	<option value="I">Bread and Butter</option>
+	<option value="J">White Elephant</option>
+</select>
+</td>
+<td valign="top">
+<br/>
+<input type=button name=button value="Add to Portfolio" onclick="projectSelection.addSelectionToPortfolio(portfolioOptions, portfolioSelected,5);" class="clsButtonLGE" /><br/>
+<input type=button name=button value="Remove from Portfolio" onclick="projectSelection.addSelectionToPortfolio(portfolioSelected, portfolioOptions,10);" class="clsButtonLGE" />
+</td>
+<td valign="top">
+<b>Funded Projects</b><br/>
+<select id ="portfolioSelected" size="5" multiple="yes">
+
+</td>
+</tr>
+</table>
+<p/>
+
+
+</span>
+
+
+<script language="JavaScript" defer="false">
+
+function callbackFxn()
+{
+   //callback here
+    var msg = nextStepToRollDiceForUnfunded(portfolioSelected);
+    if(msg == null)
+    {
+        //portfolio selection was good.
+        storyView.pageNavPanel.restoreNext();
+        storyView.pageNavPanel.page_next();
+    }
+    else
+    {
+       //portfolio selection was errorneous
+       storyView.log(msg);
+    }
+
+}
+
+storyView.log("Fund five projects");
+storyView.pageNavPanel.addClickNext(callbackFxn);
+
+
+</script>
+
+
+
+<!-- end -->
+
+<span class="clsGameHide" id="rollDiceForUnfundedStep">
+   <h2>Roll Dice for Unfunded Projects</h2>
+   <span id="unfundedProjectList"></span>
+</span>
+
+<script language="JavaScript" defer="false">
+
+var dvUnfundedList =
+document.getElementById('unfundedProjectList');
+dvUnfundedList.innerHTML = projectSelection.unfundedListHTML;
+
+
+
+function callbackFxn()
+{
+   //callback here
+   try
+   {
+      nextStepToRollFunded();
+      storyView.pageNavPanel.restoreNext();
+      storyView.pageNavPanel.page_next();
+    }
+    catch(exp)
+    {
+
+       storyView.log(exp.description);
+    }
+
+}
+
+storyView.log("Roll the dice for each unfunded project");
+storyView.pageNavPanel.addClickNext(callbackFxn);
+
+
+</script>
+
+
+<!-- end -->
+
+
+<span class="clsGameHide" id="rollDiceForFundedStep">
+<h2>Roll Dice for Funded Projects</h2>
+<span id="fundedProjectList">
+</span>
+<p></p>
+<hr/>
+
+
+</span>
+
+
+<script language="JavaScript" defer="false">
+
+var dvFundedList =
+document.getElementById('fundedProjectList');
+
+dvFundedList.innerHTML = projectSelection.fundedListHTML;
+
+
+
+function callbackFxn()
+{
+   //callback here
+   try
+   {
+      nextStepToSelectFiveBest();
+      storyView.pageNavPanel.restoreNext();
+      storyView.pageNavPanel.page_next();
+    }
+    catch(exp)
+    {
+
+       storyView.log(exp.description);
+    }
+
+}
+
+storyView.log("Roll the dice for each funded project");
+storyView.pageNavPanel.addClickNext(callbackFxn);
+
+
+</script>
+<!-- end -->
+
+
+<span class="clsGameHide" id="selectFiveBestStep">
+<h2>Pick Five Best Projects</h2>
+If you knew the outcomes that you've just seen, which projects would you have selected in your portfolio (pick no more than five)?
+
+<span id="allProjectList">
+</span>
+
+
+</span>
+
+
+<script language="JavaScript" defer="false">
+
+var dvAllProjectList =
+document.getElementById('allProjectList');
+dvAllProjectList.innerHTML = pickFive.allProjectHTML;
+
+
+var dvValueOfFundedProjects = document.getElementById('valueOfFundedProjects');
+dvValueOfFundedProjects.innerHTML = pickFive.fundedValue;
+
+</script>
+
+
+<!-- end -->
+<!-- end -->
+<!-- end -->

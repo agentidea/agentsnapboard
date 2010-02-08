@@ -1,0 +1,480 @@
+﻿<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{77BEC621-7A5C-4D17-9B25-AA53DECF4A87}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AgentStoryHTTP</RootNamespace>
+    <AssemblyName>AgentStoryHTTP</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.Mobile" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Default.aspx" />
+    <Content Include="extras\SmartOrg\PortfolioGame\formatting.css" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\1.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\10.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\11.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\12.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\13.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\14.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\15.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\16.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\17.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\18.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\19.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\2.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\20.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\3.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\4.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\5.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\6.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\7.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\8.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\20\9.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\6\1.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\6\2.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\6\3.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\6\4.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\6\5.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\6\6.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\b4\1.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\b4\2.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\b4\3.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\b4\4.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\blank.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\w4\1.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\w4\2.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\w4\3.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\images\w4\4.png" />
+    <Content Include="extras\SmartOrg\PortfolioGame\index.html" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\animatedDice.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\projectSelection2.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\dieImages.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\dieRolls.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\game.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\gameController.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\jquery.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\messages.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\pickFive.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\portfolio.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\projectSelection.js" />
+    <Content Include="images\haze.png" />
+    <Content Include="includes\AddSingleUser.js" />
+    <Content Include="includes\chars.js" />
+    <Content Include="includes\ContextMenu.js" />
+    <Content Include="includes\AlertArea.js" />
+    <Content Include="includes\storyElemViewSlideNav.js" />
+    <Content Include="includes\SlideNavigatorNavPanel.js" />
+    <Content Include="includes\SlideNavigator.js" />
+    <Content Include="includes\core.js" />
+    <Content Include="includes\corecommands.js" />
+    <Content Include="includes\coreLibraryPortals.js" />
+    <Content Include="includes\customLibraryPortals.js" />
+    <Content Include="includes\dragDrop.js" />
+    <Content Include="includes\fauxIRC.js" />
+    <Content Include="includes\FloatLayer.js" />
+    <Content Include="includes\grid.js" />
+    <Content Include="includes\InvitationManager.js" />
+    <Content Include="includes\json.js" />
+    <Content Include="includes\LabelEdit.js" />
+    <Content Include="includes\LibElemDrag.js" />
+    <Content Include="includes\LibraryViewer.js" />
+    <Content Include="includes\listDrag.js" />
+    <Content Include="includes\LoginScreen.js" />
+    <Content Include="includes\LoginWidget.js" />
+    <Content Include="includes\MessageEditor.js" />
+    <Content Include="includes\MessageManager.js" />
+    <Content Include="includes\MessageNewEditor.js" />
+    <Content Include="includes\Mouse.js" />
+    <Content Include="includes\mousepos.js" />
+    <Content Include="includes\PageBuilder.js" />
+    <Content Include="includes\PageElementViewer.js" />
+    <Content Include="includes\PageUtils.js" />
+    <Content Include="includes\palette.js" />
+    <Content Include="includes\ProfileEditor.js" />
+    <Content Include="includes\selector.js" />
+    <Content Include="includes\simplePageNavPanel.js" />
+    <Content Include="includes\spamticker.css" />
+    <Content Include="includes\spamticker.js" />
+    <Content Include="includes\StoryControllers.js" />
+    <Content Include="includes\StoryEditor.js" />
+    <Content Include="includes\StoryEditor2.js" />
+    <Content Include="includes\StoryEditor3.js" />
+    <Content Include="includes\StoryEditor4.js" />
+    <Content Include="includes\StoryElementDragOnTop.js" />
+    <Content Include="includes\StoryElements.js" />
+    <Content Include="includes\storyElemView.js" />
+    <Content Include="includes\StoryList.js" />
+    <Content Include="includes\StoryPropertyEditor.js" />
+    <Content Include="includes\storySharingControl.js" />
+    <Content Include="includes\StoryToc.js" />
+    <Content Include="includes\StoryToc2.js" />
+    <Content Include="includes\StoryViewer.js" />
+    <Content Include="includes\StoryViewr2.js" />
+    <Content Include="includes\timer.js" />
+    <Content Include="screens\AccountActivation.aspx" />
+    <Content Include="screens\AccountActivationPost.aspx" />
+    <Content Include="screens\AddNewGroup.aspx" />
+    <Content Include="screens\addSingleUser.aspx" />
+    <Content Include="screens\basicFooter.ascx" />
+    <Content Include="screens\basicHozToolbar.ascx" />
+    <Content Include="screens\CreateNewStory.aspx" />
+    <Content Include="screens\EditUserInfo.aspx" />
+    <Content Include="screens\fauxIRC.aspx" />
+    <Content Include="screens\ListMembers.aspx" />
+    <Content Include="screens\login.aspx" />
+    <Content Include="screens\logout.aspx" />
+    <Content Include="screens\logReader.aspx" />
+    <Content Include="screens\logViewer.aspx" />
+    <Content Include="screens\ManageUsersGroups.aspx" />
+    <Content Include="screens\MessageManager.aspx" />
+    <Content Include="screens\msg.aspx" />
+    <Content Include="screens\PageElementEditor.aspx" />
+    <Content Include="screens\PageElementViewer.aspx" />
+    <Content Include="screens\platform2.aspx" />
+    <Content Include="screens\sendEmail.aspx" />
+    <Content Include="screens\SendNewEmail.aspx" />
+    <Content Include="screens\ShareStory.aspx" />
+    <Content Include="screens\SlideNavigator.aspx" />
+    <Content Include="screens\StoryEditor.aspx" />
+    <Content Include="screens\StoryEditor4.aspx" />
+    <Content Include="screens\StoryOrig.aspx" />
+    <Content Include="screens\StoryPageView2.aspx" />
+    <Content Include="screens\StoryReplay.aspx" />
+    <Content Include="screens\StrategyPortal.aspx" />
+    <Content Include="style\list.css" />
+    <Content Include="style\main.css" />
+    <Content Include="style\StoryElements.css" />
+    <Content Include="Web.config" />
+    <Content Include="webservices\daemon.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="basewebforms\LoginBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="basewebforms\PossibleSessionAwareWebForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="basewebforms\SessionAwareWebForm.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <SubType>ASPXCodeBehind</SubType>
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="screens\AccountActivation.aspx.cs">
+      <DependentUpon>AccountActivation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\AccountActivation.aspx.designer.cs">
+      <DependentUpon>AccountActivation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\AccountActivationPost.aspx.cs">
+      <DependentUpon>AccountActivationPost.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\AccountActivationPost.aspx.designer.cs">
+      <DependentUpon>AccountActivationPost.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\AddNewGroup.aspx.cs">
+      <DependentUpon>AddNewGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\AddNewGroup.aspx.designer.cs">
+      <DependentUpon>AddNewGroup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\addSingleUser.aspx.cs">
+      <DependentUpon>addSingleUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\addSingleUser.aspx.designer.cs">
+      <DependentUpon>addSingleUser.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\basicFooter.ascx.cs">
+      <DependentUpon>basicFooter.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\basicFooter.ascx.designer.cs">
+      <DependentUpon>basicFooter.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\basicHozToolbar.ascx.cs">
+      <DependentUpon>basicHozToolbar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\basicHozToolbar.ascx.designer.cs">
+      <DependentUpon>basicHozToolbar.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\CreateNewStory.aspx.cs">
+      <DependentUpon>CreateNewStory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\CreateNewStory.aspx.designer.cs">
+      <DependentUpon>CreateNewStory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\EditUserInfo.aspx.cs">
+      <DependentUpon>EditUserInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\EditUserInfo.aspx.designer.cs">
+      <DependentUpon>EditUserInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\fauxIRC.aspx.cs">
+      <DependentUpon>fauxIRC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\fauxIRC.aspx.designer.cs">
+      <DependentUpon>fauxIRC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\ListMembers.aspx.cs">
+      <DependentUpon>ListMembers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\ListMembers.aspx.designer.cs">
+      <DependentUpon>ListMembers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\login.aspx.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\login.aspx.designer.cs">
+      <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\logout.aspx.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\logout.aspx.designer.cs">
+      <DependentUpon>logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\logReader.aspx.cs">
+      <DependentUpon>logReader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\logReader.aspx.designer.cs">
+      <DependentUpon>logReader.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\logViewer.aspx.cs">
+      <DependentUpon>logViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\logViewer.aspx.designer.cs">
+      <DependentUpon>logViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\ManageUsersGroups.aspx.cs">
+      <DependentUpon>ManageUsersGroups.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\ManageUsersGroups.aspx.designer.cs">
+      <DependentUpon>ManageUsersGroups.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\MessageManager.aspx.cs">
+      <DependentUpon>MessageManager.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\MessageManager.aspx.designer.cs">
+      <DependentUpon>MessageManager.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\msg.aspx.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\msg.aspx.designer.cs">
+      <DependentUpon>msg.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\PageElementEditor.aspx.cs">
+      <DependentUpon>PageElementEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\PageElementEditor.aspx.designer.cs">
+      <DependentUpon>PageElementEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\PageElementViewer.aspx.cs">
+      <DependentUpon>PageElementViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\PageElementViewer.aspx.designer.cs">
+      <DependentUpon>PageElementViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\platform2.aspx.cs">
+      <DependentUpon>platform2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\platform2.aspx.designer.cs">
+      <DependentUpon>platform2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\sendEmail.aspx.cs">
+      <DependentUpon>sendEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\sendEmail.aspx.designer.cs">
+      <DependentUpon>sendEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\SendNewEmail.aspx.cs">
+      <DependentUpon>SendNewEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\SendNewEmail.aspx.designer.cs">
+      <DependentUpon>SendNewEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\ShareStory.aspx.cs">
+      <DependentUpon>ShareStory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\ShareStory.aspx.designer.cs">
+      <DependentUpon>ShareStory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\SlideNavigator.aspx.cs">
+      <DependentUpon>SlideNavigator.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\SlideNavigator.aspx.designer.cs">
+      <DependentUpon>SlideNavigator.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StoryEditor.aspx.cs">
+      <DependentUpon>StoryEditor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryEditor.aspx.designer.cs">
+      <DependentUpon>StoryEditor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StoryEditor4.aspx.cs">
+      <DependentUpon>StoryEditor4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryEditor4.aspx.designer.cs">
+      <DependentUpon>StoryEditor4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StoryOrig.aspx.cs">
+      <DependentUpon>StoryOrig.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryOrig.aspx.designer.cs">
+      <DependentUpon>StoryOrig.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StoryPageView2.aspx.cs">
+      <DependentUpon>StoryPageView2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryPageView2.aspx.designer.cs">
+      <DependentUpon>StoryPageView2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StoryReplay.aspx.cs">
+      <DependentUpon>StoryReplay.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StoryReplay.aspx.designer.cs">
+      <DependentUpon>StoryReplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\StrategyPortal.aspx.cs">
+      <DependentUpon>StrategyPortal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\StrategyPortal.aspx.designer.cs">
+      <DependentUpon>StrategyPortal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="webservices\daemon.asmx.cs">
+      <DependentUpon>daemon.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AgentStoryComponents\AgentStoryComponents\AgentStoryComponents.csproj">
+      <Project>{41C94A56-3294-4CA2-831D-5E5B30CAA112}</Project>
+      <Name>AgentStoryComponents</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\AgentStoryConfig\AgentStoryConfig\AgentStoryConfig.csproj">
+      <Project>{6413A0F2-A5E2-445C-8A15-FAE159F95CDC}</Project>
+      <Name>AgentStoryConfig</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="extras\SmartOrg\PortfolioGame\images\20\Thumbs.db" />
+    <None Include="extras\SmartOrg\PortfolioGame\images\6\Thumbs.db" />
+    <None Include="extras\SmartOrg\PortfolioGame\images\b4\Thumbs.db" />
+    <None Include="extras\SmartOrg\PortfolioGame\images\w4\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="includes\flickr\" />
+    <Folder Include="includes\google\" />
+    <Folder Include="includes\strategy\" />
+    <Folder Include="includes\YUI\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v9.0\WebApplications\Microsoft.WebApplication.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>8181</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>
