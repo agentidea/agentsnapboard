@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{41C94A56-3294-4CA2-831D-5E5B30CAA112}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AgentStoryComponents</RootNamespace>
+    <AssemblyName>AgentStoryComponents</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="aspNetEmail, Version=3.5.2.0, Culture=neutral, PublicKeyToken=bc571e8da1c1f543">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\aspNetEmail.dll</HintPath>
+    </Reference>
+    <Reference Include="SMTP, Version=1.0.2503.25266, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\SMTP.dll</HintPath>
+    </Reference>
+    <Reference Include="Strategy, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Strategy.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="commands\cmdAddNewGroup.cs" />
+    <Compile Include="commands\cmdAddNewPage.cs" />
+    <Compile Include="commands\cmdAddNewPageElement.cs" />
+    <Compile Include="commands\cmdAddNewStory.cs" />
+    <Compile Include="commands\cmdAddNewUser.cs" />
+    <Compile Include="commands\cmdAddStrategy.cs" />
+    <Compile Include="commands\cmdAddUsersToGroup.cs" />
+    <Compile Include="commands\cmdChangeUserState.cs" />
+    <Compile Include="commands\cmdCloneStory.cs" />
+    <Compile Include="commands\cmdCreateInvitation.cs" />
+    <Compile Include="commands\cmdCreateMailAndSend.cs" />
+    <Compile Include="commands\cmdCreateMailDraft.cs" />
+    <Compile Include="commands\cmdDeleteEmailMessages.cs" />
+    <Compile Include="commands\cmdGetGroupUsers.cs" />
+    <Compile Include="commands\cmdGetStoryPermissionData.cs" />
+    <Compile Include="commands\cmdHeartBeat.cs" />
+    <Compile Include="commands\cmdLoadMediaItems.cs" />
+    <Compile Include="commands\cmdMarkStoryState.cs" />
+    <Compile Include="commands\cmdOrderPages.cs" />
+    <Compile Include="commands\cmdPostLogMsg.cs" />
+    <Compile Include="commands\cmdRemovePage.cs" />
+    <Compile Include="commands\cmdRemovePageElement.cs" />
+    <Compile Include="commands\cmdRemoveUsersFromGroup.cs" />
+    <Compile Include="commands\cmdSaveEmailAndSend.cs" />
+    <Compile Include="commands\cmdSaveEmailDraft.cs" />
+    <Compile Include="commands\cmdSaveProfileInfo.cs" />
+    <Compile Include="commands\cmdSendMessages.cs" />
+    <Compile Include="commands\cmdStoryPostMsg.cs" />
+    <Compile Include="commands\cmdTerminateProfile.cs" />
+    <Compile Include="commands\cmdUpdatePage.cs" />
+    <Compile Include="commands\cmdUpdatePageElement.cs" />
+    <Compile Include="commands\cmdUpdatePageElementXYZ.cs" />
+    <Compile Include="commands\cmdUpdateStoryMeta.cs" />
+    <Compile Include="commands\cmdUserGroupsStoryMx.cs" />
+    <Compile Include="commands\cmdSetPageGate.cs" />
+    <Compile Include="core\logger.cs" />
+    <Compile Include="core\macroElements.cs" />
+    <Compile Include="core\utils.cs" />
+    <Compile Include="Email.cs" />
+    <Compile Include="Emails.cs" />
+    <Compile Include="Exceptions.cs" />
+    <Compile Include="extAPI\Content.cs" />
+    <Compile Include="extAPI\elements.cs" />
+    <Compile Include="Group.cs" />
+    <Compile Include="Groups.cs" />
+    <Compile Include="ICommand.cs" />
+    <Compile Include="Invitation.cs" />
+    <Compile Include="Page.cs" />
+    <Compile Include="PageElement.cs" />
+    <Compile Include="PageElementMap.cs" />
+    <Compile Include="PageElements.cs" />
+    <Compile Include="PostMan.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PropertyString.cs" />
+    <Compile Include="Scribe.cs" />
+    <Compile Include="stats.cs" />
+    <Compile Include="Stories.cs" />
+    <Compile Include="Story.cs" />
+    <Compile Include="StoryChangeEvent.cs" />
+    <Compile Include="StoryLog.cs" />
+    <Compile Include="StoryState.cs" />
+    <Compile Include="StoryTxLog.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserGroupHelper.cs" />
+    <Compile Include="Users.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\AgentStoryConfig\AgentStoryConfig\AgentStoryConfig.csproj">
+      <Project>{6413A0F2-A5E2-445C-8A15-FAE159F95CDC}</Project>
+      <Name>AgentStoryConfig</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\FlickrNet\FlickrNet\FlickrNet.csproj">
+      <Project>{0A8FAFD3-83BE-4EE4-8C13-74D8317A48B1}</Project>
+      <Name>FlickrNet</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

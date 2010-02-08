@@ -1,0 +1,5 @@
+C:\Users\Admin2\Documents\Visual Studio 2008\Projects\GameStory\AgentStoryEvolution\FlickrNet\FlickrNet\bin\Release\FlickrNet.dll
+C:\Users\Admin2\Documents\Visual Studio 2008\Projects\GameStory\AgentStoryEvolution\FlickrNet\FlickrNet\bin\Release\FlickrNet.pdb
+C:\Users\Admin2\Documents\Visual Studio 2008\Projects\GameStory\AgentStoryEvolution\FlickrNet\FlickrNet\obj\Release\ResolveAssemblyReference.cache
+C:\Users\Admin2\Documents\Visual Studio 2008\Projects\GameStory\AgentStoryEvolution\FlickrNet\FlickrNet\obj\Release\FlickrNet.dll
+C:\Users\Admin2\Documents\Visual Studio 2008\Projects\GameStory\AgentStoryEvolution\FlickrNet\FlickrNet\obj\Release\FlickrNet.pdb
