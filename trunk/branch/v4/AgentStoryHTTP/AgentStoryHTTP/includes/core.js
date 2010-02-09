@@ -31,16 +31,16 @@ var txSessionID = "not_set_yet";
 
 var _logger = null;
 
-function TheLogger()
-{
-    if(_logger==null)
-    {
-        _logger = YAHOO.widget.Logger;
-        _logger.log("initializing logger Singleton Function","warn");
-    }
-    
-    return _logger;
-}
+//function TheLogger()
+//{
+//    if(_logger==null)
+//    {
+//        _logger = YAHOO.widget.Logger;
+//        _logger.log("initializing logger Singleton Function","warn");
+//    }
+//    
+//    return _logger;
+//}
 
 
 ////////////////////

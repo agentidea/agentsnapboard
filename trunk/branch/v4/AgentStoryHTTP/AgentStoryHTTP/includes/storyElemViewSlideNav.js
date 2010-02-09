@@ -656,7 +656,7 @@ function storyElemView(aID,aCount,aX,aY,aZ,aGUID,aBY,abShowEditor,aDateAdded, ab
                     
                     
                    //INSERT NEW story element
-                   TheLogger().log( "NEW story element@" + _x + "x" + _y,"warn");
+                   //TheLogger().log( "NEW story element@" + _x + "x" + _y,"warn");
                   
                    var currPage = storyView.StoryController.GetPage(storyView.StoryController.getCurrentPageCursor());
 
@@ -687,7 +687,7 @@ function storyElemView(aID,aCount,aX,aY,aZ,aGUID,aBY,abShowEditor,aDateAdded, ab
                 else
                 {
                    //UPDATE EXISTING page element
-                   TheLogger().log( "EXISTING story element","warn");
+                   //TheLogger().log( "EXISTING story element","warn");
 
                    var buttonClicked = document.getElementById(srcEventID);
                    buttonClicked.className = "clsButtonActionClicked";
