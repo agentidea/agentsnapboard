@@ -211,19 +211,19 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     // library panel
     //
     
-    var _libPanel = document.createElement("DIV");
-    this.libPanel = _libPanel;
-    _libPanel.className = "clsLibPanel";  
-    _libPanel.style.display = "none";
-    
-    var _libViewer = new LibraryViewer();
-    _libViewer.init();
-    _libPanel.appendChild( _libViewer.container );
-    
-    this.getLibViewer = function()
-    {
-        return _libViewer;
-    }
+//    var _libPanel = document.createElement("DIV");
+//    this.libPanel = _libPanel;
+//    _libPanel.className = "clsLibPanel";  
+//    _libPanel.style.display = "none";
+//    
+//    var _libViewer = new LibraryViewer();
+//    _libViewer.init();
+//    _libPanel.appendChild( _libViewer.container );
+//    
+//    this.getLibViewer = function()
+//    {
+//        return _libViewer;
+//    }
 
    this.adjustHook = function( x,y )
    {
@@ -487,7 +487,7 @@ function storyView2init(attachPoint,aFrontHook)
         this._alertArea = new AlertArea();
     }
     attachPoint.appendChild(this._alertArea.container);
-    attachPoint.appendChild( this.libPanel );
+//    attachPoint.appendChild( this.libPanel );
 
     this.container = this.pageNavPanel.container;
 
@@ -859,18 +859,7 @@ function PageNavigatorPanel( aoStoryController )
 
    this.lib_toggle = function ()
    {
-        if( storyView.libPanel.style.display == "none")
-        {
-            storyView.libPanel.style.display = "block";
-            storyView.adjustHook(storyView.LEFT_ADJUST_PANEL_OPEN,0);
-            storyView.setOffSetX(storyView.LEFT_ADJUST_PANEL_OPEN);
-        }
-        else
-        {
-           storyView.libPanel.style.display = "none";
-           storyView.adjustHook(storyView.LEFT_ADJUST_PANEL_CLOSED,0);
-           storyView.setOffSetX(storyView.LEFT_ADJUST_PANEL_CLOSED);
-        }
+       
    }
    
    
@@ -893,7 +882,7 @@ function PageNavigatorPanel( aoStoryController )
         grdPageEditControlsVals.push( TheUte().getButton("cmdRemovePage","-","remove page",this.page_remove,"clsButton"));
         grdPageEditControlsVals.push( TheUte().getButton("cmdRemovePage","order","re-order pages",this.page_reorder,"clsButton"));
         
-        grdPageEditControlsVals.push( TheUte().getButton("cmdPageProperties","lib","toggle library",this.lib_toggle,"clsButton"));
+      //  grdPageEditControlsVals.push( TheUte().getButton("cmdPageProperties","lib","toggle library",this.lib_toggle,"clsButton"));
 
         
         var aPageNames = storyView.StoryController.getPageNameArray();
@@ -1292,10 +1281,10 @@ function panel( aInputArea,aOutputArea )
         var dvToActOn = document.getElementById( "dvCollapseExpandBody" );
   
   
-        if( !dvToActOn.style.display )
-            TheLogger().log( "display mode not availible ","warn" );
-        else
-            TheLogger().log( "display mode " + dvToActOn.style.display , "warn" );
+//        if( !dvToActOn.style.display )
+//            TheLogger().log( "display mode not availible ","warn" );
+//        else
+//            TheLogger().log( "display mode " + dvToActOn.style.display , "warn" );
   
         if ( ! dvToActOn.style.display || dvToActOn.style.display == "block")
         {

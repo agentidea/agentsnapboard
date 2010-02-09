@@ -109,7 +109,7 @@ YAHOO.example.DDOnTop.prototype.endDrag = function(e) {
         //
         // hide the library element
         //
-        this.getEl().style.display = "none";
+        //this.getEl().style.display = "none";
         
         
         

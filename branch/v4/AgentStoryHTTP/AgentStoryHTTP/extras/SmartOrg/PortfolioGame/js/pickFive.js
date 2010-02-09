@@ -21,9 +21,9 @@ var pickFive = {
         var footer = "</table>";
         this.allProjectHTML = header + body + footer;
 
-        //this.setFundedValue(portfolio.fundedPoints);
-        this.fundedValue = portfolio.fundedPoints;
-        
+        this.setFundedValue(portfolio.fundedPoints);
+        //this.fundedValue = portfolio.fundedPoints;
+
     },
 
     addOnClickHandlerTo: function(htmlTags) {
@@ -69,13 +69,13 @@ var pickFive = {
         document.getElementById("valueOfInformation").innerHTML = valueOfInformation;
     },
 
-    //    getFundedValue: function() {
-    //        return parseInt(document.getElementById("valueOfFundedProjects").innerHTML);
-    //    },
+    getFundedValue: function() {
+        return this.fundedValue;
+    },
 
-    //    setFundedValue: function(fundedValue) {
-    //        document.getElementById("valueOfFundedProjects").innerHTML = fundedValue;
-    //    },
+    setFundedValue: function(rhs) {
+        this.fundedValue = rhs;
+    },
 
     getNumSelected: function() {
         return parseInt(document.getElementById("numberSelected").innerHTML);

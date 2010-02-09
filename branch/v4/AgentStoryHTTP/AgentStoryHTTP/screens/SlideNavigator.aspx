@@ -70,30 +70,21 @@
 <script src="../includes/grid.js" language="javascript" type="text/javascript"></script>
 <script  type="text/javascript" src="../includes/LabelEdit.js"></script>
 
-<!-- LIBRARY related includes -->
-<script  type="text/javascript" src="../includes/LibraryViewer.js"></script>
-<script  type="text/javascript" src="../includes/CoreLibraryPortals.js"></script>
-<script  type="text/javascript" src="../includes/CustomLibraryPortals.js"></script>
+
 
 
 <script  type="text/javascript" src="../includes/timer.js"></script>
 <script src="../includes/StoryElements.js" language="javascript" type="text/javascript"></script>
 <script src="../includes/StoryControllers.js" language="javascript" type="text/javascript"></script>
     
-<script type="text/javascript" src="../includes/YUI/build/yahoo/yahoo-min.js" ></script>
-<script type="text/javascript" src="../includes/YUI/build/event/event-min.js" ></script>
-<script type="text/javascript" src="../includes/YUI/build/dom/dom-min.js"></script>
-<script type="text/javascript" src="../includes/YUI/build/logger/logger-min.js"></script>
-<script type="text/javascript" src="../includes/YUI/build/dragdrop/dragdrop-debug.js" ></script>
 
-<script type="text/javascript" src="../includes/tiny_mce/tiny_mce.js" ></script>
 
 
 <script  type="text/javascript" src="../includes/PageUtils.js"></script>
-<script  type="text/javascript" src="../includes/StoryElementEditor.js"></script>
+
 <script  type="text/javascript" src="../includes/SlideNavigator.js" ></script>
 <script src="../includes/storyElemViewSlideNav.js" type="text/javascript"></script>
-<script type="text/javascript" src="../includes/StoryElementDragOnTop.js" ></script>
+
 <script type="text/javascript" src="../includes/AlertArea.js" ></script>
 <script type="text/javascript" src="../includes/SlideNavigatorNavPanel.js" ></script>
 
