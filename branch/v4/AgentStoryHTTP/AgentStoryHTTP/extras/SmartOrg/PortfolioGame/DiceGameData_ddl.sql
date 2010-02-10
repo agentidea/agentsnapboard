@@ -1,10 +1,4 @@
 
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[DiceGameData]') AND type in (N'U'))
-BEGIN
 CREATE TABLE [dbo].[DiceGameData](
 	[id] [int] NOT NULL,
 	[alias] [nvarchar](16) NOT NULL,
@@ -14,25 +8,28 @@ CREATE TABLE [dbo].[DiceGameData](
 	[lastEditedYear] [int] NOT NULL,
 	[lastEditedWhen] [datetime] NOT NULL,
 	
-	[pearl] [int] NULL,
-	[oyster] [int] NULL,
-	[breadAndButter] [int] NULL,
-	[whiteElephant] [int] NULL,
+	[guid] [uniqueidentifier] NOT NULL DEFAULT (newid()),
 	
-	[Funded_Success] [int] NULL,
-	[Funded_Points] [int] NULL,
+	[pearl] [int] NOT NULL DEFAULT(-1),
+	[oyster] [int] NOT NULL DEFAULT(-1),
+	[breadAndButter] [int] NOT NULL DEFAULT(-1),
+	[whiteElephant] [int] NOT NULL DEFAULT(-1),
 	
-	[UnFunded_Points] [int] NULL,
-	[UnFunded_Success] [int] NULL,
+	[Funded_Success] [int] NOT NULL DEFAULT(-1),
+	[Funded_Points] [int] NOT NULL DEFAULT(-1),
 	
-	[Best5_Success] [int] NULL,
-	[Best5_Points] [int] NULL,
+	[UnFunded_Points] [int] NOT NULL DEFAULT(-1),
+	[UnFunded_Success] [int] NOT NULL DEFAULT(-1),
+	
+	[Best5_Success] [int] NOT NULL DEFAULT(-1),
+	[Best5_Points] [int] NOT NULL DEFAULT(-1),
 	
  CONSTRAINT [PK_DiceGameData] PRIMARY KEY CLUSTERED 
 (
 	[id] ASC
 )WITH (IGNORE_DUP_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
+GO
 
 CREATE UNIQUE NONCLUSTERED INDEX IX_DiceGameData ON dbo.DiceGameData
 	(
@@ -41,4 +38,4 @@ CREATE UNIQUE NONCLUSTERED INDEX IX_DiceGameData ON dbo.DiceGameData
 GO
 ALTER TABLE dbo.DiceGameData SET (LOCK_ESCALATION = TABLE)
 GO
-COMMIT
+
