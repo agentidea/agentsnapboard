@@ -1,7 +1,7 @@
 
 CREATE TABLE [dbo].[DiceGameData](
-	[id] [int] NOT NULL,
-	[alias] [nvarchar](16) NOT NULL,
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[alias] [nvarchar](100) NOT NULL,
 	[tx_id] [nvarchar](100) NOT NULL,
 	[lastEditedDay] [int] NOT NULL,
 	[lastEditedMonth] [int] NOT NULL,

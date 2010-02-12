@@ -20,6 +20,9 @@
 
 
     var gUserCurrentTxID = null;
+    var gUserAlias = "not_set_yet";
+    var gRowDataPK = -1;
+    
     var X_POINT = 100;
     var Y_POINT = 125;
  

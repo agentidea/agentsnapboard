@@ -1,6 +1,7 @@
 var pickFive = {
     allProjectHTML: "",
     fundedValue: -1,
+    successCount: 0,
     hoverColor: [247, 248, 151],
     highlightedColor: [196, 249, 192],
 
@@ -22,7 +23,6 @@ var pickFive = {
         this.allProjectHTML = header + body + footer;
 
         this.setFundedValue(portfolio.fundedPoints);
-        //this.fundedValue = portfolio.fundedPoints;
 
     },
 
@@ -36,6 +36,9 @@ var pickFive = {
     rowClicked: function(row) {
         if (this.isValid(row)) {
             var fourthCell = row.cells[3];
+            var thirdCell = row.cells[2];
+
+
             var totalValue = this.getTotalValueOfSelection();
             var numSelected = this.getNumSelected();
             var fundedValue = this.getFundedValue();
@@ -45,6 +48,18 @@ var pickFive = {
             } else {
                 cellValue = fourthCell.textContent;
             }
+
+
+
+            var sf = "";
+
+            if (document.all) {
+                sf = thirdCell.innerText;
+            } else {
+                sf = thirdCell.textContent;
+            }
+
+
             if (row.style.backgroundColor == this.toString(this.hoverColor) || row.style.backgroundColor == "" || row.style.backgroundColor == this.toRGB(this.hoverColor)) {
                 if (numSelected == 5) {
                     alert("You have already selected five projects. Unselect something before you pick this one.");
@@ -52,11 +67,25 @@ var pickFive = {
                     row.style.backgroundColor = this.toRGB(this.highlightedColor);
                     totalValue += parseInt(cellValue);
                     numSelected++;
+
+                   
+                    if (sf == "Success") {
+
+                        this.successCount = this.successCount + 1;
+                    }
+
+
                 }
             } else {
                 row.style.backgroundColor = "";
                 totalValue -= parseInt(cellValue);
                 numSelected--;
+
+                if (sf == "Success" && this.successCount > 0) {
+
+                    this.successCount = this.successCount - 1;
+                }
+
             }
             var valueOfInformation = Math.max(totalValue - fundedValue, 0);
             this.setTotalValueOfSelection(totalValue);

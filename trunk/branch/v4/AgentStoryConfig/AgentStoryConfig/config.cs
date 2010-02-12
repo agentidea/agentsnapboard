@@ -3,6 +3,8 @@ namespace AgentStoryComponents
 {
     public static class config
     {
+        //plugin - extensibility class loader class ID
+        public static string extraClassID = "AgentStoryComponents.extAPI.commands.";
 
         //
         //   LOCAL - DEV

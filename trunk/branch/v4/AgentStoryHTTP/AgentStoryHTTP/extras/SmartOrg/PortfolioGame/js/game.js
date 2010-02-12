@@ -9,13 +9,30 @@ $(document).ready(function() {
     	gameController.loadImagesIntoBrowserCache();
  	});
 
+// save col values by way of Macro framework.
+ 	function saveColVal(colName, colIntVal) {
+ 	    try {
+ 	        var extraSetColVal = newMacro("extraSetColVal");
+ 	        addParam(extraSetColVal, "colName", colName);
+ 	        addParam(extraSetColVal, "colIntVal", colIntVal);
+ 	        addParam(extraSetColVal, "tx_id64", TheUte().encode64(gUserCurrentTxID));
+
+ 	        processRequest(extraSetColVal);
+ 	    }
+ 	    catch (e) {
+ 	        alert("col setting setting error " + e.description);
+ 	    }
+
+ 	}
+
+
 function nextStepToRollDiceForUnfunded(selected) {
 
     var msg = null;
     
 	if (dirtyFlag == "on") {
 		resetPastResults();
-		disableRollFundedButton();
+		
 	}
 	if (selected.options.length < 5) {
 		msg =  "You should have selected exactly 5 projects. Please try again.";
