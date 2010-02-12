@@ -154,7 +154,21 @@ function cmdRemovePageElement (macro)
         
 
 }
+function cmdDisplayDiv(macro)
+{
+    var html64 = getParameterVal("html64", macro);
+    var targetDiv = getParameterVal("targetDiv", macro);
+    var html = TheUte().decode64(html64);
 
+    var d = document.getElementById(targetDiv);
+    if (d != null) {
+
+        d.innerHTML = html;
+    }
+    
+    
+    
+}
 function cmdDisplayAlert(macro)
 {
     var msg = getParameterVal("msg",macro);
@@ -203,6 +217,20 @@ function cmdLoadMediaItems(macro)
  
     }
 }
+
+
+function cmdregisterAlias(macro) {
+
+
+
+    gUserAlias = TheUte().decode64(getParameterVal("alias64", macro));
+    gRowDataPK = getParameterVal("id", macro);
+    gRowDataPK = gRowDataPK * 1;
+    
+    var msg = TheUte().decode64(getParameterVal("msg64", macro));
+    alert(msg);
+}
+
 
 function cmdProcessNewInvites(macro)
 {
@@ -1145,6 +1173,8 @@ function cmdBOX(macro)
  color:#;
  
 */
+
+
 
 
 //

@@ -1424,11 +1424,33 @@ SELECT.clsPageNavPulldownLGE
 {
 	display:block;
 }
+.clsDiceGameData
+{
+	font-size:7pt;
+}
+.clsDiceGameHeader
+{
+	font-size:7pt;
+	font-weight:bold;
+	background-color:#000000;
+	color:#ffffff;
+}
 
-
-
-
-
+.clsDiceGameRow1
+{
+	font-size:7pt;
+	font-weight:bold;
+	background-color:#e0e0e0;
+	color:black;
+}
+.clsDiceGameTotals
+{
+	font-size:7pt;
+	font-weight:bold;
+	background-color:#e0e0e0;
+	font-weight:bold;
+	color:black;
+}
 
 /* logger default styles for YUI logger */
 /* font size is controlled here: default 77% */

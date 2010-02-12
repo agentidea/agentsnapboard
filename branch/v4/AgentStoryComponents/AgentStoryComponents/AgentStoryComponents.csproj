@@ -92,6 +92,9 @@
     <Compile Include="commands\cmdUpdateStoryMeta.cs" />
     <Compile Include="commands\cmdUserGroupsStoryMx.cs" />
     <Compile Include="commands\cmdSetPageGate.cs" />
+    <Compile Include="extAPI\commands\extraStrategyReport.cs" />
+    <Compile Include="extAPI\commands\extraSetColVal.cs" />
+    <Compile Include="extAPI\commands\extraAddAlias.cs" />
     <Compile Include="core\logger.cs" />
     <Compile Include="core\macroElements.cs" />
     <Compile Include="core\utils.cs" />
@@ -99,6 +102,7 @@
     <Compile Include="Emails.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="extAPI\Content.cs" />
+    <Compile Include="extAPI\DiceGameData.cs" />
     <Compile Include="extAPI\elements.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="Groups.cs" />

@@ -43,8 +43,18 @@ namespace AgentStoryComponents.core
         public static MacroEnvelope processRequest(AgentStoryComponents.User sessionUser, Macro m)
         {
 
+            string lsClassID = null;
 
-            string lsClassID = "AgentStoryComponents.commands.cmd" + m.Name;
+            if (m.Name.StartsWith("extra"))
+            {
+                lsClassID = config.extraClassID + m.Name;
+            }
+            else
+            {
+                //use built in core commands
+                lsClassID = "AgentStoryComponents.commands.cmd" + m.Name;
+            }
+
             ICommand command = null;
 
             try
@@ -329,6 +339,11 @@ namespace AgentStoryComponents.core
             parameterCount++;
         }
 
+        public void addParameter(string name, int val)
+        {
+            Parameters[parameterCount] = new Parameter(name, val + "");
+            parameterCount++;
+        }
 
         internal void addUserRef(User sessionUser)
         {
