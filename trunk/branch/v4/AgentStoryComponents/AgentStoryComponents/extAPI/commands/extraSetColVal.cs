@@ -20,6 +20,8 @@ namespace AgentStoryComponents.extAPI.commands
             string tx_id64 = MacroUtils.getParameterString("tx_id64", macro);
             string tx_id = TheUtils.ute.decode64(tx_id64);
 
+            int StoryID = MacroUtils.getParameterInt("StoryID", macro);
+
 
             DiceGameData dgd = null;
             dgd = new DiceGameData(config.conn);
@@ -82,10 +84,21 @@ namespace AgentStoryComponents.extAPI.commands
             msg = TheUtils.ute.encode64(msg);
             MacroEnvelope me = new MacroEnvelope();
 
-            Macro proc = new Macro("NullMacro", 1);
-            proc.addParameter("blah", 0);
+
+            //var cellKey = string.Format("{0}_{1}", tx_id, colName);
+            //Macro proc = new Macro("NotifyUpdateCellValue", 4);
+            //proc.addParameter("cellKey", cellKey);
+            //proc.addParameter("colIntValue", colValue);
+            //proc.addParameter("tx_id64", tx_id64);
+            //proc.addParameter("dateStamp", TheUtils.ute.getDateStamp());
+
+            Macro proc = new Macro("RefreshStrategyTable", 1);
+            proc.addParameter("by", macro.RunningMe.ID + "");
 
             me.addMacro(proc);
+
+            MacroUtils.LogStoryTx(me, StoryID, macro);
+
             return me;
         }
 

@@ -15,6 +15,7 @@ $(document).ready(function() {
  	        var extraSetColVal = newMacro("extraSetColVal");
  	        addParam(extraSetColVal, "colName", colName);
  	        addParam(extraSetColVal, "colIntVal", colIntVal);
+ 	        addParam(extraSetColVal, "StoryID", storyView.StoryController.CurrentStory.ID);
  	        addParam(extraSetColVal, "tx_id64", TheUte().encode64(gUserCurrentTxID));
 
  	        processRequest(extraSetColVal);
@@ -24,7 +25,29 @@ $(document).ready(function() {
  	    }
 
  	}
+ 	
+    function removeGameData()
+    {
 
+        var conf = confirm("Are you sure you want to delete all game data?");
+        if (conf == false) {
+            alert("no game data was deleted");
+            return;
+        }
+
+
+        try {
+            var extraDeleteGameData = newMacro("extraDeleteGameData");
+            addParam(extraDeleteGameData, "tx_id64", TheUte().encode64(gUserCurrentTxID));
+
+            processRequest(extraDeleteGameData);
+        }
+        catch (e) {
+            alert("data delete error " + e.description);
+        }
+    }
+
+   
 
 function nextStepToRollDiceForUnfunded(selected) {
 

@@ -900,8 +900,8 @@ a
 	width:990px;
 	height:400px;
 	color:black;
-	font-size:larger;
-	font-weight:bolder;
+	font-size:16pt;
+
 	padding:13px 13px 13px 13px;
 	overflow:scroll;
 }
@@ -911,8 +911,8 @@ a
 	width:990px;
 	height:100px;
 	color:black;
-	font-size:larger;
-	font-weight:bolder;
+	font-size:16pt;
+	
 	font-family:Courier New;
 	padding:13px 13px 13px 13px;
 	overflow:scroll;
@@ -1443,15 +1443,38 @@ SELECT.clsPageNavPulldownLGE
 	background-color:#e0e0e0;
 	color:black;
 }
+
+.clsDiceGameRowHighlighted
+{
+	font-size:7pt;
+	font-weight:bold;
+	background-color:#ffffdd;
+	color:black;
+}
+
 .clsDiceGameTotals
 {
 	font-size:7pt;
 	font-weight:bold;
-	background-color:#e0e0e0;
+	background-color:#999999;
 	font-weight:bold;
 	color:black;
 }
 
+.clsPortfolioSilos
+{
+	width: 205px;
+	background-color:#ffffff;	
+}
+.clsPortfolioButtons
+{
+	width:200px;	
+}
+.clsGameController
+{
+	background-color:#000000;
+	color:Yellow;	
+}
 /* logger default styles for YUI logger */
 /* font size is controlled here: default 77% */
 #yui-log {position:absolute;top:1em;right:1em;font-size:77%;text-align:left;}

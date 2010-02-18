@@ -12,14 +12,14 @@ namespace AgentStoryComponents.extAPI.commands
     public class extraStrategyReport : ICommand
     {
 
-        private Hashtable gTotals = new Hashtable();
-
+        private Dictionary<string, AverageTotaller> gTotals = new Dictionary<string, AverageTotaller>();
+        private string gTX_ID = null;
         public MacroEnvelope execute(Macro macro)
         {
             string targetDiv = MacroUtils.getParameterString("targetDiv", macro);
             string tx_id64 = MacroUtils.getParameterString("tx_id64", macro);
             string tx_id = TheUtils.ute.decode64(tx_id64);
-            
+            this.gTX_ID = tx_id;
             MacroEnvelope me = new MacroEnvelope();
 
             Macro proc = new Macro("DisplayDiv", 2);
@@ -36,14 +36,12 @@ namespace AgentStoryComponents.extAPI.commands
             dbHelper.cmd.CommandText = sql;
             dbHelper.reader = dbHelper.cmd.ExecuteReader();
             System.Text.StringBuilder sbHTML = new StringBuilder();
-            sbHTML.Append("<table class='clsDiceGameData' cellspacing='0'>");
+            sbHTML.Append("<table id='tblStrategy' class='clsDiceGameData' cellspacing='0' cellpadding='3' border='1'>");
 
 
 
             sbHTML.Append("<tr class='clsDiceGameHeader' >");
-            sbHTML.Append("<td>");
-            sbHTML.Append("id");
-            sbHTML.Append("</td>");
+          
             sbHTML.Append("<td>");
             sbHTML.Append("alias");
             sbHTML.Append("</td>");
@@ -53,42 +51,48 @@ namespace AgentStoryComponents.extAPI.commands
             sbHTML.Append("<td>");
             sbHTML.Append("oyster");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("b&b");
+            sbHTML.Append("<td nowrap='true'>");
+            sbHTML.Append("bread and butter");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("White Elephant");
+            sbHTML.Append("<td nowrap='true'>");
+            sbHTML.Append("white elephant");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("FundedSuccess");
+            sbHTML.Append("<td nowrap='true'>");
+            sbHTML.Append("funded Success");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("FundedPoints");
+            sbHTML.Append("<td nowrap='true'>");
+            sbHTML.Append("funded Points");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("UnFundedPoints");
+            sbHTML.Append("<td nowrap='true'>");
+            sbHTML.Append("un-funded Points");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("UnFundedSuccess");
+            sbHTML.Append("<td nowrap='true'>");
+            sbHTML.Append("un-funded Success");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("Best5Success");
+            sbHTML.Append("<td nowrap='true'>");
+            sbHTML.Append("Best 5 Success");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("Best5Points");
+            sbHTML.Append("<td nowrap='true'>");
+            sbHTML.Append("Best 5 Points");
             sbHTML.Append("</td>");
 
             sbHTML.Append("</tr>");
 
 
+            
 
             while (dbHelper.reader.Read())
             {
-                sbHTML.Append("<tr class='clsDiceGameRow1'>");
+
+
+                var _tx_id = (string) dbHelper.reader["tx_id"];
+
+                if(gTX_ID == _tx_id)
+                    sbHTML.Append("<tr class='clsDiceGameRowHighlighted'>");
+                else
+                    sbHTML.Append("<tr class='clsDiceGameRow1'>");
+            
                 
-                sbHTML.Append("<td>");
-                sbHTML.Append(Convert.ToInt32(dbHelper.reader["id"]));
-                sbHTML.Append("</td>");
                 sbHTML.Append("<td>");
                 sbHTML.Append(TheUtils.ute.decode64(Convert.ToString(dbHelper.reader["alias"])));
                 sbHTML.Append("</td>");
@@ -129,40 +133,38 @@ namespace AgentStoryComponents.extAPI.commands
             sbHTML.Append("<tr class='clsDiceGameTotals'>");
 
             sbHTML.Append("<td>");
-            sbHTML.Append("totals");
+            sbHTML.Append("Averages");
+            sbHTML.Append("</td>");
+ 
+            sbHTML.Append("<td>");
+            sbHTML.Append(gTotals["pearl"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append("&nbsp;");
+            sbHTML.Append(gTotals["oyster"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["pearl"]);
+            sbHTML.Append(gTotals["breadAndButter"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["oyster"]);
+            sbHTML.Append(gTotals["whiteElephant"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["breadAndButter"]);
+            sbHTML.Append(gTotals["Funded_Success"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["whiteElephant"]);
+            sbHTML.Append(gTotals["Funded_Points"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["Funded_Success"]);
+            sbHTML.Append(gTotals["UnFunded_Points"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["Funded_Points"]);
+            sbHTML.Append(gTotals["UnFunded_Success"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["UnFunded_Points"]);
+            sbHTML.Append(gTotals["Best5_Success"].Average);
             sbHTML.Append("</td>");
             sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["UnFunded_Success"]);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["Best5_Success"]);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["Best5_Points"]);
+            sbHTML.Append(gTotals["Best5_Points"].Average);
             sbHTML.Append("</td>");
 
             sbHTML.Append("</tr>");
@@ -173,45 +175,69 @@ namespace AgentStoryComponents.extAPI.commands
             return sbHTML.ToString();
 
         }
-
         private string procNum(System.Data.OleDb.OleDbDataReader reader,string name)
         {
+
+            string outputString = null;
 
             int valInt = System.Convert.ToInt32( reader[name]);
 
             if (valInt < 0)
             {
-                return "&nbsp;";
+                outputString = "&nbsp;";
             }
             else
             {
-                processTotals(name, valInt);
-                return valInt + "";
-
+                processAverages(name, valInt);
+                outputString = valInt + "";
             }
 
-
-
+            //var cellKey = string.Format("{0}_{1}", tx_id, name);
+            return outputString;
+            // return string.Format("<div id='{1}'>{0}</div>",outputString,cellKey);
 
 
         }
+        
 
-        private void processTotals(string name, int valInt)
+        private void processAverages(string name, int valInt)
         {
             if (gTotals.ContainsKey(name))
             {
-                int valtmp = (int) gTotals[name];
-                valtmp = valtmp + valInt;
-                gTotals[name] = valtmp;
-
+                gTotals[name].add(valInt);
             }
             else
             {
-                gTotals.Add(name, valInt);
+                gTotals.Add(name, new AverageTotaller(valInt));
+            }
+        }
+    }
+
+    /// <summary>
+    /// running list values, to get Average from
+    /// </summary>
+    public class AverageTotaller 
+    {
+        private List<int> _ints = new List<int>();
+        public AverageTotaller(int initialValue)
+        {
+            this.add(initialValue);
+        }
+        public void add(int val)
+        {
+            _ints.Add(val);
+        }
+
+        public int Average { 
+            get {
+                var sum = 0;
+                int numItems = _ints.Count;
+                for (int i = 0; i < numItems; i++)
+                    sum = sum + _ints[i];
+
+                return sum / numItems;
             }
         }
 
-
-       
     }
 }

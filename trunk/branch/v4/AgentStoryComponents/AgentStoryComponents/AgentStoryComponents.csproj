@@ -92,6 +92,8 @@
     <Compile Include="commands\cmdUpdateStoryMeta.cs" />
     <Compile Include="commands\cmdUserGroupsStoryMx.cs" />
     <Compile Include="commands\cmdSetPageGate.cs" />
+    <Compile Include="commands\cmdDisplayGameController.cs" />
+    <Compile Include="extAPI\commands\extraDeleteGameData.cs" />
     <Compile Include="extAPI\commands\extraStrategyReport.cs" />
     <Compile Include="extAPI\commands\extraSetColVal.cs" />
     <Compile Include="extAPI\commands\extraAddAlias.cs" />
