@@ -213,3 +213,50 @@ function PageElementMap()
 //   end
 //
 ///////////////////////
+
+
+
+// cell alert mechanism
+
+var cellAlerts = new Array();
+
+function cellAlert(val) {
+
+    var backgroundColors = new Array();
+
+    backgroundColors.push("#FF5252");
+    //backgroundColors.push("#FF8f8f");
+   /// backgroundColors.push("#FF2222");
+    //backgroundColors.push("#FF3333");
+    //backgroundColors.push("#FF6666");
+    backgroundColors.push("#FF9999");
+    backgroundColors.push("#e0e0e0");
+
+    var colorCursor = -1;
+    var _active = true;
+    this.active = _active;
+
+    var _container = document.createElement("DIV");
+    this.container = _container;
+
+    this.runNextColor = function() {
+        colorCursor++;
+        if (colorCursor < backgroundColors.length) {
+            _container.style.backgroundColor = backgroundColors[colorCursor];
+        } else {
+            //end color gradient
+            this.active = false;
+        }
+
+    }
+
+
+    this.runNextColor();
+
+    var txtVal = document.createTextNode(val + "");
+    _container.appendChild(txtVal);
+
+    cellAlerts.push(this);
+
+
+}

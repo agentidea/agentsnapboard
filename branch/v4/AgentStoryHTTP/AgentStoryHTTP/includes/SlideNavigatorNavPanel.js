@@ -81,9 +81,7 @@ function simplePageNavigatorPanel( aoStoryController ,view)
         grdPageEditControlsVals.push(cmdAddNewButton);
         grdPageEditControlsVals.push(cmdAddNewPage);
 
-        //add items to control story page gates
-        var cmdSetState = TheUte().getButton("cmdSetState", "set state", "enter gate numeral", this.set_state, "clsButtonAction2LGE");
-        grdPageEditControlsVals.push(cmdSetState);
+     
 
         //add story name.
         var storyName = storyView.StoryController.CurrentStory.Description;
@@ -249,46 +247,7 @@ function simplePageNavigatorPanel( aoStoryController ,view)
 
     }
 
-    this.set_state = function() {
-
-        var currentPageCursor =
-            _StoryController.getCurrentPageCursor();
-        var maxPages = 6;
-
-        // alert("current story is at " + currentPageCursor);
-
-        var storyGateState = window.prompt("What is the gate state", currentPageCursor);
-
-
-        if (storyGateState == null) {
-            return;
-        }
-        else {
-            if (storyGateState.trim() == "") {
-                alert("please provide a number from " + currentPageCursor + " to " + maxPages);
-            }
-            else {
-                
-
-                try {
-                    //updating gate state
-                    var macroSetPageGate = newMacro("SetPageGate");
-                    addParam(macroSetPageGate, "pageGate", storyGateState);
-                    addParam(macroSetPageGate, "StoryID", _StoryController.CurrentStory.ID);
-
-                    processRequest(macroSetPageGate);
-                }
-                catch (e) {
-                    alert("gate set_state error " + e.description);
-                }
-            }
-
-
-        }
-
-
-
-    }
+   
     
     this.page_new = function ()
     {

@@ -50,11 +50,17 @@ function findDelayFor(count) {
 	return this.delayTable.delayFor(count);	
 }
 
+//function loadRules() {
+//	this.delayTable = new DelayTable();
+//	this.delayTable.addRule(10,100);
+//	this.delayTable.addRule(100,10);
+//	this.delayTable.addRule(250,4);
+//}
 function loadRules() {
-	this.delayTable = new DelayTable();
-	this.delayTable.addRule(10,100);
-	this.delayTable.addRule(100,10);
-	this.delayTable.addRule(250,4);
+    this.delayTable = new DelayTable();
+    this.delayTable.addRule(10, 100);
+    this.delayTable.addRule(50, 10);
+    this.delayTable.addRule(100, 4);
 }
 
 function loadPictures(typeOfDie) {

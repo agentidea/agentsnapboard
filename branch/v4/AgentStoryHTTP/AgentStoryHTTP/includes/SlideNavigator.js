@@ -1472,7 +1472,26 @@ function  bufferedDisplay(bufLen)
     }
     
     this.container = _dvMain;
-    
 
+
+
+}
+
+
+
+function setGate(storyGateState) {
+
+
+
+    try {
+        //updating gate state
+        var macroSetPageGate = newMacro("SetPageGate");
+        addParam(macroSetPageGate, "pageGate", storyGateState);
+        addParam(macroSetPageGate, "StoryID", storyView.StoryController.CurrentStory.ID);
+        processRequest(macroSetPageGate);
+    }
+    catch (e) {
+        alert("gate set_state error " + e.description);
+    }
 
 }

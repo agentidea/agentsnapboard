@@ -8,6 +8,69 @@ function trace(msg)
 {
     //alert(msg);
 }
+function cmdNotifyUpdateCellValue(macro) {
+    var timestamp = getParameterVal("timestamp", macro);
+    var tx_id = TheUte().decode64(getParameterVal("tx_id64", macro));
+    var cellKey = getParameterVal("cellKey", macro);
+    var colIntValue = getParameterVal("colIntValue", macro);
+
+    var UserCurrentTxID = TheUte().decode64(macro.UserCurrentTxID);
+
+
+    //    storyView.log(cellKey + " " + colIntValue);
+
+    try {
+
+        var dvToUpdate = document.getElementById(cellKey);
+        if (dvToUpdate == null) {
+            //do nothing
+        }
+        else {
+            //dvToUpdate.innerHTML = "<b>" + colIntValue + "</b>";
+            //dvToUpdate.style.backgroundColor = "red";
+
+            var alertCon = new cellAlert(colIntValue + "");
+            if (TheUte().hasChildren(dvToUpdate)) {
+                TheUte().removeChildren(dvToUpdate);
+            }
+            dvToUpdate.appendChild(alertCon.container);
+            
+            
+        }
+
+    }
+    catch (exp) {
+        //update notification failure, alert
+        alert("update notification failure \r\n \t" + exp.description);
+    }
+    
+    
+    
+
+}
+
+function cmdRefreshStrategyTable(macro) {
+
+
+    var stratTable = document.getElementById("stratTable");
+
+    if (stratTable != null) {
+        //user has a strategy table loaded
+
+        try {
+
+
+            var extraStrategyReport = newMacro("extraStrategyReport");
+            addParam(extraStrategyReport, "targetDiv", "stratTable");
+            addParam(extraStrategyReport, "tx_id64", TheUte().encode64(gUserCurrentTxID));
+            processRequest(extraStrategyReport);
+        }
+        catch (e) {
+            alert("strategy report error " + e.description);
+        }
+    }
+
+}
 
 function cmdHeartBeat (macro)
 {
@@ -103,6 +166,19 @@ function cmdHeartBeat (macro)
     //storyView.displayMessage("session:" + UserCurrentTxID + "\r\nmsg: " + msg +  "\r\nseq: " + seq ); //"\r\nt: " + timestamp +
     //storyView.displayMessage( timestamp +  "\r\n[" + seq + "]"); //"\r\nt: " + timestamp +
     //storyView.displayMessage( timestamp ); //"\r\nt: " + timestamp +
+
+
+    //run timer against cell colorings
+    var c = cellAlerts.length;
+    if ( c > 0) {
+        for (var i = 0; i < c; i++) {
+            cellAlerts[i].runNextColor();
+        }
+
+    }
+    
+    
+    
 }
 
 
@@ -219,16 +295,17 @@ function cmdLoadMediaItems(macro)
 }
 
 
-function cmdregisterAlias(macro) {
+function cmdRegisterAlias(macro) {
 
 
+    if (gRowDataPK == -1) {
+        gUserAlias = TheUte().decode64(getParameterVal("alias64", macro));
+        gRowDataPK = getParameterVal("id", macro);
+        gRowDataPK = gRowDataPK * 1;
 
-    gUserAlias = TheUte().decode64(getParameterVal("alias64", macro));
-    gRowDataPK = getParameterVal("id", macro);
-    gRowDataPK = gRowDataPK * 1;
-    
-    var msg = TheUte().decode64(getParameterVal("msg64", macro));
-    alert(msg);
+        //var msg = TheUte().decode64(getParameterVal("msg64", macro));
+        //alert(msg);
+    }
 }
 
 

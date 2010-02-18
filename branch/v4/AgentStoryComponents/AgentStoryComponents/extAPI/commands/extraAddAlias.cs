@@ -58,16 +58,20 @@ namespace AgentStoryComponents.extAPI.commands
 
             //me.addMacro(proc);
 
-            Macro registerAlias = new Macro("registerAlias", 3);
+            Macro registerAlias = new Macro("RegisterAlias", 3);
             registerAlias.addParameter("alias64", alias64);
             registerAlias.addParameter("id", dgd.id);
             registerAlias.addParameter("msg64", msg);
             me.addMacro(registerAlias);
 
+            Macro proc = new Macro("RefreshStrategyTable", 1);
+            proc.addParameter("by", macro.RunningMe.ID + "");
+            me.addMacro(proc);
 
-           
+            MacroUtils.LogStoryTx(me, storyID, macro);
 
             return me;
+
         }
 
        
