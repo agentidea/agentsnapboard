@@ -4,7 +4,7 @@ function LoginWidget(aLoginCallBack)
 {
 
     var _loginCallback = aLoginCallBack;
-    var _userNameInput = TheUte().getInputBox("","txtUserName",null,null,"clsLoginField","email address");
+    var _userNameInput = TheUte().getInputBox("","txtUserName",null,null,"clsLoginField","enter username or email address");
     var _pwdInput = TheUte().getPassword("","txtPwd",null,null,"clsLoginFieldPassword","password");
     
  

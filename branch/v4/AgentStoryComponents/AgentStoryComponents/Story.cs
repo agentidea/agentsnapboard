@@ -222,9 +222,9 @@ namespace AgentStoryComponents
             get { return _storyGUID; }
             set { _storyGUID = value; }
         }
-	
 
-       
+        //added to allow for JS code injection to slideNavigator etc ...
+        public string IncludeCodeDirName { get; set; }
 	
 
         public string Title
@@ -328,7 +328,7 @@ namespace AgentStoryComponents
                 this.StoryGUID = System.Convert.ToString(dbHelper.reader["guid"]);
                
                 this.State = Convert.ToInt32(dbHelper.reader["state"]);
-
+                
                 this.StateCursor = Convert.ToInt32(dbHelper.reader["StateCursor"]);
 
                 if (dbHelper.reader["typeStory"] is System.DBNull)
@@ -339,6 +339,18 @@ namespace AgentStoryComponents
                 {
                     this.TypeStory = Convert.ToInt32(dbHelper.reader["typeStory"]);
                 }
+
+                //added feature to include JS objects by way of include injection
+                if (dbHelper.reader["IncludeCodeDirName"] is System.DBNull)
+                {
+                    this.IncludeCodeDirName = string.Empty;
+                }
+                else
+                {
+                    this.IncludeCodeDirName = Convert.ToString(dbHelper.reader["IncludeCodeDirName"]);
+                }
+
+
 
                 if (dbHelper.reader["description"] is System.DBNull)
                 {

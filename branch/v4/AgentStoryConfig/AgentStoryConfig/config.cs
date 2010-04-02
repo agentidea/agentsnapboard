@@ -11,7 +11,7 @@ namespace AgentStoryComponents
         //
 
         public static string db = "AgentStoryEvolution";
-        public static int startStoryID = 1;
+        public static int startStoryID = 2;
         public static int startStoryPage = 0;
         public static string startStoryToolBR = "BASIC";
         public static string defaultStoryToolBR = "BASIC";              //platform
@@ -30,13 +30,13 @@ namespace AgentStoryComponents
         //
 
         //public static string db = "AgentStoryEvolution";
-        //public static int startStoryID = 1;
+        //public static int startStoryID = 2;
         //public static int startStoryPage = 0;
         //public static string startStoryToolBR = "BASIC";
         //public static string defaultStoryToolBR = "BASIC";              //platform
         //public static string storyToolbarStartMode = "BASIC";           //NONE NAV MIN ALL NOCHAT
         //public static string conn = "Provider=sqloledb;Data Source=127.0.0.1;Initial Catalog=" + db + ";User Id=AgentStorydbo;Password=jy1met2;";
-        //public static string aspNetEmailLicensePath = @"C:\Inetpub\wwwroot\hosting.smartorg.com\GameStory\AgentStoryEvolution\AgentStoryHTTP\AgentStoryHTTP\bin\aspNetEmail.xml.lic";
+        //public static string aspNetEmailLicensePath = @"C:\Inetpub\wwwroot\hosting.smartorg.com\GameStory\bin\aspNetEmail.xml.lic";
         //public static string host = "hosting.smartorg.com";
         //public static string app = "GameStory";
         //public static int helpStoryID = 69;
@@ -53,7 +53,7 @@ namespace AgentStoryComponents
         public static string Orginization = "SmartOrg";
         public static string storyUnavailible = "story unavailable";
 
-        public static string defaultLoginMessage = "To login please enter the following: ";
+        public static string defaultLoginMessage = "Login ";
 
         public static bool bRequireVerificationForUserReg = false;
         public static bool bDebug = false;

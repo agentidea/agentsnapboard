@@ -62,6 +62,7 @@ function cmdRefreshStrategyTable(macro) {
 
             var extraStrategyReport = newMacro("extraStrategyReport");
             addParam(extraStrategyReport, "targetDiv", "stratTable");
+            addParam(extraStrategyReport, "reveal", gReveal);
             addParam(extraStrategyReport, "tx_id64", TheUte().encode64(gUserCurrentTxID));
             processRequest(extraStrategyReport);
         }
@@ -515,6 +516,8 @@ function cmdProcessPageGate(macro) {
 
     var pageGate = getParameterVal("pageGate", macro);
     storyView.StoryController.CurrentStory.StateCursor = pageGate;
+    storyView.log("You may now proceed to the next step");
+    storyView.showNext();
 }
 
 function cmdProcessNewPage(macro)

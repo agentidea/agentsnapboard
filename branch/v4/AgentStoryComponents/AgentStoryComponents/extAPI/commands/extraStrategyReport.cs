@@ -11,6 +11,7 @@ namespace AgentStoryComponents.extAPI.commands
 {
     public class extraStrategyReport : ICommand
     {
+        private int reveal = 1;
 
         private Dictionary<string, AverageTotaller> gTotals = new Dictionary<string, AverageTotaller>();
         private string gTX_ID = null;
@@ -19,6 +20,8 @@ namespace AgentStoryComponents.extAPI.commands
             string targetDiv = MacroUtils.getParameterString("targetDiv", macro);
             string tx_id64 = MacroUtils.getParameterString("tx_id64", macro);
             string tx_id = TheUtils.ute.decode64(tx_id64);
+            reveal = MacroUtils.getParameterInt("reveal", macro);
+
             this.gTX_ID = tx_id;
             MacroEnvelope me = new MacroEnvelope();
 
@@ -43,39 +46,85 @@ namespace AgentStoryComponents.extAPI.commands
             sbHTML.Append("<tr class='clsDiceGameHeader' >");
           
             sbHTML.Append("<td>");
-            sbHTML.Append("alias");
+            sbHTML.Append("Name");
             sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("pearl");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append("oyster");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td nowrap='true'>");
-            sbHTML.Append("bread and butter");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td nowrap='true'>");
-            sbHTML.Append("white elephant");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td nowrap='true'>");
-            sbHTML.Append("funded Success");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td nowrap='true'>");
-            sbHTML.Append("funded Points");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td nowrap='true'>");
-            sbHTML.Append("un-funded Points");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td nowrap='true'>");
-            sbHTML.Append("un-funded Success");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td nowrap='true'>");
-            sbHTML.Append("Best 5 Success");
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td nowrap='true'>");
-            sbHTML.Append("Best 5 Points");
-            sbHTML.Append("</td>");
+            if (reveal >= 2)
+            {
+                sbHTML.Append("<td colspan='4' align='center'>");
+                sbHTML.Append("Strategy");
+                sbHTML.Append("</td>");
+            }
+            if (reveal >= 3)
+            {
 
+                sbHTML.Append("<td nowrap='true' colspan='2'  align='center'>");
+                sbHTML.Append("Unfunded");
+                sbHTML.Append("</td>");
+            }
+            if (reveal >= 4)
+            {
+                sbHTML.Append("<td nowrap='true' colspan='2'  align='center'>");
+                sbHTML.Append("Funded");
+                sbHTML.Append("</td>");
+
+            }
+            if (reveal >= 5)
+            {
+                sbHTML.Append("<td nowrap='true' colspan='2'  align='center'>");
+                sbHTML.Append("Best 5");
+                sbHTML.Append("</td>");
+            }
+            sbHTML.Append("</tr>");
+
+            sbHTML.Append("<tr class='clsDiceGameHeader' >");
+
+            sbHTML.Append("<td>");
+            sbHTML.Append("&nbsp;");
+            sbHTML.Append("</td>");
+            if (reveal >= 2)
+            {
+                sbHTML.Append("<td title='Pearl'>");
+                sbHTML.Append("PE");
+                sbHTML.Append("</td>");
+                sbHTML.Append("<td title='Oyster'>");
+                sbHTML.Append("OY");
+                sbHTML.Append("</td>");
+                sbHTML.Append("<td nowrap='true' title='Bread and Butter'>");
+                sbHTML.Append("BB");
+                sbHTML.Append("</td>");
+                sbHTML.Append("<td nowrap='true' title='White Elephant'>");
+                sbHTML.Append("WE");
+                sbHTML.Append("</td>");
+            }
+            if (reveal >= 3)
+            {
+
+                sbHTML.Append("<td nowrap='true'>");
+                sbHTML.Append("Points");
+                sbHTML.Append("</td>");
+                sbHTML.Append("<td nowrap='true'>");
+                sbHTML.Append("Successes");
+                sbHTML.Append("</td>");
+            }
+            if (reveal >= 4)
+            {
+                sbHTML.Append("<td nowrap='true'>");
+                sbHTML.Append("Points");
+                sbHTML.Append("</td>");
+                sbHTML.Append("<td nowrap='true'>");
+                sbHTML.Append("Successes");
+                sbHTML.Append("</td>");
+
+            }
+            if (reveal >= 5)
+            {
+                sbHTML.Append("<td nowrap='true'>");
+                sbHTML.Append("Points");
+                sbHTML.Append("</td>");
+                sbHTML.Append("<td nowrap='true'>");
+                sbHTML.Append("Successes");
+                sbHTML.Append("</td>");
+            }
             sbHTML.Append("</tr>");
 
 
@@ -83,8 +132,6 @@ namespace AgentStoryComponents.extAPI.commands
 
             while (dbHelper.reader.Read())
             {
-
-
                 var _tx_id = (string) dbHelper.reader["tx_id"];
 
                 if(gTX_ID == _tx_id)
@@ -93,81 +140,178 @@ namespace AgentStoryComponents.extAPI.commands
                     sbHTML.Append("<tr class='clsDiceGameRow1'>");
             
                 
-                sbHTML.Append("<td>");
+                sbHTML.Append("<td nowrap='true'>");
                 sbHTML.Append(TheUtils.ute.decode64(Convert.ToString(dbHelper.reader["alias"])));
                 sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"pearl"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"oyster"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"breadAndButter"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"whiteElephant"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"Funded_Success"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"Funded_Points"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"UnFunded_Points"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"UnFunded_Success"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"Best5_Success"));
-                sbHTML.Append("</td>");
-                sbHTML.Append("<td>");
-                sbHTML.Append(procNum(dbHelper.reader,"Best5_Points"));
-                sbHTML.Append("</td>");
+
+                if (reveal >= 2)
+                {
+                    sbHTML.Append("<td  align='right'>");
+                    sbHTML.Append(procNum(dbHelper.reader, "pearl"));
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(procNum(dbHelper.reader, "oyster"));
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(procNum(dbHelper.reader, "breadAndButter"));
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(procNum(dbHelper.reader, "whiteElephant"));
+                    sbHTML.Append("</td>");
+                }
+                 if(reveal >=3)
+                {
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(procNum(dbHelper.reader, "UnFunded_Points"));
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(procNum(dbHelper.reader, "UnFunded_Success"));
+                    sbHTML.Append("</td>");
+                }
+                if(reveal >=4)
+                {
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(procNum(dbHelper.reader, "Funded_Points")); 
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(procNum(dbHelper.reader, "Funded_Success"));
+                    sbHTML.Append("</td>");
+
+                    
+                 }
+                 if (reveal >= 5)
+                 {
+                     sbHTML.Append("<td align='right'>");
+                     sbHTML.Append(procNum(dbHelper.reader, "Best5_Points"));
+                     sbHTML.Append("</td>");
+                     sbHTML.Append("<td align='right'>");
+                     sbHTML.Append(procNum(dbHelper.reader, "Best5_Success"));
+                     sbHTML.Append("</td>");
+                 }
                 
                 sbHTML.Append("</tr>");
             }
 
-            sbHTML.Append("<tr class='clsDiceGameTotals'>");
 
-            sbHTML.Append("<td>");
-            sbHTML.Append("Averages");
-            sbHTML.Append("</td>");
- 
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["pearl"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["oyster"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["breadAndButter"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["whiteElephant"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["Funded_Success"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["Funded_Points"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["UnFunded_Points"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["UnFunded_Success"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["Best5_Success"].Average);
-            sbHTML.Append("</td>");
-            sbHTML.Append("<td>");
-            sbHTML.Append(gTotals["Best5_Points"].Average);
-            sbHTML.Append("</td>");
+            if (gTotals.Count > 0)
+            {
 
-            sbHTML.Append("</tr>");
+                #region blank row
+                sbHTML.Append("<tr class='clsDiceGameRow1'>");
+
+
+                if (reveal >= 2)
+                {
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+                }
+                if (reveal >= 3)
+                {
+
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+                }
+                if (reveal >= 4)
+                {
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+                }
+                if (reveal >= 5)
+                {
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("&nbsp;");
+                    sbHTML.Append("</td>");
+                }
+
+                sbHTML.Append("</tr>");
+                #endregion
+                #region averages row
+                sbHTML.Append("<tr class='clsDiceGameTotals'>");
+
+
+                if (reveal >= 2)
+                {
+                    sbHTML.Append("<td>");
+                    sbHTML.Append("AVERAGES");
+                    sbHTML.Append("</td>");
+
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["pearl"].Average);
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["oyster"].Average);
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["breadAndButter"].Average);
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["whiteElephant"].Average);
+                    sbHTML.Append("</td>");
+                }
+                if (reveal >= 3)
+                {
+
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["UnFunded_Points"].Average);
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["UnFunded_Success"].Average);
+                    sbHTML.Append("</td>");
+                }
+                if (reveal >= 4)
+                {
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["Funded_Success"].Average);
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["Funded_Points"].Average);
+                    sbHTML.Append("</td>");
+                }
+                if (reveal >= 5)
+                {
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["Best5_Success"].Average);
+                    sbHTML.Append("</td>");
+                    sbHTML.Append("<td align='right'>");
+                    sbHTML.Append(gTotals["Best5_Points"].Average);
+                    sbHTML.Append("</td>");
+                }
+
+                sbHTML.Append("</tr>");
+                #endregion
+            }
+
             sbHTML.Append("</table>");
             dbHelper.cleanup();
             dbHelper = null;
@@ -218,24 +362,25 @@ namespace AgentStoryComponents.extAPI.commands
     /// </summary>
     public class AverageTotaller 
     {
-        private List<int> _ints = new List<int>();
+        private List<double> _ints = new List<double>();
         public AverageTotaller(int initialValue)
         {
             this.add(initialValue);
         }
         public void add(int val)
         {
-            _ints.Add(val);
+            _ints.Add( (double) val);
         }
 
-        public int Average { 
+        public double Average { 
             get {
-                var sum = 0;
-                int numItems = _ints.Count;
+                double sum = 0.0;
+                double numItems = (double) _ints.Count;
                 for (int i = 0; i < numItems; i++)
                     sum = sum + _ints[i];
 
-                return sum / numItems;
+                double result = sum / numItems;
+                return Math.Round(result,1);
             }
         }
 

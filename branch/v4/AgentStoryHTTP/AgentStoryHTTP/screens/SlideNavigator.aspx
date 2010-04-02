@@ -4,11 +4,11 @@
 <head id="Head1" runat="server">
         <title><%= PageTitle %> </title>
     <link rel="stylesheet" type="text/css" href="../style/main.css" />
+    <link rel="stylesheet" type="text/css" href="../extras/SmartOrg/PortfolioGame/PortfolioGame.css" />
     <link rel="stylesheet" type="text/css" href="../style/StoryElements.css" />
 </head>
 <body id="TheBod" class="clsBodyStoryEditor"  onunload="storyView.postExitMsg();">
 
-<!-- removed ondblclick='passDblClick();' -->
 
 
    <script type="text/javascript" language="JavaScript">
@@ -17,6 +17,7 @@
     var gViewMode = null;
     var gToolBarVisible = null;
     var gPageCursor = 0;
+    var gReveal = 1;
 
 
     var gUserCurrentTxID = null;
@@ -96,18 +97,10 @@
 
 
 <!-- Game Specific includes -->
+<%= GameSpecificIncludes %>
 
-    <script src="../extras/SmartOrg/PortfolioGame/js/jquery.js" type="text/javascript"></script>
-    <script src="../extras/SmartOrg/PortfolioGame/js/portfolio.js" type="text/javascript"></script>
-    <script src="../extras/SmartOrg/PortfolioGame/js/game.js" type="text/javascript"></script>
-    <script src="../extras/SmartOrg/PortfolioGame/js/gameController.js" type="text/javascript"></script>
-    <script src="../extras/SmartOrg/PortfolioGame/js/dieImages.js" type="text/javascript"></script>
-    <script src="../extras/SmartOrg/PortfolioGame/js/pickFive.js" type="text/javascript"></script>
-    <script src="../extras/SmartOrg/PortfolioGame/js/animatedDice.js" type="text/javascript"></script>
-    <script src="../extras/SmartOrg/PortfolioGame/js/dieRolls.js" type="text/javascript"></script>
-    <script src="../extras/SmartOrg/PortfolioGame/js/projectSelection2.js" type="text/javascript"></script>
-    
-    
+
+
 
 
 

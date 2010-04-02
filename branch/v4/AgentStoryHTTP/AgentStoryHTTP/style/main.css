@@ -669,6 +669,16 @@ a
 	background-color:Transparent;
 	padding: 5px 15px 5px 15px;
 }
+
+.clsStoryTitleLight
+{
+	font-size:10pt;
+	font-family:Arial;
+	
+	
+	color:#e9e9e9;
+	padding: 5px 15px 5px 15px;
+}
 .clsStoryTitle2
 {
 	font-size:18pt;
@@ -1415,66 +1425,7 @@ SELECT.clsPageNavPulldownLGE
 
 
 
-/* Portfolio Game Styles */
-.clsGameShow
-{
-	display:block;
-}
-.clsGameHide
-{
-	display:block;
-}
-.clsDiceGameData
-{
-	font-size:7pt;
-}
-.clsDiceGameHeader
-{
-	font-size:7pt;
-	font-weight:bold;
-	background-color:#000000;
-	color:#ffffff;
-}
 
-.clsDiceGameRow1
-{
-	font-size:7pt;
-	font-weight:bold;
-	background-color:#e0e0e0;
-	color:black;
-}
-
-.clsDiceGameRowHighlighted
-{
-	font-size:7pt;
-	font-weight:bold;
-	background-color:#ffffdd;
-	color:black;
-}
-
-.clsDiceGameTotals
-{
-	font-size:7pt;
-	font-weight:bold;
-	background-color:#999999;
-	font-weight:bold;
-	color:black;
-}
-
-.clsPortfolioSilos
-{
-	width: 205px;
-	background-color:#ffffff;	
-}
-.clsPortfolioButtons
-{
-	width:200px;	
-}
-.clsGameController
-{
-	background-color:#000000;
-	color:Yellow;	
-}
 /* logger default styles for YUI logger */
 /* font size is controlled here: default 77% */
 #yui-log {position:absolute;top:1em;right:1em;font-size:77%;text-align:left;}
