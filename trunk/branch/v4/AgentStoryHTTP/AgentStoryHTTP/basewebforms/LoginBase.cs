@@ -53,22 +53,21 @@ namespace AgentStoryHTTP.screens
                     User u = new User(config.conn, emailAddress, true);
 
 
-                    if (u != null)
+
+                    if (u.Password == password)
                     {
-                        if (u.Password == password)
-                        {
-                            u.TxSessionID = u.UserName + "_" + sessionID;
-                            Session["user"] = u;
-                            this.currentUser = u;
-                        }
+                        u.TxSessionID = u.UserName + "_" + sessionID;
+                        Session["user"] = u;
+                        this.currentUser = u;
                     }
                     else
                     {
-                        Logger.log("bad credentials for :: " + emailAddress);
-                        throw new UserDoesNotExistException("No user found matching these credentials");
-                    }
-                }
+                        //Logger.log("bad credentials for :: " + emailAddress);
+                        throw new UserDoesNotExistException(string.Format("No user found matching these credentials [{0}]", emailAddress));
 
+                    }
+
+                }
                 //if got here ready to go to the platform page?  or last logged in story and (page)?
                 Response.Redirect("Platform2.aspx");
                 Response.End();

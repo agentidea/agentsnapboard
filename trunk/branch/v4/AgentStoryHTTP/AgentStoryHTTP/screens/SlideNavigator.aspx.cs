@@ -11,6 +11,9 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 
+
+using System.IO;
+
 using System.Text;
 using System.Collections.Generic;
 using AgentStoryComponents;
@@ -24,6 +27,7 @@ namespace AgentStoryHTTP.screens
 
         private int _pageCursor;
         private string _toolBarVisible;
+        private string _includeCodeDirName;
 
         public string ToolBarVisible
         {
@@ -43,6 +47,58 @@ namespace AgentStoryHTTP.screens
                 return storyName + " by " + this.oStory.by.UserName.ToUpper();
             }
         }
+
+
+        public string GameSpecificIncludes
+        {
+            get
+            {
+
+                if (_includeCodeDirName == null)
+                {
+                    return @"<!-- no JS specific includes for this story -->";
+                }
+                else
+                {
+                    //build paths for each .js script file under the extras directory
+                    // auto addin code injxn!!
+                    var clearIncludeCodeDirPath = TheUtils.ute.decode64(_includeCodeDirName);
+                  
+                    string pathToSearch = string.Format("../extras/{0}", clearIncludeCodeDirPath);
+                    pathToSearch = Server.MapPath(pathToSearch);
+
+                    System.Text.StringBuilder sb = new StringBuilder();
+                    sb.Append(string.Empty);
+
+                    if (System.IO.Directory.Exists(pathToSearch) == true)
+                    {
+
+                        sb.AppendFormat("<!-- Story auto generated [{0}] Specific Code JS object includes -->", TheUtils.ute.decode64(oStory.Title));
+
+                        //read out all JS file names
+                        string pattern = "*.js";
+                        //string[] files = System.IO.Directory.GetFiles(pathToSearch, pattern);
+                        DirectoryInfo di = new DirectoryInfo(pathToSearch);
+                        FileInfo[] fi = di.GetFiles(pattern);
+                        int fileCount = 0;
+                        foreach (FileInfo info in fi )
+                        {
+                            fileCount++;
+                           
+                            //  <script src='../extras/SmartOrg/PortfolioGame/js/jquery.js' type='text/javascript'></script>
+                            sb.AppendFormat("  <script src='../extras{0}{1}' type='text/javascript'></script>", clearIncludeCodeDirPath, info.Name);
+                        }
+
+                        sb.AppendFormat("<!-- {0} files found -->", fileCount);
+                    }
+
+                    return sb.ToString();
+
+                }
+            }
+        }
+
+
 
         public int PageCursor
         {
@@ -262,7 +318,10 @@ namespace AgentStoryHTTP.screens
 
 
 
-
+                if (oStory.IncludeCodeDirName != string.Empty)
+                {
+                    this._includeCodeDirName = oStory.IncludeCodeDirName;
+                }
 
 
                 if (base.currentUser != null)

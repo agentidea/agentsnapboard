@@ -44,6 +44,16 @@ function simplePageNavigatorPanel( aoStoryController ,view)
 
     }
 
+    this.hideNext = function() {
+        var nxt = document.getElementById("cmdNextPage");
+        nxt.style.display = "none";
+
+    }
+    this.showNext = function() {
+        var nxt = document.getElementById("cmdNextPage");
+        nxt.style.display = "block";
+
+    }
     this.addClickNext = function(cb) {
 
         
@@ -81,11 +91,12 @@ function simplePageNavigatorPanel( aoStoryController ,view)
         grdPageEditControlsVals.push(cmdAddNewButton);
         grdPageEditControlsVals.push(cmdAddNewPage);
 
-     
+
 
         //add story name.
-        var storyName = storyView.StoryController.CurrentStory.Description;
-        var txtStoryTitle = document.createTextNode(TheUte().decode64(storyName));
+        var storyTitle = storyView.StoryController.CurrentStory.Title;
+        var storyDesc = storyView.StoryController.CurrentStory.Description;
+        var txtStoryTitle = document.createTextNode(TheUte().decode64(storyTitle));
         var dvStoryTitle = document.createElement("DIV");
         dvStoryTitle.className = "clsStoryTitle2";
         dvStoryTitle.appendChild(txtStoryTitle);
@@ -119,9 +130,12 @@ function simplePageNavigatorPanel( aoStoryController ,view)
         PageNavValues.push(TheUte().getSpacer(3, 1));
 
         _nextFxnPointer = this.page_next;
-        this._prevButton = TheUte().getButton("cmdPreviousPage", "< previous", "previous", this.page_previous, "clsButtonLGE");
+        if (bReadOnly == false) {
+            this._prevButton = TheUte().getButton("cmdPreviousPage", "< previous", "previous", this.page_previous, "clsButtonLGE");
+            PageNavValues.push(this._prevButton);
+        }
         this._nextButton = TheUte().getButton("cmdNextPage", "next >", "next", this.page_next, "clsButtonLGE");
-        PageNavValues.push(this._prevButton);
+        
         PageNavValues.push(this._nextButton);
 
         var grdPageEditControls = newGrid2("grdPageEditControls", 1, 5, grdPageEditControlsVals);
@@ -153,7 +167,7 @@ function simplePageNavigatorPanel( aoStoryController ,view)
         if (bReadOnly == false) {
             PageNavValues.push(cmdShare);
             //PageNavValues.push(cmdShowAdvancedOptions);
-           // PageNavValues.push(TheUte().getSpacer(5, 1));
+            // PageNavValues.push(TheUte().getSpacer(5, 1));
             PageNavValues.push(TheUte().getButton("cmdHome", "toc", "table of contents", this.home, "clsButtonAction2LGE"));
         }
 

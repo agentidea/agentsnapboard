@@ -34,8 +34,19 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     _alertArea.log("");
     }
 
-   
-       
+
+    var _pageNavPanel = null;
+    _pageNavPanel = new simplePageNavigatorPanel(_StoryController, this);
+
+
+    this.pageNavPanel = _pageNavPanel;
+
+    this.hideNext = function() {
+        _pageNavPanel.hideNext();
+    }
+    this.showNext = function() {
+        _pageNavPanel.showNext();
+    }
 
     
     
@@ -63,8 +74,23 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
         _refFrontHook.style.width = "1";
         _refFrontHook.style.height = "1";
     }
-    
-   
+
+    this.isGateJustAheadOfMe = function() {
+        var ret = false;
+
+        var gateCursor = storyView.StoryController.CurrentStory.StateCursor;
+
+
+        var PageCursor = storyView.StoryController.getCurrentPageCursor();
+
+        if (gateCursor == (PageCursor + 1)) {
+            ret = true;
+        }
+
+        //alert(gateCursor + "::" + PageCursor);
+
+        return ret;
+    }
     
     this.saveCurrentElement = function()
     {
@@ -383,12 +409,7 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
     }
     
 
-    var _pageNavPanel = null;
-        _pageNavPanel = new simplePageNavigatorPanel( _StoryController ,this);
    
-    
-    this.pageNavPanel = _pageNavPanel;
-    
 
 
     this.init = storyView2init;

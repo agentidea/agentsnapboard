@@ -92,17 +92,17 @@
     <Content Include="extras\SmartOrg\PortfolioGame\images\w4\3.png" />
     <Content Include="extras\SmartOrg\PortfolioGame\images\w4\4.png" />
     <Content Include="extras\SmartOrg\PortfolioGame\index.html" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\animatedDice.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\projectSelection2.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\dieImages.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\dieRolls.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\game.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\gameController.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\jquery.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\messages.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\pickFive.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\portfolio.js" />
-    <Content Include="extras\SmartOrg\PortfolioGame\js\projectSelection.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\1_jquery.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\2_portfolio.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\3_game.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\4_gameController.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\5_dieImages.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\6_pickFive.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\7_animatedDice.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\8_dieRolls.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\js\9_projectSelection2.js" />
+    <Content Include="extras\SmartOrg\PortfolioGame\PortfolioGame.css" />
+    <Content Include="extras\SmartOrg\Raiffa\js\1_init.js" />
     <Content Include="images\haze.png" />
     <Content Include="includes\AddSingleUser.js" />
     <Content Include="includes\chars.js" />
@@ -163,9 +163,11 @@
     <Content Include="screens\addSingleUser.aspx" />
     <Content Include="screens\basicFooter.ascx" />
     <Content Include="screens\basicHozToolbar.ascx" />
+    <Content Include="screens\Converter.aspx" />
     <Content Include="screens\CreateNewStory.aspx" />
     <Content Include="screens\EditUserInfo.aspx" />
     <Content Include="screens\fauxIRC.aspx" />
+    <Content Include="screens\FileUploader.aspx" />
     <Content Include="screens\ListMembers.aspx" />
     <Content Include="screens\login.aspx" />
     <Content Include="screens\logout.aspx" />
@@ -253,6 +255,13 @@
     <Compile Include="screens\basicHozToolbar.ascx.designer.cs">
       <DependentUpon>basicHozToolbar.ascx</DependentUpon>
     </Compile>
+    <Compile Include="screens\Converter.aspx.cs">
+      <DependentUpon>Converter.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\Converter.aspx.designer.cs">
+      <DependentUpon>Converter.aspx</DependentUpon>
+    </Compile>
     <Compile Include="screens\CreateNewStory.aspx.cs">
       <DependentUpon>CreateNewStory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +282,13 @@
     </Compile>
     <Compile Include="screens\fauxIRC.aspx.designer.cs">
       <DependentUpon>fauxIRC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\FileUploader.aspx.cs">
+      <DependentUpon>FileUploader.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\FileUploader.aspx.designer.cs">
+      <DependentUpon>FileUploader.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\ListMembers.aspx.cs">
       <DependentUpon>ListMembers.aspx</DependentUpon>
@@ -444,6 +460,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="extras\SmartOrg\StrategicFit\" />
     <Folder Include="includes\flickr\" />
     <Folder Include="includes\google\" />
     <Folder Include="includes\strategy\" />

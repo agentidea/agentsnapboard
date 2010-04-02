@@ -44,9 +44,9 @@ namespace AgentStoryComponents.commands
         {
             System.Text.StringBuilder sbHTML = new StringBuilder();
 
-            sbHTML.Append("<select class='clsGameController' onchange='setGate(this.options[this.selectedIndex].value);'>");
+            sbHTML.Append("<select class='clsGameController' ondblclick='setGate(this.options[this.selectedIndex].value);' onchange='setGate(this.options[this.selectedIndex].value);' title='double click to re-send gate command'>");
 
-            sbHTML.Append("<option value='-1'> -- select stage gate --</option>");
+           // sbHTML.Append("<option value='-1'> -- select stage gate --</option>");
 
             string selstring = string.Empty;
 
