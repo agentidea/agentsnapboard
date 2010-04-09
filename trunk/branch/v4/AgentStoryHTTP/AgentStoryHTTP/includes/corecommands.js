@@ -43,23 +43,29 @@ function cmdNotifyUpdateCellValue(macro) {
         //update notification failure, alert
         alert("update notification failure \r\n \t" + exp.description);
     }
-    
-    
-    
+
+
+
+
+}
+
+
+function cmdRefreshTable(macro) {
+
+    var tbl = getParameterVal("table", macro);
+
+    storyView.log("refreshing :table: " + tbl);
+
 
 }
 
 function cmdRefreshStrategyTable(macro) {
 
-
     var stratTable = document.getElementById("stratTable");
-
     if (stratTable != null) {
         //user has a strategy table loaded
 
         try {
-
-
             var extraStrategyReport = newMacro("extraStrategyReport");
             addParam(extraStrategyReport, "targetDiv", "stratTable");
             addParam(extraStrategyReport, "reveal", gReveal);
@@ -172,8 +178,8 @@ function cmdHeartBeat (macro)
     //run timer against cell colorings
     var c = cellAlerts.length;
     if ( c > 0) {
-        for (var i = 0; i < c; i++) {
-            cellAlerts[i].runNextColor();
+        for (var D = 0; D < c; D++) {
+            cellAlerts[D].runNextColor();
         }
 
     }
@@ -299,14 +305,27 @@ function cmdLoadMediaItems(macro)
 function cmdRegisterAlias(macro) {
 
 
-    if (gRowDataPK == -1) {
-        gUserAlias = TheUte().decode64(getParameterVal("alias64", macro));
-        gRowDataPK = getParameterVal("id", macro);
-        gRowDataPK = gRowDataPK * 1;
+    var msg = TheUte().decode64(getParameterVal("msg64", macro));
+    storyView.log(msg);
+    gUserAlias = TheUte().decode64(getParameterVal("alias64", macro));
+
+
+    //alert(gUserAlias);
+
+//if (gRowDataPK == -1) {
+//        try {
+
+//            gRowDataPK = getParameterVal("id", macro);
+//            gRowDataPK = gRowDataPK * 1;
+
+//        }
+//        catch (egg) {
+//            alert(egg.description);
+//        }
 
         //var msg = TheUte().decode64(getParameterVal("msg64", macro));
         //alert(msg);
-    }
+ //   }
 }
 
 

@@ -575,10 +575,12 @@ function hasChildrenElements(parentElem)
 			    inputBox.title = title;
 			    
 			inputBox.id = id;
-			if(focusHandler != null)
+			if (focusHandler != null) {
 			    inputBox.onfocus = focusHandler;
-			if(blurHandler != null)
+			}
+			if (blurHandler != null) {
 			    inputBox.onblur = blurHandler;
+			}
 			inputBox.className = className;
 			return inputBox;
 	}
