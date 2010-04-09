@@ -6,17 +6,38 @@ namespace AgentStoryComponents
         //plugin - extensibility class loader class ID
         public static string extraClassID = "AgentStoryComponents.extAPI.commands.";
 
+        public static bool dynamicTables = true;
         //
         //   LOCAL - DEV
         //
 
         public static string db = "AgentStoryEvolution";
-        public static int startStoryID = 2;
+        public static string dbUser = "AgentStorydbo";
+        public static string dbPwd = "jy1met2";
+        public static string dbIP = "127.0.0.1";
+
+        public static int startStoryID = 3;
         public static int startStoryPage = 0;
         public static string startStoryToolBR = "BASIC";
         public static string defaultStoryToolBR = "BASIC";              //platform
         public static string storyToolbarStartMode = "BASIC";           //NONE NAV MIN ALL NOCHAT
-        public static string conn = "Provider=sqloledb;Data Source=127.0.0.1;Initial Catalog=" + db + ";User Id=AgentStorydbo;Password=jy1met2;";
+        
+        public static string conn
+        {
+            get
+            {
+                return string.Format("Provider=sqloledb;Data Source={3};Initial Catalog={0};User Id={1};Password={2};",db,dbUser,dbPwd,dbIP);
+            }
+        }
+
+        public static string sqlConn
+        {
+            get
+            {
+                return string.Format("server={3};database={0};UID={1};PWD={2};", db, dbUser, dbPwd, dbIP);
+            }
+        }
+
         public static string aspNetEmailLicensePath = @"C:\Users\Admin2\Documents\Visual Studio 2008\Projects\GameStory\AgentStoryEvolution\AgentStoryHTTP\AgentStoryHTTP\bin\aspNetEmail.xml.lic";
         public static string host = "localhost:8181";
         public static string app = "";
