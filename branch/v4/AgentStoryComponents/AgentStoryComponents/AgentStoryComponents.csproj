@@ -93,6 +93,10 @@
     <Compile Include="commands\cmdUserGroupsStoryMx.cs" />
     <Compile Include="commands\cmdSetPageGate.cs" />
     <Compile Include="commands\cmdDisplayGameController.cs" />
+    <Compile Include="core\TupleElements.cs" />
+    <Compile Include="extAPI\commands\extraRaiffaController.cs" />
+    <Compile Include="extAPI\commands\extraAddAlias2.cs" />
+    <Compile Include="extAPI\commands\extraSetColVal2.cs" />
     <Compile Include="extAPI\commands\extraDeleteGameData.cs" />
     <Compile Include="extAPI\commands\extraStrategyReport.cs" />
     <Compile Include="extAPI\commands\extraSetColVal.cs" />
@@ -104,6 +108,7 @@
     <Compile Include="Emails.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="extAPI\Content.cs" />
+    <Compile Include="extAPI\RaiffaGameData.cs" />
     <Compile Include="extAPI\DiceGameData.cs" />
     <Compile Include="extAPI\elements.cs" />
     <Compile Include="Group.cs" />

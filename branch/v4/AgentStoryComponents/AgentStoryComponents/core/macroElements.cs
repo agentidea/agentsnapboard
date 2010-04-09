@@ -247,6 +247,22 @@ namespace AgentStoryComponents.core
             }
             return ret;
         }
+
+        public static double getParameterDouble(string key, Macro macro)
+        {
+
+            string sInt = getParameterString(key, macro);
+            double ret = -1.00;
+            try
+            {
+                ret = Convert.ToDouble(sInt);
+            }
+            catch (Exception ex)
+            {
+                throw new ParameterNotNumberException(" parameter for key [" + key + "] was not a number, it was [" + sInt + "] ex " + ex.Message);
+            }
+            return ret;
+        }
     }
 
     [Serializable()]

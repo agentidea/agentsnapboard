@@ -52,23 +52,22 @@ namespace AgentStoryComponents.extAPI.commands
             msg = TheUtils.ute.encode64(msg);
             MacroEnvelope me = new MacroEnvelope();
 
-            //Macro proc = new Macro("DisplayAlert", 1);
-            //proc.addParameter("msg", msg);
-           
 
-            //me.addMacro(proc);
-
-            Macro registerAlias = new Macro("RegisterAlias", 3);
-            registerAlias.addParameter("alias64", alias64);
-            registerAlias.addParameter("id", dgd.id);
-            registerAlias.addParameter("msg64", msg);
-            me.addMacro(registerAlias);
+          
 
             Macro proc = new Macro("RefreshStrategyTable", 1);
             proc.addParameter("by", macro.RunningMe.ID + "");
             me.addMacro(proc);
 
-            MacroUtils.LogStoryTx(me, storyID, macro);
+            MacroUtils.LogStoryTx(me, storyID, macro);          //broadcast
+
+
+            Macro registerAlias = new Macro("RegisterAlias", 2);
+            registerAlias.addParameter("alias64", alias64);
+            //registerAlias.addParameter("id", dgd.id);
+            registerAlias.addParameter("msg64", msg);
+            me.addMacro(registerAlias);
+
 
             return me;
 

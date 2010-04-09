@@ -1264,6 +1264,117 @@ namespace AgentStoryComponents.core
             return lnNumRowsAffected;
 
         }
+
+
+        public void createTable(string asConnectionString, string tblName, string firstColName, string dbType, string tx_id)
+        {
+
+            OleDbHelper dbh = null;
+
+            try
+            {
+                dbh = this.getDBcmd(asConnectionString);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error getting db cmd " + ex.Message + " " + asConnectionString);
+            }
+
+            string sql = @" CREATE TABLE dbo." + tblName.Trim();
+            sql += @" ( ";
+            sql += "id [int] IDENTITY(1,1) NOT NULL,";
+            sql += "tx_id [nvarchar](100) NOT NULL,";
+            sql += firstColName + " [float] DEFAULT (-1.00) NOT NULL";
+            sql += @"CONSTRAINT [PK_" + tblName.Trim();
+            sql += @"] PRIMARY KEY CLUSTERED 
+                    (
+	                    [id] ASC
+                    )";
+            sql += "";
+            sql += "";
+            sql += " ) ON PRIMARY";
+
+            try
+            {
+                dbh.cmd.CommandText = sql;
+                int rows = dbh.cmd.ExecuteNonQuery();
+
+
+                sql = string.Format("INSERT INTO {0} ( tx_id ) values ( '{1}' ) ", tblName, tx_id);
+                dbh.cmd.CommandText = sql;
+
+                int rows2 = dbh.cmd.ExecuteNonQuery();
+
+
+
+            }
+            catch (Exception sqlAddTableExp)
+            {
+
+                throw new Exception(sqlAddTableExp.StackTrace);
+            }
+
+
+
+
+        }
+
+
+        public bool tableExists(string asConnectionString, string tableName, bool abThrowExceptions)
+        {
+
+            bool exists = false;
+            
+            
+            OleDbHelper dbh = null;
+
+            try
+            {
+                dbh = this.getDBcmd(asConnectionString);
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error getting db cmd " + ex.Message + " " + asConnectionString);
+            }
+
+            try
+            {
+                string sql = string.Format("SELECT TOP 1 * FROM {0}",tableName);
+
+                dbh.cmd.CommandText = sql;
+
+                dbh.reader = dbh.cmd.ExecuteReader();
+                if (dbh.reader.HasRows)
+                {
+                    exists = true;
+                }
+               
+
+            }
+            catch (Exception ex)
+            {
+                if (abThrowExceptions)
+                    throw new Exception("Error exec_nonQuery() " + ex.Message);
+                else
+                    exists = false;
+
+            }
+            finally
+            {
+                    dbh.cleanup();
+
+            }
+
+
+            return exists;
+        }
+
+
+
+
+
         /// <summary>
         /// executes SQL statement non-query
         /// </summary>
