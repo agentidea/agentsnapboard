@@ -33,8 +33,6 @@ namespace AgentStoryComponents.extAPI.commands
 
             msg = string.Format("deleted {0} rows", numRows);
 
-
-
             Macro proc = new Macro("DisplayAlert", 2);
             proc.addParameter("msg", TheUtils.ute.encode64( msg));
             proc.addParameter("severity", "1");

@@ -1121,10 +1121,46 @@ namespace AgentStoryComponents
             sbJSON.Append("'PageCount':");
             sbJSON.Append(pageIndex);
 
+            sbJSON.Append(", 'storyTuples':[");
+            getStoryTuples(sbJSON);
+            sbJSON.Append("]");
+
             sbJSON.Append("}");
 
             return sbJSON.ToString();
         }
+
+        private void getStoryTuples(StringBuilder sbJSON)
+        {
+            List<Tuple> storyTups = TupleElements.getStoryTuples(this.ID, config.sqlConn);
+
+            if (storyTups.Count > 0)
+            {
+                foreach (Tuple t in storyTups)
+	            {
+		 
+	
+                sbJSON.Append("{");
+
+                sbJSON.AppendFormat("'id':{0},", t.id);
+                sbJSON.AppendFormat("'name':'{0}',", t.name);
+                sbJSON.AppendFormat("'code':'{0}',", t.code);
+                sbJSON.AppendFormat("'description':'{0}',", t.description);
+                sbJSON.AppendFormat("'units':'{0}',", t.units);
+                sbJSON.AppendFormat("'value':'{0}',", t.val);
+                sbJSON.AppendFormat("'numValue':{0}", t.valNum);
+
+                sbJSON.Append("}");
+                sbJSON.Append(",");
+                
+                }
+                 //remove last comma
+                sbJSON.Remove(sbJSON.Length - 1, 1);
+            }
+
+
+        }
+
 
         public string GetStoryJSON2(Story st)
         {

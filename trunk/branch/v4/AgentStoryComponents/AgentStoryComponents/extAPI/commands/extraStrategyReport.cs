@@ -267,44 +267,47 @@ namespace AgentStoryComponents.extAPI.commands
                     sbHTML.Append("</td>");
 
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["pearl"].Average);
+                    try{  sbHTML.Append(gTotals["pearl"].Average); } catch (Exception epp) { sbHTML.Append(" * "); }
                     sbHTML.Append("</td>");
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["oyster"].Average);
+                   try{ sbHTML.Append(gTotals["oyster"].Average);} catch (Exception epp) { sbHTML.Append(" * "); }
                     sbHTML.Append("</td>");
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["breadAndButter"].Average);
+                   try{ sbHTML.Append(gTotals["breadAndButter"].Average);} catch (Exception epp) { sbHTML.Append(" * "); }
                     sbHTML.Append("</td>");
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["whiteElephant"].Average);
+                  try{  sbHTML.Append(gTotals["whiteElephant"].Average);} catch (Exception epp) { sbHTML.Append(" * "); }
                     sbHTML.Append("</td>");
                 }
                 if (reveal >= 3)
                 {
 
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["UnFunded_Points"].Average);
+                  try{  sbHTML.Append(gTotals["UnFunded_Points"].Average);} catch (Exception epp) { sbHTML.Append(" * "); }
                     sbHTML.Append("</td>");
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["UnFunded_Success"].Average);
+                 try{   sbHTML.Append(gTotals["UnFunded_Success"].Average);} catch (Exception epp) { sbHTML.Append(" * "); }
                     sbHTML.Append("</td>");
                 }
                 if (reveal >= 4)
                 {
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["Funded_Success"].Average);
+                try{  sbHTML.Append(gTotals["Funded_Points"].Average);} catch (Exception epp) { sbHTML.Append(" * "); }
                     sbHTML.Append("</td>");
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["Funded_Points"].Average);
+                  
+                  try { sbHTML.Append(gTotals["Funded_Success"].Average); } catch (Exception epp) { sbHTML.Append(" * "); }
+
                     sbHTML.Append("</td>");
                 }
                 if (reveal >= 5)
                 {
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["Best5_Success"].Average);
+                    try { sbHTML.Append(gTotals["Best5_Points"].Average); }                    catch (Exception epp) { sbHTML.Append(" * "); }                 
                     sbHTML.Append("</td>");
                     sbHTML.Append("<td align='right'>");
-                    sbHTML.Append(gTotals["Best5_Points"].Average);
+                    try { sbHTML.Append(gTotals["Best5_Success"].Average); }                    catch (Exception epp) { sbHTML.Append(" * "); }
+                
                     sbHTML.Append("</td>");
                 }
 

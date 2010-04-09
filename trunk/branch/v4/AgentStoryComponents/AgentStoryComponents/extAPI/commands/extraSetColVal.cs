@@ -85,13 +85,6 @@ namespace AgentStoryComponents.extAPI.commands
             MacroEnvelope me = new MacroEnvelope();
 
 
-            //var cellKey = string.Format("{0}_{1}", tx_id, colName);
-            //Macro proc = new Macro("NotifyUpdateCellValue", 4);
-            //proc.addParameter("cellKey", cellKey);
-            //proc.addParameter("colIntValue", colValue);
-            //proc.addParameter("tx_id64", tx_id64);
-            //proc.addParameter("dateStamp", TheUtils.ute.getDateStamp());
-
             Macro proc = new Macro("RefreshStrategyTable", 1);
             proc.addParameter("by", macro.RunningMe.ID + "");
 
