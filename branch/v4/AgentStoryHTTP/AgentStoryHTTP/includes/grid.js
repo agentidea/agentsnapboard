@@ -12,9 +12,11 @@ function newGrid2(id,rows,cols,values,border,aGUID)
     
     if(aGUID !=null)
         grid.setGUID(aGUID);
-        
-    if(border != null)
-        grid.border = border;
+
+    if (border != null) {
+       grid.border = border;
+       // grid.setBorder(border);
+    }
         
     return grid;
 }
@@ -30,6 +32,16 @@ function grid2()
     var _gridTableBody = document.createElement("tbody");  
     this.gridTable = _gridTable;
     this.gridTableBody = _gridTableBody;
+
+    var _headerArray = null;  //table header row ...
+    this.getHeaderRow = function() {
+        return _headerArray;
+    }
+
+    this.setHeaderRow = function(pipeDelimtedVals) {
+
+        _headerArray = pipeDelimtedVals.split('|');
+    }
     
     var _rows = 0;
     var _cols = 0;
@@ -51,6 +63,13 @@ function grid2()
     this.getGUID = function(){return _GUID; }
     
     this.border = _border;
+
+//    this.setBorder = function(rhs) {
+//        _border = rhs;
+//        _gridTableBody.setAttribute("border", rhs);
+//    }
+    
+
     
     this.values = _values;  //value array that hold
     
@@ -73,9 +92,36 @@ function initializeGrid( aGrid )
     }
 
         aGrid.gridTableBody.id = this.id;
-        aGrid.gridTable.appendChild( aGrid.gridTableBody );
+
+
+        var ha = aGrid.getHeaderRow();
+
+        if (ha != null) {
+           //construct a header row ...
+          
+            var trLine = document.createElement("TR");
+            trLine.className = "clsGridHeadRow";
+
+            for (var x = 0; x < ha.length; x++) {
+                var t = ha[x];
+                var tmpTxt = document.createTextNode(t);
+
+                var headerCellCurrent = document.createElement("td");
+                headerCellCurrent.align = "center";
+                headerCellCurrent.appendChild(tmpTxt);
+                trLine.appendChild(headerCellCurrent);
+            }
+
+            var rew = document.createElement("THEAD");
+            rew.appendChild(trLine);
+            aGrid.gridTable.appendChild(rew);
+            
+        }
+
        
-       
+
+
+        aGrid.gridTable.appendChild(aGrid.gridTableBody);
        var elementCounter = 0;
        
         var gridRowCurrent,gridCellCurrent,gridCellTextCurrent,cellCode,gridCellDiv;
@@ -122,7 +168,8 @@ function initializeGrid( aGrid )
         }
  
         aGrid.gridTable.setAttribute("border",this.border);
-        
+
+        //alert(aGrid.gridTable.innerHTML);
         return aGrid;
 }
 
