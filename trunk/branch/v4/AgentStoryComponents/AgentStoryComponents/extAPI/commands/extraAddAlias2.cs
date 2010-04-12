@@ -16,7 +16,8 @@ namespace AgentStoryComponents.extAPI.commands
             string alias64 = MacroUtils.getParameterString("alias64", macro);
             string alias = TheUtils.ute.decode64(alias64);
 
-            string dataTable = MacroUtils.getParameterString("dataTable", macro);
+            string gameCode = MacroUtils.getParameterString("gameCode", macro);
+            string tableName = gameCode + "GameData";
             string tx_id64 = MacroUtils.getParameterString("tx_id64", macro);
             string tx_id = TheUtils.ute.decode64(tx_id64);
 
@@ -32,9 +33,9 @@ namespace AgentStoryComponents.extAPI.commands
             var year = now.Year;
             string dateStamp = now.ToString();
 
-            //table exists see if the alias has already been added ... 
+            
             string sql = string.Format("INSERT INTO {0} ( tx_id,alias  ,[lastEditedDay],[lastEditedMonth],[lastEditedYear],[lastEditedWhen]) values ('{1}','{2}',{3},{4},{5},'{6}')",
-                                       dataTable,tx_id,alias64,day,month,year,dateStamp);
+                                       tableName, tx_id, alias64, day, month, year, dateStamp);
 
             OleDbHelper dbHelper = TheUtils.ute.getDBcmd(config.conn);
 
@@ -49,7 +50,7 @@ namespace AgentStoryComponents.extAPI.commands
             catch (Exception insertError)
             {
 
-                sql = string.Format("UPDATE {0} SET alias = '{1}' WHERE tx_id = '{2}'", dataTable,alias64, tx_id);
+                sql = string.Format("UPDATE {0} SET alias = '{1}' WHERE tx_id = '{2}'", tableName,alias64, tx_id);
                 dbHelper.cmd.CommandText = sql;
                 int numRows = dbHelper.cmd.ExecuteNonQuery();
                 if (numRows != 1) throw new Exception(string.Format("Error updating {0}", sql));
@@ -61,9 +62,9 @@ namespace AgentStoryComponents.extAPI.commands
 
             MacroEnvelope me = new MacroEnvelope();
 
-            Macro proc = new Macro("RefreshTable", 2);              //refresh data table broadcast
+            Macro proc = new Macro("RefreshController", 2);              //refresh data table broadcast
             // update model ...
-            proc.addParameter("table", dataTable);
+            proc.addParameter("gameCode", gameCode);
             proc.addParameter("by", macro.RunningMe.ID + "");
 
             me.addMacro(proc);
