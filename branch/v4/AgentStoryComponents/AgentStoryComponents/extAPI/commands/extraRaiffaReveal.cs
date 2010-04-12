@@ -188,19 +188,19 @@ namespace AgentStoryComponents.extAPI.commands
             sbHTML.AppendFormat("<TD>{0}</TD>", totalOut);
             sbHTML.Append("</TR>");
 
-            sbHTML.Append("<TR>");
+            sbHTML.Append("<TR class='clsDiceGameRow1'>");
             sbHTML.Append("<TD colspan='5' align='right'>%</TD>");
             sbHTML.AppendFormat("<TD>{0}</TD>", totalInP);
             sbHTML.AppendFormat("<TD>{0}</TD>", totalOutP);
             sbHTML.Append("</TR>");
 
-            sbHTML.Append("<TR>");
+            sbHTML.Append("<TR class='clsDiceGameRow1'>");
             sbHTML.Append("<TD colspan='5' align='right'>expected</TD>");
             sbHTML.AppendFormat("<TD>{0}</TD>", totalExpectedIn);
             sbHTML.AppendFormat("<TD>{0}</TD>", totalExpectedOut);
             sbHTML.Append("</TR>");
 
-            sbHTML.Append("<TR>");
+            sbHTML.Append("<TR class='clsDiceGameRow1'>");
             sbHTML.Append("<TD colspan='5' align='right'>%</TD>");
             sbHTML.AppendFormat("<TD>{0}</TD>", 80);
             sbHTML.AppendFormat("<TD>{0}</TD>", 20);
