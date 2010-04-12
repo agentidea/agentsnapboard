@@ -102,7 +102,7 @@
     <Content Include="extras\SmartOrg\PortfolioGame\js\8_dieRolls.js" />
     <Content Include="extras\SmartOrg\PortfolioGame\js\9_projectSelection2.js" />
     <Content Include="extras\SmartOrg\PortfolioGame\PortfolioGame.css" />
-    <Content Include="extras\SmartOrg\Raiffa\js\1_init.js" />
+    <Content Include="extras\SmartOrg\Raiffa\js\1_game.js" />
     <Content Include="images\haze.png" />
     <Content Include="includes\AddSingleUser.js" />
     <Content Include="includes\chars.js" />
@@ -154,6 +154,7 @@
     <Content Include="includes\storySharingControl.js" />
     <Content Include="includes\StoryToc.js" />
     <Content Include="includes\StoryToc2.js" />
+    <Content Include="includes\storyTupleManagement.js" />
     <Content Include="includes\StoryViewer.js" />
     <Content Include="includes\StoryViewr2.js" />
     <Content Include="includes\timer.js" />
@@ -188,6 +189,7 @@
     <Content Include="screens\StoryOrig.aspx" />
     <Content Include="screens\StoryPageView2.aspx" />
     <Content Include="screens\StoryReplay.aspx" />
+    <Content Include="screens\storyTupleManagement.aspx" />
     <Content Include="screens\StrategyPortal.aspx" />
     <Content Include="style\list.css" />
     <Content Include="style\main.css" />
@@ -429,6 +431,13 @@
     </Compile>
     <Compile Include="screens\StoryReplay.aspx.designer.cs">
       <DependentUpon>StoryReplay.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="screens\storyTupleManagement.aspx.cs">
+      <DependentUpon>storyTupleManagement.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="screens\storyTupleManagement.aspx.designer.cs">
+      <DependentUpon>storyTupleManagement.aspx</DependentUpon>
     </Compile>
     <Compile Include="screens\StrategyPortal.aspx.cs">
       <DependentUpon>StrategyPortal.aspx</DependentUpon>
