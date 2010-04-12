@@ -1,10 +1,10 @@
-/*
+
 -- mods to existing db for upgrade from basic slide navigator
 ALTER TABLE dbo.Story ADD
 	IncludeCodeDirName nvarchar(64) NULL
 GO
 
-*/
+
 
 
 ALTER TABLE dbo.StoryTuple
@@ -196,3 +196,26 @@ BEGIN
 END
 
 GO
+
+
+IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[vStoryTuples]'))
+DROP VIEW [dbo].[vStoryTuples]
+GO
+
+
+
+/****** Object:  View [dbo].[vStoryTuples]    Script Date: 04/12/2010 07:22:10 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE VIEW [dbo].[vStoryTuples]
+AS
+SELECT     dbo.StoryTuple.StoryID, dbo.Tuple.*
+FROM         dbo.Tuple INNER JOIN
+                      dbo.StoryTuple ON dbo.Tuple.id = dbo.StoryTuple.TupleID
+
+GO
+
