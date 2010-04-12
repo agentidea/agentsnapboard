@@ -20,7 +20,7 @@ function processBlur(ev) {
 
         processRequest(extraSetColVal2);
 
-        raiffaGame.processedBlurs = true;
+        raiffaGame.inputsProcessed += 1;
     }
     catch (e) {
         storyView.log("col setting2 setting error " + e.description);
@@ -34,6 +34,7 @@ function processBlur(ev) {
 
 var raiffaGame =
 {
+    inputsProcessed: 0, totalInputs: 0,
     processedBlurs: false,
     code: "raiffa",
     refreshController: function(reveal) {
@@ -83,6 +84,7 @@ var raiffaGame =
         var numAxioms = storyTuples.length;
         var values = new Array();
         var rows = numAxioms;
+        this.totalInputs = numAxioms * 2;
         var cols = 3;
         var aGUID = "XYZ";
         var border = 1;
