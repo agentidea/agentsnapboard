@@ -8,55 +8,18 @@ function trace(msg)
 {
     //alert(msg);
 }
-function cmdNotifyUpdateCellValue(macro) {
-    var timestamp = getParameterVal("timestamp", macro);
-    var tx_id = TheUte().decode64(getParameterVal("tx_id64", macro));
-    var cellKey = getParameterVal("cellKey", macro);
-    var colIntValue = getParameterVal("colIntValue", macro);
-
-    var UserCurrentTxID = TheUte().decode64(macro.UserCurrentTxID);
 
 
-    //    storyView.log(cellKey + " " + colIntValue);
+function cmdRefreshController(macro) {
 
     try {
-
-        var dvToUpdate = document.getElementById(cellKey);
-        if (dvToUpdate == null) {
-            //do nothing
-        }
-        else {
-            //dvToUpdate.innerHTML = "<b>" + colIntValue + "</b>";
-            //dvToUpdate.style.backgroundColor = "red";
-
-            var alertCon = new cellAlert(colIntValue + "");
-            if (TheUte().hasChildren(dvToUpdate)) {
-                TheUte().removeChildren(dvToUpdate);
-            }
-            dvToUpdate.appendChild(alertCon.container);
-            
-            
-        }
-
+        var gameCode = getParameterVal("gameCode", macro);
+        eval(" var game = " + gameCode + "Game;");
+        game.refreshController(gReveal);
     }
-    catch (exp) {
-        //update notification failure, alert
-        alert("update notification failure \r\n \t" + exp.description);
+    catch (refreshErr) {
+        alert("refreshErr :: " + refreshErr.description);
     }
-
-
-
-
-}
-
-
-function cmdRefreshTable(macro) {
-
-    var tbl = getParameterVal("table", macro);
-
-    storyView.log("refreshing :table: " + tbl);
-
-
 }
 
 function cmdRefreshStrategyTable(macro) {
@@ -1340,4 +1303,47 @@ function cmdGAUZE(macro)
     }
     
     
+}
+
+
+
+function cmdNotifyUpdateCellValue(macro) {
+    var timestamp = getParameterVal("timestamp", macro);
+    var tx_id = TheUte().decode64(getParameterVal("tx_id64", macro));
+    var cellKey = getParameterVal("cellKey", macro);
+    var colIntValue = getParameterVal("colIntValue", macro);
+
+    var UserCurrentTxID = TheUte().decode64(macro.UserCurrentTxID);
+
+
+    //    storyView.log(cellKey + " " + colIntValue);
+
+    try {
+
+        var dvToUpdate = document.getElementById(cellKey);
+        if (dvToUpdate == null) {
+            //do nothing
+        }
+        else {
+            //dvToUpdate.innerHTML = "<b>" + colIntValue + "</b>";
+            //dvToUpdate.style.backgroundColor = "red";
+
+            var alertCon = new cellAlert(colIntValue + "");
+            if (TheUte().hasChildren(dvToUpdate)) {
+                TheUte().removeChildren(dvToUpdate);
+            }
+            dvToUpdate.appendChild(alertCon.container);
+
+
+        }
+
+    }
+    catch (exp) {
+        //update notification failure, alert
+        alert("update notification failure \r\n \t" + exp.description);
+    }
+
+
+
+
 }

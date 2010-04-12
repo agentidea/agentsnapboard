@@ -22,7 +22,7 @@
 
     var gUserCurrentTxID = null;
     var gUserAlias = "not_set_yet";
-    var gRowDataPK = -1;
+   // var gRowDataPK = -1;
     
     var X_POINT = 100;
     var Y_POINT = 125;
@@ -98,13 +98,6 @@
 
 <!-- Game Specific includes -->
 <%= GameSpecificIncludes %>
-
-
-
-
-
-
-
     
     <div id ="TheHook" style="left:5;top:0;position:absolute;background-color:Green;width:0px;height:0px;display:block;"></div>
     <div id="MainContent"></div>

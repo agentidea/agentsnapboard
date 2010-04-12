@@ -24,7 +24,7 @@ namespace AgentStoryHTTP.screens
     public partial class SlideNavigator : PossibleSessionAwareWebForm
     {
         private Story _story;
-
+        public bool isIE = true;
         private int _pageCursor;
         private string _toolBarVisible;
         private string _includeCodeDirName;
@@ -195,6 +195,10 @@ namespace AgentStoryHTTP.screens
                     json.Append(u.UserName);
                     json.Append("'");
 
+                    json.Append(",");
+                    json.Append("'isIE':");
+                    json.Append(Convert.ToString( isIE ).ToLower() );
+
                 }
                 json.Append("}");
 
@@ -211,6 +215,12 @@ namespace AgentStoryHTTP.screens
         {
             System.Web.UI.HtmlControls.HtmlGenericControl toolBarREF = null;
             base.Page_Load(sender, e, toolBarREF, null);
+            
+            //browser issues, chrome thinks it's gecko!!!
+            //if (Request.UserAgent.IndexOf("gecko") != -1 || Request.UserAgent.IndexOf("Gecko") != -1 || Request.UserAgent.IndexOf("GECKO") != -1)
+            //{
+            //    isIE = false;
+            //}
 
             //get the user context
             string userContextInfo = "";
@@ -223,7 +233,11 @@ namespace AgentStoryHTTP.screens
             userContextInfo += Request.Browser.Type;
             userContextInfo += " | ";
             userContextInfo += Request.UserAgent;
+            userContextInfo += " | ";
+            userContextInfo += "isIE." + Convert.ToString(isIE);
 
+
+            
 
             string sStoryID = Request["StoryID"];
             string sPageCursor = Request["PageCursor"];
