@@ -91,15 +91,16 @@ var raiffaGame =
         for (var i = 0; i < numAxioms; i++) {
 
             var axe = storyTuples[i];
-            var tmpQuestion = document.createTextNode(TheUte().decode64(axe.description));
+            var txtQuestion = TheUte().decode64(axe.description) + " (" + axe.units + ")";
+            var tmpQuestion = document.createTextNode(txtQuestion);
 
             values.push(tmpQuestion);
             var val = "";
             var tmpTitle = axe.name + " (" + axe.units + ")";
-            var tmpTxtBoxLOW = TheUte().getInputBox(val, axe.code + "_LOW", null, processBlur, null, tmpTitle + " LOW value");
+            var tmpTxtBoxLOW = TheUte().getInputBox(val, axe.code + "_LOW", null, processBlur, null, null);
             values.push(tmpTxtBoxLOW);
 
-            var tmpTxtBoxHIGH = TheUte().getInputBox(val, axe.code + "_HIGH", null, processBlur, null, tmpTitle + " HIGH value");
+            var tmpTxtBoxHIGH = TheUte().getInputBox(val, axe.code + "_HIGH", null, processBlur, null, null);
             values.push(tmpTxtBoxHIGH);
 
         }
