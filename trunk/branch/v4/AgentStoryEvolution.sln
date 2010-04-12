@@ -12,12 +12,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B6F727B9-8BE6-4D53-A67F-898F7EF828E5}"
 	ProjectSection(SolutionItems) = preProject
 		AgentStoryHTTP\AgentStory.vsmdi = AgentStoryHTTP\AgentStory.vsmdi
+		AgentStoryEvolution.vsmdi = AgentStoryEvolution.vsmdi
 		AgentStoryHTTP\LocalTestRun.testrunconfig = AgentStoryHTTP\LocalTestRun.testrunconfig
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlickrNet", "FlickrNet\FlickrNet\FlickrNet.csproj", "{0A8FAFD3-83BE-4EE4-8C13-74D8317A48B1}"
 EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = AgentStoryEvolution.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

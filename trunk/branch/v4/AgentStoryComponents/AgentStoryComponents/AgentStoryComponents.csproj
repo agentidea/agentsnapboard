@@ -94,6 +94,7 @@
     <Compile Include="commands\cmdSetPageGate.cs" />
     <Compile Include="commands\cmdDisplayGameController.cs" />
     <Compile Include="core\TupleElements.cs" />
+    <Compile Include="extAPI\commands\extraRaiffaReveal.cs" />
     <Compile Include="extAPI\commands\extraRaiffaController.cs" />
     <Compile Include="extAPI\commands\extraAddAlias2.cs" />
     <Compile Include="extAPI\commands\extraSetColVal2.cs" />
