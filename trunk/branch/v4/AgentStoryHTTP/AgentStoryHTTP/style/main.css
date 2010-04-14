@@ -40,6 +40,12 @@ a
 		
 }
 
+.clsPageNote
+{
+	width:500px;
+	background-color:#e0e0e0;
+	font-size:10pt;
+}
 .clsLogArea
 {
 	background-color:Black;
@@ -1420,9 +1426,23 @@ SELECT.clsPageNavPulldownLGE
 }
 
 
+.clsInput
+{
+	background-color:#ffffcc;
+	font-size:8pt;
+	width:200px;
+	
+		
+}
 
-
-
+.clsTupleTextArea
+{
+	background-color:#ffffcc;
+	font-size:8pt;
+	width:200px;
+	height:50px;
+		
+}
 
 
 

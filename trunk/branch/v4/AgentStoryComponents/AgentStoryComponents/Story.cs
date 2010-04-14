@@ -944,18 +944,37 @@ namespace AgentStoryComponents
                         int canViewInt = 1;
                         int canEditInt = 1;
 
-                        if (pe.by.ID != this.openedBy.ID)
+                        if (this.canEditInt == 0)
                         {
-                            //elements only editible by element owner
+                            //storyviewer only; never can edit anything
                             canEditInt = 0;
                         }
-
-                        if (this.openedBy.ID == this.by.ID)
+                        else
                         {
-                            //unless story owner.
-                            //story owner
-                            //must refresh to edit new stuff.
-                            canEditInt = 1;
+                            //potential editor of element
+
+                            if (pe.by.ID != this.openedBy.ID)
+                            {
+                                //not element of the user logged in
+                                if (config.editorsElementsExclusive)
+                                {
+                                    //elements only editible by element owner
+                                    canEditInt = 0;
+                                }
+                            }
+
+
+                            if (this.openedBy.ID == this.by.ID)
+                            {
+                                if (config.ownerOfStoryCanModerate)
+                                {
+                                    //story owner IS allowed to edit everything
+                                    // aka ( moderated )
+                                    //story owner
+                                    //must refresh to edit new stuff.
+                                    canEditInt = 1;
+                                }
+                            }
                         }
 
                         sbJSON.Append(",");
@@ -1143,6 +1162,7 @@ namespace AgentStoryComponents
                 sbJSON.Append("{");
 
                 sbJSON.AppendFormat("'id':{0},", t.id);
+                sbJSON.AppendFormat("'guid':'{0}',", t.guid);
                 sbJSON.AppendFormat("'name':'{0}',", t.name);
                 sbJSON.AppendFormat("'code':'{0}',", t.code);
                 sbJSON.AppendFormat("'description':'{0}',", t.description);

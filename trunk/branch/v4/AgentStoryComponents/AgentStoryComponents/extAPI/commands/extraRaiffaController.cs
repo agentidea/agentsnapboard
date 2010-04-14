@@ -118,15 +118,22 @@ namespace AgentStoryComponents.extAPI.commands
 
             }
 
-            if (reveal > 1)
+            if (reveal > 1 && gColSummaries.Count > 0)
             {
                 sbHTML.Append("<TR class='clsDiceGameRow1'>");
                 sbHTML.Append("<td nowrap>inside<br/>outside<br/>%inside</td>");
                 //footer row
                 foreach (Tuple t in tups)
                 {
-                    colSummary cs = gColSummaries[t.code];
-                    sbHTML.AppendFormat("<td colspan='3' align='right'>{0}<br/>{1}<br/>{2}", cs.totalIn, cs.totalOut, Math.Round( cs.percentIn,2));
+                    if(gColSummaries.ContainsKey(t.code))
+                    {
+                        colSummary cs = gColSummaries[t.code];
+                        sbHTML.AppendFormat("<td colspan='3' align='right'>{0}<br/>{1}<br/>{2}", cs.totalIn, cs.totalOut, Math.Round( cs.percentIn,2));
+                    }
+                    else
+                    {
+                        sbHTML.AppendFormat("<td colspan='3' align='right'>{0}<br/>{1}<br/>{2}", "*","*", "*");
+                    }
                 }
                 sbHTML.Append("</TR>");
             }
@@ -135,7 +142,7 @@ namespace AgentStoryComponents.extAPI.commands
 
 
 
-            if (reveal > 1)
+            if (reveal > 1 && gColSummaries.Count > 0)
             {
                 //summary table is included
                 sbHTML.Append(@"<table id='tblRaiffaControllerSummary' class='clsGrid'

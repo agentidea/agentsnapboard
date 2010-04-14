@@ -131,22 +131,47 @@ namespace AgentStoryComponents.extAPI.commands
 
 
             System.Text.StringBuilder sbHTML = new StringBuilder();
+
+            sbHTML.Append("<div class='clsPageNote'>");
+
+            sbHTML.Append(@"<b>How good are your assessments?</b>
+                            
+                            <br>
+                    For each uncertain quantity, the actual answer is given and your range is <br>
+                    judged based on whether the actual answer is inside or outside of your range. <br> 
+                    In the whole group,the number of Inside and Outside answers are also shown. <br>
+                    Since the range is set at the 80% level, we would expect about 80% of the <br>
+                    group answers to fall Inside the range.<br> ");
+
+
+            sbHTML.Append("</div><br><br>");
+
+
+
             sbHTML.Append(@"<table id='tblRaiffaController' class='clsGrid'
                             cellspacing='0' cellpadding='3' border='1'>");
             //header row
+            sbHTML.Append("<TR class='clsDiceGameHeader'>");
+            sbHTML.Append("<TD align='center'>&nbsp;</TD>");
+            sbHTML.Append("<TD align='center' colspan='2' nowrap>YOUR ASSESSMENT</TD>");
+            sbHTML.Append("<TD align='center' colspan='2' nowrap>YOUR RESULT</TD>");
+            sbHTML.Append("<TD align='center' colspan='2' nowrap>GROUP RESULT</TD>");
+            sbHTML.Append("</TR>");
+
             sbHTML.Append("<TR class='clsDiceGameHeader'>");
             sbHTML.Append("<TD align='center'>Uncertain Quantity</TD>");
             sbHTML.Append("<TD align='center'>Low</TD>");
             sbHTML.Append("<TD align='center'>High</TD>");
             sbHTML.Append("<TD align='center'>Answer</TD>");
             sbHTML.Append("<TD align='center'>Result</TD>");
-            sbHTML.Append("<TD align='center'>In</TD>");
-            sbHTML.Append("<TD align='center'>Out</TD>");
+            sbHTML.Append("<TD align='center'>Inside</TD>");
+            sbHTML.Append("<TD align='center'>Outside</TD>");
             sbHTML.Append("</TR>");
-            sbHTML.Append("<TR class='clsDiceGameRow1'>");
+
+            sbHTML.Append("<TR class='clsDiceGameRow2'>");
             sbHTML.Append("<TD align='center'>&nbsp;</TD>");
-            sbHTML.Append("<TD align='center'>10% chance that the actual is below this value</TD>");
-            sbHTML.Append("<TD align='center'>10% chance that the actual is above this value</TD>");
+            sbHTML.Append("<TD align='center' nowrap>10% chance that <br>the actual is <br>below this value</TD>");
+            sbHTML.Append("<TD align='center' nowrap>10% chance that <br>the actual is <br>above this value</TD>");
             sbHTML.Append("<TD align='center'>&nbsp;</TD>");
             sbHTML.Append("<TD align='center'>&nbsp;</TD>");
             sbHTML.Append("<TD align='center'>total in group</TD>");
