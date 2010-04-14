@@ -6,8 +6,8 @@ var url = "http://localhost:8181/webservices/daemon.asmx/ProcessMacro";
 
 var bCallBusyLock = false; 
 var gBufferDisplay = 24;
-var gRefreshRate = 1000;
-var gDelay = 5;
+var gRefreshRate = 100;
+var gDelay = 3;
 var gDisableAJAXcalls = 0; 
 
 var maxHeartbeatsBeforeRefresh = 2400;  //to prevent browser leaks ( possible )

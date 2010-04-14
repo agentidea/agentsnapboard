@@ -4,11 +4,26 @@
 <head id="Head1" runat="server">
         <title><%= PageTitle %> </title>
     <link rel="stylesheet" type="text/css" href="../style/main.css" />
-    <link rel="stylesheet" type="text/css" href="../extras/SmartOrg/PortfolioGame/PortfolioGame.css" />
+    <link rel="stylesheet" type="text/css" href="../extras/SmartOrg/Game.css" /> <!-- $todo: include dynamic -->
     <link rel="stylesheet" type="text/css" href="../style/StoryElements.css" />
 </head>
 <body id="TheBod" class="clsBodyStoryEditor"  onunload="storyView.postExitMsg();">
 
+
+
+<script language="javascript" type="text/javascript">
+
+    
+    if (navigator.appName.indexOf("Microsoft") == -1) {
+    
+        var tmp = "This application is currently only certifed to work with Internet Explorer on Windows. ";
+        tmp = tmp + "Please quit your current browser and open this site using Internet Explorer. ";
+        tmp = tmp + "This program can usually be found at C:/Program Files/Internet Explorer/IEXPLORE.EXE";
+
+        alert(tmp);
+    } 
+    
+</script>
 
 
    <script type="text/javascript" language="JavaScript">
@@ -67,7 +82,7 @@
   
 </script>
 
-<script src="../includes/mousepos.js" type="text/javascript"></script>
+
     
 <script  type="text/javascript" src="../includes/PageUtils.js"></script>
 <script src="../includes/core.js" language="javascript" type="text/javascript"></script>

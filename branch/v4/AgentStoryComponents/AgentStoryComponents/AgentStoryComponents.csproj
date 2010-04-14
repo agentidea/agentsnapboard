@@ -94,6 +94,7 @@
     <Compile Include="commands\cmdSetPageGate.cs" />
     <Compile Include="commands\cmdDisplayGameController.cs" />
     <Compile Include="core\TupleElements.cs" />
+    <Compile Include="extAPI\commands\extraDeleteGameData2.cs" />
     <Compile Include="extAPI\commands\extraRaiffaReveal.cs" />
     <Compile Include="extAPI\commands\extraRaiffaController.cs" />
     <Compile Include="extAPI\commands\extraAddAlias2.cs" />
@@ -144,6 +145,9 @@
       <Project>{0A8FAFD3-83BE-4EE4-8C13-74D8317A48B1}</Project>
       <Name>FlickrNet</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="lib\" />

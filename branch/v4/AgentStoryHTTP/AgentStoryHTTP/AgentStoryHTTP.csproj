@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Default.aspx" />
+    <Content Include="extras\SmartOrg\Game.css" />
     <Content Include="extras\SmartOrg\PortfolioGame\formatting.css" />
     <Content Include="extras\SmartOrg\PortfolioGame\images\20\1.png" />
     <Content Include="extras\SmartOrg\PortfolioGame\images\20\10.png" />
@@ -103,6 +104,7 @@
     <Content Include="extras\SmartOrg\PortfolioGame\js\9_projectSelection2.js" />
     <Content Include="extras\SmartOrg\PortfolioGame\PortfolioGame.css" />
     <Content Include="extras\SmartOrg\Raiffa\js\1_game.js" />
+    <Content Include="extras\SmartOrg\StrategicFit\js\1_game.js" />
     <Content Include="images\haze.png" />
     <Content Include="includes\AddSingleUser.js" />
     <Content Include="includes\chars.js" />
@@ -469,7 +471,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="extras\SmartOrg\StrategicFit\" />
     <Folder Include="includes\flickr\" />
     <Folder Include="includes\google\" />
     <Folder Include="includes\strategy\" />
