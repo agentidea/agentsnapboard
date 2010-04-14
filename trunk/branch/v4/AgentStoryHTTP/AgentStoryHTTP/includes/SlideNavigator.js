@@ -79,15 +79,11 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
         var ret = false;
 
         var gateCursor = storyView.StoryController.CurrentStory.StateCursor;
-
-
         var PageCursor = storyView.StoryController.getCurrentPageCursor();
 
         if (gateCursor == (PageCursor + 1)) {
             ret = true;
         }
-
-        //alert(gateCursor + "::" + PageCursor);
 
         return ret;
     }
@@ -233,23 +229,7 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
             storyView.setOffSetY(storyView.TOP_ADJUST_PANEL_CLOSED);
    }
     
-    //
-    // library panel
-    //
-    
-//    var _libPanel = document.createElement("DIV");
-//    this.libPanel = _libPanel;
-//    _libPanel.className = "clsLibPanel";  
-//    _libPanel.style.display = "none";
-//    
-//    var _libViewer = new LibraryViewer();
-//    _libViewer.init();
-//    _libPanel.appendChild( _libViewer.container );
-//    
-//    this.getLibViewer = function()
-//    {
-//        return _libViewer;
-//    }
+
 
    this.adjustHook = function( x,y )
    {
@@ -343,29 +323,28 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
      
     var _sentAnnounce = false;
    
-   this.heartbeat = function(s)
-   {
-       var macroHeartBeat = newMacro("HeartBeat");
-       addParam( macroHeartBeat,"seq",_seq);
-       addParam( macroHeartBeat,"storyID",_storyID);
-       addParam ( macroHeartBeat,"storySeq",_storySeq);
-       processRequest( macroHeartBeat );  	
-       
-       if(_sentAnnounce == false)
-       {
+    this.heartbeat = function(s)
+    {
+        var macroHeartBeat = newMacro("HeartBeat");
+        addParam( macroHeartBeat,"seq",_seq);
+        addParam( macroHeartBeat,"storyID",_storyID);
+        addParam ( macroHeartBeat,"storySeq",_storySeq);
+        processRequest( macroHeartBeat );  	
+
+        if(_sentAnnounce == false)
+        {
             //call back to server to announce user
             var userOpening = _StoryController.CurrentUser.UserName;
-            
+
             var postMsg = newMacro("StoryPostMsg");
             addParam( postMsg,"msg64",TheUte().encode64(userOpening + " joined this story" ));
             addParam( postMsg,"StoryID",_storyID );
             addParam( postMsg,"userName", userOpening);
             processRequest( postMsg );   
             _sentAnnounce = true;
-    
-    } 
+        } 
 
-   }
+    }
    
    
    this.postMsg = function(msg)
@@ -379,7 +358,7 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
             processRequest( postMsg ); 
    }
    
-      this.postExitMsg = function()
+   this.postExitMsg = function()
    {
         var userOpening = _StoryController.CurrentUser.UserName;
             
@@ -405,13 +384,9 @@ function storyView2(aoController,aoBod,seqLastChange,astoryID)
 
 
     this.storyViewDoublClick = function() {
-        alert("this feature is disabled in this version");
+        alert("this feature is disabled with this viewer");
     }
     
-
-   
-
-
     this.init = storyView2init;
     
     //marks this object as an observer
@@ -597,9 +572,6 @@ function loadPageElement(oStoryController,oPage,elementOrdinal) {
         s = " pageElement = oStoryController.CurrentStory.PageElements.pageElement_" + pem.PageElementID;
         eval(s);
 
-        // alert("adding new page element " + pem.X + " x " + pem.Y);
-
-       
 
         var pageElementValue = TheUte().decode64(pageElement.Value);
         var preJavaScript; var postJavaScript;
