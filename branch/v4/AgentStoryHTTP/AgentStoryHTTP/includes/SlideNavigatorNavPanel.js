@@ -164,8 +164,14 @@ function simplePageNavigatorPanel( aoStoryController ,view)
 
         }
 
+        var cmdTupleMx = TheUte().getButton("cmdAdvancedOptions", "t", "manage story tuples", null, "clsButtonAction2LGE");
+        cmdTupleMx.onclick = function() {
+            location.href = "./storyTupleManagement.aspx?StoryID=" + storyView.StoryController.CurrentStory.ID;
+        }
+
         if (bReadOnly == false) {
             PageNavValues.push(cmdShare);
+            PageNavValues.push(cmdTupleMx);
             //PageNavValues.push(cmdShowAdvancedOptions);
             // PageNavValues.push(TheUte().getSpacer(5, 1));
             PageNavValues.push(TheUte().getButton("cmdHome", "toc", "table of contents", this.home, "clsButtonAction2LGE"));
