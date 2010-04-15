@@ -20,18 +20,22 @@
     <script src="../includes/storyTupleManagement.js" language="javascript" type="text/javascript"></script>
     
     <script language="javascript" type="text/javascript">
-   
-    var oStoryTupleManager = null;
+
+        var oStoryTupleManager = null;
+        var storyController = null;
+        
     function init()
     {
 
        var storyJSON = "<%= oStory.GetStoryJSON() %>";
        eval(" var story = " + storyJSON + ";");
-       var storyController = newStoryController(story);
+       storyController = newStoryController(story);
 
        StoryTupleManager.init(story);
 
        var ap = document.getElementById("divBodyAttachPoint");
+       var ab = document.getElementById("divActionButtonArea");
+       
        var txtNode = document.createTextNode("Story tuple Management for Story Entitled : " + TheUte().decode64(story.Title));
        var dvPageHeader = document.createElement("DIV");
        dvPageHeader.className = "clsPageHeader";
@@ -39,14 +43,14 @@
        ap.appendChild(StoryTupleManager.rootDiv);
 
 
-       var _cmdAddNewTuple = TheUte().getButton("cmdAddNewTuple", "Add", "add new tuple", null, "clsButtonAction2");
+       var _cmdAddNewTuple = TheUte().getButton("cmdAddNewTuple", "Add New Tuple", "add new tuple", null, "clsButtonAction2");
        _cmdAddNewTuple.onclick = function() {
 
            StoryTupleManager.newEditor();
            ap.appendChild(StoryTupleManager.rootDiv);
        }
 
-       ap.appendChild(_cmdAddNewTuple);
+       ab.appendChild(_cmdAddNewTuple);
       
        
     }
@@ -61,6 +65,7 @@
         <div id="divToolBarAttachPoint" runat="server" class="clsToolbar"></div>
          <div id="divMsgAttachPoint" runat="server" class="clsMsg"></div>
         <div id="divBodyAttachPoint" runat="server" class="clsBody"></div>
+        <div id="divActionButtonArea" ></div>
         <div id="divFooter" runat="server" class="clsFooter"></div>
         <div id="divLog" runat="server" class="clsLog">
         </div>

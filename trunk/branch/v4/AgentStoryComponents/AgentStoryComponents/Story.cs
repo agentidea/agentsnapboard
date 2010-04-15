@@ -1786,6 +1786,50 @@ namespace AgentStoryComponents
 
             return lsStateHR;
         }
+
+        public static int associateTuple(string conn, int tupleID, int storyID)
+        {
+            //associate page with this story.
+            OleDbHelper dbHelper = TheUtils.ute.getDBcmd(conn);
+
+            string sql = "";
+
+            sql += "INSERT INTO StoryTuple( storyID,tupleID ) VALUES ( ";
+
+            sql += storyID;
+            sql += ",";
+            sql += tupleID;
+            sql += ")";
+
+            dbHelper.cmd.CommandText = sql;
+            int numRows = dbHelper.cmd.ExecuteNonQuery();
+            dbHelper.cleanup();
+            dbHelper = null;
+
+            return numRows;
+        }
+
+        public static int dissociateStoryTuple(string conn, int tupleID, int storyID)
+        {
+            OleDbHelper dbHelper = TheUtils.ute.getDBcmd(conn);
+
+            string sql = "";
+
+            sql += "DELETE FROM StoryTuple WHERE ";
+            sql += "storyID =";
+            sql += storyID;
+            sql += " AND ";
+            sql += "tupleID =";
+            sql += tupleID;
+           
+
+            dbHelper.cmd.CommandText = sql;
+            int numRows = dbHelper.cmd.ExecuteNonQuery();
+            dbHelper.cleanup();
+            dbHelper = null;
+
+            return numRows;
+        }
     }
 
     public class selWidget

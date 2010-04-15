@@ -42,6 +42,15 @@ function cmdRefreshStrategyTable(macro) {
 
 }
 
+function cmdAlertAndRefresh(macro)
+{
+
+   var msg = TheUte().decode64(getParameterVal("msg",macro));
+   alert(msg);
+   location.href = location.href;  //refresh!
+
+}
+
 function cmdHeartBeat (macro)
 {
     var timestamp = TheUte().decode64( getParameterVal("timestamp",macro));
@@ -1344,6 +1353,43 @@ function cmdNotifyUpdateCellValue(macro) {
     }
 
 
+
+
+}
+
+function cmdRenderStrategicFitSummary(macro) {
+
+    
+    var targetDiv = getParameterVal("targetDiv", macro);
+    var pipedSummary = getParameterVal("pipedSummary", macro);
+    var summaryBits = pipedSummary.split("|");
+
+    
+    
+    var storyTuples = storyView.StoryController.CurrentStory.storyTuples;
+    var numTuples = storyTuples.length;
+    var values = new Array();
+    var headerRow = "";
+   
+    for (var i = 0; i < numTuples; i++) {
+       
+        var tup = storyTuples[i];
+        var nme = tup.name;
+        headerRow += nme + "|";
+        var tmpColoredPulldown = StrategicFitGame.scaleDropDown(tup.code, summaryBits[i]);
+        var tmpDv = document.createElement("DIV");
+        tmpDv.appendChild(tmpColoredPulldown);
+        values.push(tmpDv);
+
+    }
+
+
+    var g = newGrid2("grdInput", 1, numTuples, values, 1, "xyz");
+    g.setHeaderRow(headerRow);
+    initializeGrid(g);
+
+    var target = document.getElementById(targetDiv);
+    target.appendChild(g.gridTable);
 
 
 }

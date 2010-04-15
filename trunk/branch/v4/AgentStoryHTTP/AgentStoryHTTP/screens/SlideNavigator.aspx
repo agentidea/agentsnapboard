@@ -106,13 +106,13 @@
 
 <script type="text/javascript" src="../includes/AlertArea.js" ></script>
 <script type="text/javascript" src="../includes/SlideNavigatorNavPanel.js" ></script>
-
+<!-- Game Specific includes -->
+<%= GameSpecificIncludes %>
 
 <script src="../includes/corecommands.js" language="javascript" type="text/javascript"></script>
 
 
-<!-- Game Specific includes -->
-<%= GameSpecificIncludes %>
+
     
     <div id ="TheHook" style="left:5;top:0;position:absolute;background-color:Green;width:0px;height:0px;display:block;"></div>
     <div id="MainContent"></div>

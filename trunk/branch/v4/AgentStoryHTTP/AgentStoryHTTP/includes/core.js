@@ -72,7 +72,7 @@ function xmlHttp_callback()
     catch(e)
     {
         //smell fix this?
-       // alert(" callback error: " + e.description + " \r\n\r\n RESP: " + response);
+       alert(" callback error: " + e.description + " \r\n\r\n RESP: " + response);
        // var json = getJSONoffXML(response);
        // alert("JSON WAS " + json);
     }

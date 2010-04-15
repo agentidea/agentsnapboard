@@ -111,6 +111,10 @@ IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[updat
 DROP PROCEDURE [dbo].[updateTuple]
 GO
 
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[deleteTuple]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[deleteTuple]
+GO
+
 IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[readTuplesByID]') AND type in (N'P', N'PC'))
 DROP PROCEDURE [dbo].[readTuplesByID]
 GO
@@ -167,14 +171,15 @@ END
 GO
 
 
-CREATE PROCEDURE updateTuple
+CREATE PROCEDURE [dbo].[updateTuple]
 	@tupleID int,
 	@name nvarchar(100) ,
 	@code nvarchar(100) ,
-	@description nvarchar(254),
+	@description nvarchar(254) = null,
 	@units nvarchar(100),
-	@value ntext,
-	@numValue decimal (18,4)
+	@value ntext = null,
+	@numValue decimal (18,4) = null,
+	@rows int OUTPUT
 AS
 BEGIN
 	UPDATE [dbo].[Tuple]
@@ -185,6 +190,11 @@ BEGIN
 	,[value] = @value
 	,[numValue] = @numValue
 	WHERE id = @tupleID
+	
+	SET @rows = @@ROWCOUNT
+	RETURN @rows
+	
+	
 END
 GO
 
@@ -196,6 +206,21 @@ BEGIN
 END
 
 GO
+
+CREATE PROCEDURE [dbo].[deleteTuple]
+	@tupleID int,
+	@rows int OUTPUT
+AS
+BEGIN
+	DELETE FROM [dbo].[Tuple]
+	WHERE id = @tupleID
+	
+	SET @rows = @@ROWCOUNT
+	RETURN @rows
+	
+END
+GO
+
 
 
 IF  EXISTS (SELECT * FROM sys.views WHERE object_id = OBJECT_ID(N'[dbo].[vStoryTuples]'))
