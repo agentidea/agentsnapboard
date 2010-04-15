@@ -259,7 +259,22 @@ namespace AgentStoryComponents.core
             }
             catch (Exception ex)
             {
-                throw new ParameterNotNumberException(" parameter for key [" + key + "] was not a number, it was [" + sInt + "] ex " + ex.Message);
+                throw new ParameterNotNumberException(" parameter for key [" + key + "] was not a Double, it was [" + sInt + "] ex " + ex.Message);
+            }
+            return ret;
+        }
+
+        public static decimal getParameterDecimal(string key, Macro macro)
+        {
+            string sDec = getParameterString(key, macro);
+            decimal ret = 0;
+            try
+            {
+                ret = Convert.ToDecimal(sDec);
+            }
+            catch (Exception ex)
+            {
+                throw new ParameterNotNumberException(" parameter for key [" + key + "] was not a decimal, it was [" + sDec + "] ex " + ex.Message);
             }
             return ret;
         }

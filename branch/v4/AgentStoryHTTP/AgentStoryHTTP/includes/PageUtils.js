@@ -64,6 +64,7 @@ function reflect(o,delim)
 	    this.getSelect = getSelect;
 	    this.getSelect2 = getSelect2;
 	    this.getSelect3 = getSelect3;
+	    this.getSelectColor = getSelectColor;
 	    this.getCheckbox = getCheckbox;
 	    
 	    var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -476,7 +477,48 @@ function hasChildrenElements(parentElem)
 		
 		
 		return sel;
+	}
+
+	function getSelectColor(id, arrayVals,arrayTxt,arrayColors, callback, selIndx, aClassName) {
+	    var sel = document.createElement("SELECT");
+	    sel.id = id;
+
+	    sel.className = aClassName;
+
+	    var items = arrayVals;
+	   
+
+	    if (callback != null)
+	        sel.onchange = callback;
+
+	    for (i = 0; i < items.length; i++) {
+	        if (document.all) {
+	            //ie
+	            var ooption = document.createElement("OPTION");
+	            sel.options.add(ooption);
+	            ooption.innerText = arrayTxt[i];
+	            ooption.value = items[i];
+	            
+	        }
+	        else {
+	            //netscape
+	            sel.options[i] = new Option(items[i], i + "");
+	        }
+
+	        sel.options[i].style.color = arrayColors[i];
+	        
+	        if (selIndx == i) {
+
+	            sel.options[i].selected = true;
+	           
+	        }
+	    }
+
+
+	    return sel;
 	}	
+	
+	
 	
 	function getCheckbox(id,title,bChecked,e)
 	{

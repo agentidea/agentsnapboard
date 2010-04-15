@@ -93,7 +93,11 @@
     <Compile Include="commands\cmdUserGroupsStoryMx.cs" />
     <Compile Include="commands\cmdSetPageGate.cs" />
     <Compile Include="commands\cmdDisplayGameController.cs" />
+    <Compile Include="commands\cmdSaveTuple.cs" />
+    <Compile Include="commands\cmdDeleteStoryTuple.cs" />
     <Compile Include="core\TupleElements.cs" />
+    <Compile Include="extAPI\commands\extraStrategicFitSummary.cs" />
+    <Compile Include="extAPI\commands\extraStrategicFitController.cs" />
     <Compile Include="extAPI\commands\extraDeleteGameData2.cs" />
     <Compile Include="extAPI\commands\extraRaiffaReveal.cs" />
     <Compile Include="extAPI\commands\extraRaiffaController.cs" />

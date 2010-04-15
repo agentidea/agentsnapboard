@@ -39,7 +39,7 @@ var StoryTupleManager = {
     },
     newEditor: function() {
 
-        var tmpTupEditor = new tupleEditor(-1, "", "name", "code", "units", "desc", "", "");
+        var tmpTupEditor = new tupleEditor(-1, "", "name", "code", "units", null, "", null);
         this.tupEditors.push(tmpTupEditor.grid.gridTable);
         this.loadGrid();
 
@@ -81,11 +81,21 @@ function tupleEditor(aID,aGuid,aName,aCode,aUnits,aDesc,aNumVal,aVal) {
 
     if (aDesc != null)
         aDesc = TheUte().decode64(aDesc);
+    else
+        aDesc = "";
 
     var _txtDescription = TheUte().getTextArea(aDesc, "txtDescription", null, null, "clsTupleTextArea");
+    _txtDescription.title = "description";
+    
     this.txtDescription = _txtDescription;
 
+    if (aVal != null)
+        aVal = TheUte().decode64(aVal);
+    else
+        aVal = "";
+
     var _txtValue = TheUte().getTextArea(aVal, "txtValue", null, null, "clsTupleTextArea");
+    _txtValue.title = "textual value";
     this.txtValue = _txtValue;
 
 
@@ -93,7 +103,37 @@ function tupleEditor(aID,aGuid,aName,aCode,aUnits,aDesc,aNumVal,aVal) {
     this.cmdUpdate = _cmdUpdate;
     _cmdUpdate.onclick = function() {
 
-    alert("saving" + _guid);
+        try {
+            var SaveTuple = newMacro("SaveTuple");
+            addParam(SaveTuple, "storyID", storyController.CurrentStory.ID);
+            addParam(SaveTuple, "id", _id);
+            addParam(SaveTuple, "code", _txtCode.value);
+            addParam(SaveTuple, "name", _txtName.value);
+            addParam(SaveTuple, "units", _txtUnits.value);
+            addParam(SaveTuple, "description64",  TheUte().encode64(_txtDescription.value));
+            addParam(SaveTuple, "value64",  TheUte().encode64(_txtValue.value));
+            addParam(SaveTuple, "numValue", _txtNumValue.value);
+            
+            processRequest(SaveTuple);
+        }
+        catch (e) {
+            alert("SaveTuple error " + e.description);
+        }
+    }
+
+    var _cmdDelete = TheUte().getButton("deleteTuple", "Delete", "delete story tuple", null, "clsButtonAction2");
+    this.cmdDelete = _cmdDelete;
+    _cmdDelete.onclick = function() {
+
+        try {
+            var delTup = newMacro("DeleteStoryTuple");
+            addParam(delTup, "storyID", storyController.CurrentStory.ID);
+            addParam(delTup, "id", _id);
+            processRequest(delTup);
+        }
+        catch (e) {
+            alert("Delete Tuple error " + e.description);
+        }
     }
 
     var tupleElements = new Array();
@@ -105,6 +145,7 @@ function tupleEditor(aID,aGuid,aName,aCode,aUnits,aDesc,aNumVal,aVal) {
     tupleElements.push(_txtDescription);
     tupleElements.push(_txtValue);
     tupleElements.push(_cmdUpdate);
+    tupleElements.push(_cmdDelete);
 
     var _grid = newGrid2("gridTupleElements", tupleElements.length,1 , tupleElements, 1);
     _grid.init(_grid);

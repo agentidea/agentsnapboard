@@ -151,7 +151,7 @@ namespace AgentStoryComponents.core
                sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@description", SqlDbType.NVarChar, 254));
                sqlDataAdapter.SelectCommand.Parameters["@description"].Value = this.description;
                sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@units", SqlDbType.NVarChar, 100));
-               sqlDataAdapter.SelectCommand.Parameters["@units"].Value = this.name;
+               sqlDataAdapter.SelectCommand.Parameters["@units"].Value = this.units;
                sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@guid", SqlDbType.UniqueIdentifier));
                sqlDataAdapter.SelectCommand.Parameters["@guid"].Value = g;
                if (this.val != null)
@@ -160,25 +160,58 @@ namespace AgentStoryComponents.core
                    sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@value", SqlDbType.NText));
                    sqlDataAdapter.SelectCommand.Parameters["@value"].Value = this.val;
                }
-               else
-               {
-                   //numeric value
-                   sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@numValue", SqlDbType.Decimal));
-                   sqlDataAdapter.SelectCommand.Parameters["@numValue"].Value = this.valNum;
-               }
+               
+              
+               //numeric value
+               sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@numValue", SqlDbType.Decimal));
+               sqlDataAdapter.SelectCommand.Parameters["@numValue"].Value = this.valNum;
+           
                sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@pk", SqlDbType.Int, 4));
                sqlDataAdapter.SelectCommand.Parameters["@pk"].Direction = ParameterDirection.Output;
                sqlDataAdapter.SelectCommand.ExecuteNonQuery();
 
                int pk = Convert.ToInt32( sqlDataAdapter.SelectCommand.Parameters["@pk"].Value );
                this.id = pk;
+               this.guid = g;
 
            }
            else
            {
                //update
-               throw new NotImplementedException("update not yet implemented");
+               sqlDataAdapter =
+                new System.Data.SqlClient.SqlDataAdapter("updateTuple", sqlConn);
 
+               sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+               sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@tupleID", SqlDbType.Int, 4));
+               sqlDataAdapter.SelectCommand.Parameters["@tupleID"].Value = this.id;
+               sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@name", SqlDbType.NVarChar, 100));
+               sqlDataAdapter.SelectCommand.Parameters["@name"].Value = this.name;
+               sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@code", SqlDbType.NVarChar, 100));
+               sqlDataAdapter.SelectCommand.Parameters["@code"].Value = this.code;
+               sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@description", SqlDbType.NVarChar, 254));
+               sqlDataAdapter.SelectCommand.Parameters["@description"].Value = this.description;
+               sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@units", SqlDbType.NVarChar, 100));
+               sqlDataAdapter.SelectCommand.Parameters["@units"].Value = this.units;
+              
+               if (this.val != null)
+               {
+                   //string value
+                   sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@value", SqlDbType.NText));
+                   sqlDataAdapter.SelectCommand.Parameters["@value"].Value = this.val;
+               }
+
+
+               //numeric value
+               sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@numValue", SqlDbType.Decimal));
+               sqlDataAdapter.SelectCommand.Parameters["@numValue"].Value = this.valNum;
+
+               sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@rows", SqlDbType.Int, 4));
+               sqlDataAdapter.SelectCommand.Parameters["@rows"].Direction = ParameterDirection.Output;
+               sqlDataAdapter.SelectCommand.ExecuteNonQuery();
+
+               int rows = Convert.ToInt32(sqlDataAdapter.SelectCommand.Parameters["@rows"].Value);
+
+               if (rows != 1) throw new Exception("UpdateTuple failed");
 
            }
 
@@ -243,8 +276,29 @@ namespace AgentStoryComponents.core
        }
 
 
-       
 
+
+
+       public  int delete()
+       {
+           System.Data.SqlClient.SqlConnection sqlConn = new System.Data.SqlClient.SqlConnection(_sqlConn);
+           sqlConn.Open();
+
+           System.Data.SqlClient.SqlDataAdapter sqlDataAdapter = 
+                new System.Data.SqlClient.SqlDataAdapter("deleteTuple", sqlConn);
+
+           sqlDataAdapter.SelectCommand.CommandType = CommandType.StoredProcedure;
+           sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@tupleID", SqlDbType.Int,4));
+           sqlDataAdapter.SelectCommand.Parameters["@tupleID"].Value = this.id;
+           sqlDataAdapter.SelectCommand.Parameters.Add(new System.Data.SqlClient.SqlParameter("@rows", SqlDbType.Int, 4));
+           sqlDataAdapter.SelectCommand.Parameters["@rows"].Direction = ParameterDirection.Output;
+           sqlDataAdapter.SelectCommand.ExecuteNonQuery();
+
+           int rows = Convert.ToInt32(sqlDataAdapter.SelectCommand.Parameters["@rows"].Value);
+
+           return rows;
+
+       }
    }
 
 
