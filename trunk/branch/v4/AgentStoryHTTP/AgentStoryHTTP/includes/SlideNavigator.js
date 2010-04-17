@@ -1471,6 +1471,57 @@ function  bufferedDisplay(bufLen)
 }
 
 
+function loadGameGateController(storyID, targetDiv) {
+
+    //load game progress controller
+    try {
+        var DisplayGameController = newMacro("DisplayGameController");
+        addParam(DisplayGameController, "storyID", storyID);
+        addParam(DisplayGameController, "targetDiv", targetDiv);
+        processRequest(DisplayGameController);
+    }
+    catch (e) {
+        alert("game controller load error " + e.description);
+    }
+}
+
+
+function loadPageController(storyID, targetDiv) {
+
+    try {
+        var DisplayPageController = newMacro("DisplayPageController");
+        addParam(DisplayPageController, "storyID", storyID);
+        addParam(DisplayPageController, "targetDiv", targetDiv);
+
+        processRequest(DisplayPageController);
+    }
+    catch (e) {
+        alert(" page controller load error " + e.description);
+    }
+
+
+
+}
+
+
+function setTakeToPage(pageIndex) {
+
+
+
+    try {
+        //take to page ...
+        var TakeToPage = newMacro("TakeToPage");
+        addParam(TakeToPage, "pageIndex", pageIndex);
+        addParam(TakeToPage, "StoryID", storyView.StoryController.CurrentStory.ID);
+        addParam(TakeToPage, "tx_id64", TheUte().encode64(gUserCurrentTxID));
+        processRequest(TakeToPage);
+    }
+    catch (e) {
+        alert("TakeToPage error " + e.description);
+    }
+
+}
+
 
 function setGate(storyGateState) {
 

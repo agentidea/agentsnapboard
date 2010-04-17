@@ -7,7 +7,7 @@ using AgentStoryComponents.core;
 
 namespace AgentStoryComponents.commands
 {
-    public class cmdDisplayGameController : ICommand
+    public class cmdDisplayPageController : ICommand
     {
 
 
@@ -15,12 +15,10 @@ namespace AgentStoryComponents.commands
         {
 
             string targetDiv = MacroUtils.getParameterString("targetDiv", macro);
-            //string tx_id64 = MacroUtils.getParameterString("tx_id64", macro);
-            //string tx_id = TheUtils.ute.decode64(tx_id64);
             int storyID = MacroUtils.getParameterInt("storyID", macro);
             Dictionary<string,int> listGates = new Dictionary<string,int>();
             Story currStory = new Story(config.conn, storyID, macro.RunningMe);
-            int stateCursor = currStory.StateCursor;
+            
 
             int i = 0;
             foreach (Page pg in currStory.Pages)
@@ -28,7 +26,7 @@ namespace AgentStoryComponents.commands
                 listGates.Add(pg.Name, i);
                 i++;
             }
-            string html = this.getHTML(listGates, stateCursor);
+            string html = this.getHTML(listGates);
 
             MacroEnvelope me = new MacroEnvelope();
             Macro proc = new Macro("DisplayDiv", 2);
@@ -40,25 +38,19 @@ namespace AgentStoryComponents.commands
 
         }
 
-        private string getHTML(Dictionary<string, int> listGates,int stateCursor)
+        private string getHTML(Dictionary<string, int> listGates)
         {
             System.Text.StringBuilder sbHTML = new StringBuilder();
 
-            sbHTML.Append("<select class='clsGameController' ondblclick='setGate(this.options[this.selectedIndex].value);' onchange='setGate(this.options[this.selectedIndex].value);' title='double click to re-send gate command'>");
+            sbHTML.Append("<select class='clsGameController' ondblclick='setTakeToPage(this.options[this.selectedIndex].value);' onchange='setTakeToPage(this.options[this.selectedIndex].value);' title='double click to re-send page take to command'>");
 
-           // sbHTML.Append("<option value='-1'> -- select stage gate --</option>");
+           sbHTML.Append("<option value='-1'> -- select page to send users to --</option>");
 
             string selstring = string.Empty;
 
             int i = 0;
             foreach (KeyValuePair<string, int> kvp in listGates)
             {
-
-                if (i == stateCursor)
-                    selstring = "SELECTED='true'";
-                else
-                    selstring = string.Empty;
-
                 sbHTML.AppendFormat("<option value='{1}' {2}>{0}</option>", TheUtils.ute.decode64(kvp.Key), kvp.Value,selstring);
                 i++;
             }

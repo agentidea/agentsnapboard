@@ -127,7 +127,7 @@ var raiffaGame =
     refreshReveal: function(reveal) {
         try {
             var extraRaiffaReveal = newMacro("extraRaiffaReveal");
-            addParam(extraRaiffaReveal, "targetDiv", "stratTable");
+            addParam(extraRaiffaReveal, "targetDiv", "revealTable");
             gReveal = reveal;
             addParam(extraRaiffaReveal, "reveal", reveal);
             addParam(extraRaiffaReveal, "storyID", storyView.StoryController.CurrentStory.ID);

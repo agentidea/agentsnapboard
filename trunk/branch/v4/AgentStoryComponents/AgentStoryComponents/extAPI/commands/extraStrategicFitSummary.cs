@@ -20,6 +20,7 @@ namespace AgentStoryComponents.extAPI.commands
         {
             string targetDiv = MacroUtils.getParameterString("targetDiv", macro);
             string gameCode = MacroUtils.getParameterString("gameCode", macro);
+            string cursor = MacroUtils.getParameterString("cursor", macro);
             string tableName = gameCode + "GameData";
             string tx_id64 = MacroUtils.getParameterString("tx_id64", macro);
             string tx_id = TheUtils.ute.decode64(tx_id64);
@@ -30,7 +31,8 @@ namespace AgentStoryComponents.extAPI.commands
             string sql = string.Format("SELECT * from {0} WHERE tx_id ='{1}'",tableName,tx_id);
             string pipedSummary = this.getPipedSummary(sql);
 
-            Macro p = new Macro("RenderStrategicFitSummary", 2);
+            Macro p = new Macro("RenderStrategicFitSummary", 3);
+            p.addParameter("cursor", cursor);
             p.addParameter("pipedSummary", pipedSummary);
             p.addParameter("targetDiv", targetDiv);
 

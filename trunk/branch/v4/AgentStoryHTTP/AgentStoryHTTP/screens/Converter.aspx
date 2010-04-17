@@ -5,7 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title></title>
-    
+   
+    <script  type="text/javascript" src="../includes/grid.js"></script> 
     <script  type="text/javascript" src="../includes/PageUtils.js"></script>
     <script type="text/javascript" language="javascript">
 
@@ -30,20 +31,39 @@
 
 
     }
-        
-        
-        
-        window.onload = function() {
 
-            //(val,id,focusHandler,blurHandler,className,title)
-            var txtClear = TheUte().getInputBox("", "txtClear", null, changeTextTo64, "clsInputBox", "clear text here");
-            var txt64 = TheUte().getInputBox("", "txt64", null, changeTextToClear, "clsInputBox", "base 64 text here");
 
-            var ap = document.getElementById("dvAttachPoint");
-            ap.appendChild(txtClear);
-            ap.appendChild(txt64);
 
-        }
+    window.onload = function() {
+
+
+        var values = new Array();
+
+        var clear = document.createTextNode("Clear Text");
+        var txtClear = TheUte().getInputBox("", "txtClear", null, changeTextTo64, "clsInputBox", "clear text here");
+
+        txtClear.style.width = 500;
+        txtClear.style.backgroundColor = "#ffffcc";
+
+        var enc = document.createTextNode("base 64 encoded");
+        var txt64 = TheUte().getInputBox("", "txt64", null, changeTextToClear, "clsInputBox", "base 64 text here");
+        txt64.style.width = 500;
+        txt64.style.backgroundColor = "#ffffcc";
+        
+        values.push(clear);
+        values.push(txtClear);
+        values.push(enc);
+        values.push(txt64);
+
+        var g = newGrid2("grdInput", 2, 2, values, 1, "xyz");
+
+        initializeGrid(g);
+
+
+        var ap = document.getElementById("dvAttachPoint");
+        ap.appendChild(g.gridTable);
+
+    }
         
         
     
@@ -55,6 +75,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+  <h3>  base 64 converter</h3>
     <div id="dvAttachPoint">
     
     </div>
