@@ -511,6 +511,19 @@ function cmdProcessPageGate(macro) {
     storyView.showNext();
 }
 
+function cmdTakeToPage(macro) {
+
+    var tx_id64 = getParameterVal("tx_id64", macro);
+    var pageIndex = getParameterVal("pageIndex", macro);
+    var tx_id = TheUte().decode64(tx_id64);
+    if (tx_id == gUserCurrentTxID) return;  //dont take user to page as well!
+    
+    
+    storyView.StoryController.gotoPage(pageIndex);
+
+}
+
+
 function cmdProcessNewPage(macro)
 {
     var newPageID = getParameterVal("newPageID",macro);
@@ -1359,8 +1372,10 @@ function cmdNotifyUpdateCellValue(macro) {
 
 function cmdRenderStrategicFitSummary(macro) {
 
-    
+
     var targetDiv = getParameterVal("targetDiv", macro);
+    var cursor = getParameterVal("cursor", macro);
+    cursor = cursor * 1;
     var pipedSummary = getParameterVal("pipedSummary", macro);
     var summaryBits = pipedSummary.split("|");
 
@@ -1375,9 +1390,15 @@ function cmdRenderStrategicFitSummary(macro) {
        
         var tup = storyTuples[i];
         var nme = tup.name;
+        var tmpDv = document.createElement("DIV");
         headerRow += nme + "|";
         var tmpColoredPulldown = StrategicFitGame.scaleDropDown(tup.code, summaryBits[i]);
-        var tmpDv = document.createElement("DIV");
+        if (cursor == i) {
+            tmpColoredPulldown.style.backgroundColor = "#e0e0e0";
+            tmpDv.className = "clsOnMe";
+        }
+            
+        
         tmpDv.appendChild(tmpColoredPulldown);
         values.push(tmpDv);
 

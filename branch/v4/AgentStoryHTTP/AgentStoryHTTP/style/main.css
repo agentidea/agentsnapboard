@@ -39,10 +39,18 @@ a
 	background-color:#ffffff;
 		
 }
-
+.clsPageNoteHeader
+{
+	width:500px;
+	background-color:#e0e0e0;
+	font-weight:bold;
+	font-size:12pt;
+	padding:9 9 9 9;
+}
 .clsPageNote
 {
 	width:500px;
+	height:170px;
 	background-color:#e0e0e0;
 	font-size:10pt;
 	padding:9 9 9 9;
@@ -1445,11 +1453,7 @@ SELECT.clsPageNavPulldownLGE
 		
 }
 
-.clsChosenOne
-{
-	background-color:#e0e0e0;
-	padding: 6 6 6 6;
-}
+
 
 
 /* logger default styles for YUI logger */

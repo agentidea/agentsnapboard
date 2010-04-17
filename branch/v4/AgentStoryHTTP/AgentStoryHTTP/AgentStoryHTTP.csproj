@@ -105,6 +105,7 @@
     <Content Include="extras\SmartOrg\PortfolioGame\PortfolioGame.css" />
     <Content Include="extras\SmartOrg\Raiffa\js\1_game.js" />
     <Content Include="extras\SmartOrg\StrategicFit\js\1_game.js" />
+    <Content Include="extras\SmartOrg\TackDie\js\1_game.js" />
     <Content Include="images\haze.png" />
     <Content Include="includes\AddSingleUser.js" />
     <Content Include="includes\chars.js" />

@@ -1,4 +1,8 @@
 ﻿
+//
+// STRATEGIC FIT GAME
+//
+
 function scalePulldownFire(ev) {
 
     ev = ev || window.event;
@@ -47,7 +51,11 @@ function removeGameData() {
 
 var StrategicFitGame =
 {
+    pageInstruction: "Step through each project description using the next button and rate its strategic fit on the drop down menus",
 
+    corporateStrategy: "<div id='dvCorporateStrategy' class='clsPageNote'><div style='font-weight:bold;font-size:12pt;'>Corporate Strategy</div><br><ul><li>Your company is doing OK, but underperforming slightly.</li><li>Core markets have limited future potential, but are essential to maintaining cash flow.</li><li>There is a strong mandate to find new sources of growth through innovation.</li><li>Recent budget realities will require scaling back on the current portfolio.</li><li>The strategy is to 'leverage our technology to break into new segments while meeting or beating expectations.'</li></ul></div><br/><br/>",
+
+    
     code: "StrategicFit",
     refreshController: function(reveal) {
         try {
@@ -65,22 +73,7 @@ var StrategicFitGame =
             alert(macroName + " report error " + e.description);
         }
     },
-    refreshReveal: function(reveal) {
-        try {
-            var macroName = "extra" + this.code + "Reveal";
-            var refreshRev = newMacro(macroName);
-            addParam(refreshRev, "targetDiv", "stratTable");
-            gReveal = reveal;
-            addParam(refreshRev, "reveal", reveal);
-            addParam(refreshRev, "storyID", storyView.StoryController.CurrentStory.ID);
-            addParam(refreshRev, "gameCode", this.code);
-            addParam(refreshRev, "tx_id64", TheUte().encode64(gUserCurrentTxID));
-            processRequest(refreshRev);
-        }
-        catch (e) {
-            alert(macroName + " report error " + e.description);
-        }
-    },
+
 
 
     deleteData: function() {
@@ -117,9 +110,10 @@ var StrategicFitGame =
         var currentTuple = storyTuples[tupleIndex];
 
         var dvNoteHeader = document.createElement("DIV");
-        dvNoteHeader.style.fontSize = "12pt";
+        dvNoteHeader.className = "clsPageNoteHeader";
         var txtNoteHeader = document.createTextNode(currentTuple.name);
-        dv.appendChild(dvNoteHeader.appendChild(txtNoteHeader));
+        dvNoteHeader.appendChild(txtNoteHeader)
+        dv.appendChild(dvNoteHeader);
 
         var dvNote = document.createElement("DIV");
         dvNote.className = "clsPageNote";
@@ -131,17 +125,18 @@ var StrategicFitGame =
 
         dv.appendChild(spacerDv);
 
-        this.loadSummary();
+        this.loadSummary(tupleIndex);
         return dv;
 
     },
 
-    loadSummary: function() {
+    loadSummary: function(cursor) {
         try {
             var macroName = "extraStrategicFitSummary";
             var sfSummar = newMacro(macroName);
             addParam(sfSummar, "targetDiv", "dvSummary");
             addParam(sfSummar, "storyID", storyView.StoryController.CurrentStory.ID);
+            addParam(sfSummar, "cursor", cursor);
             addParam(sfSummar, "gameCode", this.code);
             addParam(sfSummar, "tx_id64", TheUte().encode64(gUserCurrentTxID));
             processRequest(sfSummar);
@@ -162,6 +157,11 @@ var StrategicFitGame =
         return TheUte().getSelectColor("sel_" + id, scaleVals, scaleText, scaleColors, scalePulldownFire, index, "");
 
     }
+
+  
+    
+    
+  
 
 }
 

@@ -95,7 +95,10 @@
     <Compile Include="commands\cmdDisplayGameController.cs" />
     <Compile Include="commands\cmdSaveTuple.cs" />
     <Compile Include="commands\cmdDeleteStoryTuple.cs" />
+    <Compile Include="commands\cmdTakeToPage.cs" />
+    <Compile Include="commands\cmdDisplayPageController.cs" />
     <Compile Include="core\TupleElements.cs" />
+    <Compile Include="extAPI\commands\extraTackDieController.cs" />
     <Compile Include="extAPI\commands\extraStrategicFitSummary.cs" />
     <Compile Include="extAPI\commands\extraStrategicFitController.cs" />
     <Compile Include="extAPI\commands\extraDeleteGameData2.cs" />
