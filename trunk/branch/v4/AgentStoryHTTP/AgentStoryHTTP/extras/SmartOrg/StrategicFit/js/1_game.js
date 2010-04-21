@@ -5,17 +5,33 @@
 
 function scalePulldownFire(ev) {
 
+
     ev = ev || window.event;
-    var elem = ev.srcElement;
+
     var gameCode = StrategicFitGame.code;
+    var selValue = -77;
+    var elem = null;
+    var colName = null;
+
+    if (document.all) {
+        //IE
+        elem =  ev.srcElement;
+    }
+    else
+    {
+        //mozilla ...
+        elem = ev.currentTarget;        
+    }
+    
+    
     var elemBits = elem.id.split('_');
+    colName = elemBits[1];
 
+    selValue = elem.options[elem.selectedIndex].value;
 
-    var selValue = elem.options[elem.selectedIndex].value;
     if (selValue == -1) return;
 
-    updateColValue(elemBits[1], gameCode, selValue);
-
+    updateColValue(colName, gameCode, selValue);
 
 }
 
