@@ -531,6 +531,13 @@ a
 	font-size:12pt;
 }
 
+.clsGrid
+{
+	font-weight:normal;	
+	font-size:8pt;
+	border:sigle 3 bronze;
+}
+
 .clsGridRow
 {
 	font-weight:normal;	
