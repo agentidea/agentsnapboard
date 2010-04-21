@@ -18,7 +18,7 @@
     
         var tmp = "This application is currently only certifed to work with Internet Explorer on Windows. ";
         tmp = tmp + "Please quit your current browser and open this site using Internet Explorer. ";
-        tmp = tmp + "This program can usually be found at C:/Program Files/Internet Explorer/IEXPLORE.EXE";
+        //tmp = tmp + "This program can usually be found at C:/Program Files/Internet Explorer/IEXPLORE.EXE";
 
         alert(tmp);
     } 
@@ -39,8 +39,8 @@
     var gUserAlias = "not_set_yet";
    // var gRowDataPK = -1;
     
-    var X_POINT = 100;
-    var Y_POINT = 125;
+    var X_POINT = 33;
+    var Y_POINT = 123;
  
  
     window.onload = function()
