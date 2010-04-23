@@ -21,11 +21,13 @@ CREATE TABLE [dbo].[TackDieGameData](
 	[guid] [uniqueidentifier] NOT NULL,
 	
 
-	[Initial_Probability] int NULL,
-	[Final_Probability] int NULL,
-	[Your_Call] int NULL,
-	[Your_Tack]  int NULL,
-	[Invest_Further]  int NULL,
+	[InitialProbability] int NULL,
+	[FinalProbability] int NULL,
+	[YourCall] int NULL,
+	[TackOrient]  int NULL,
+	[WillInvestFurther]  int NULL,
+	[DieOrient]  int NULL,
+	--[OrderToMarket]  int NULL,
 
 
 	

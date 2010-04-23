@@ -66,6 +66,7 @@ function reflect(o,delim)
 	    this.getSelect3 = getSelect3;
 	    this.getSelectColor = getSelectColor;
 	    this.getCheckbox = getCheckbox;
+	    this.getStoryTupleNum = getStoryTupleNum;
 	    
 	    var _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
 		this.keyStr = _keyStr;
@@ -482,14 +483,11 @@ function hasChildrenElements(parentElem)
 	function getSelectColor(id, arrayVals,arrayTxt,arrayColors, callback, selIndx, aClassName) {
 	    var sel = document.createElement("SELECT");
 	    sel.id = id;
-
 	    sel.className = aClassName;
-
 	    var items = arrayVals;
-	   
-
-	    if (callback != null)
+	    if (callback != null) 
 	        sel.onchange = callback;
+	    
 
 	    for (i = 0; i < items.length; i++) {
 	        if (document.all) {
@@ -502,18 +500,17 @@ function hasChildrenElements(parentElem)
 	        }
 	        else {
 	            //netscape
-	            sel.options[i] = new Option(items[i], i + "");
+	            sel.options[i] = new Option(arrayTxt[i], items[i]);
 	        }
 
-	        sel.options[i].style.color = arrayColors[i];
+	        if (arrayColors != null) {
+	            sel.options[i].style.color = arrayColors[i];
+	        }
 	        
 	        if (selIndx == i) {
-
 	            sel.options[i].selected = true;
-	           
 	        }
 	    }
-
 
 	    return sel;
 	}	
@@ -756,4 +753,32 @@ function hasChildrenElements(parentElem)
         grid.setAttribute("border","8");
         
        // return grid;
-}
+    }
+
+    function getStoryTupleNum(c) {
+
+        var res = null;
+        //var mark = res;
+
+        var tups = storyView.StoryController.CurrentStory.storyTuples;
+        
+        var numTups = tups.length;
+        for (var k = 0; k < numTups; k++) {
+            var tup = tups[k];
+
+            if(tup.code == c)
+            {
+                //match
+                res = tup.numValue * 1;
+                break;
+            }
+
+        }
+
+        if (res == null) {
+            alert(" no code " + c + " was found in the storyTuples object");
+        }
+        
+        return res;
+
+    }

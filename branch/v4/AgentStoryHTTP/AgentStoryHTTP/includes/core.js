@@ -6,8 +6,8 @@ var url = "http://localhost:8181/webservices/daemon.asmx/ProcessMacro";
 
 var bCallBusyLock = false; 
 var gBufferDisplay = 24;
-var gRefreshRate = 100;
-var gDelay = 3;
+var gRefreshRate = 250;
+var gDelay = 25;
 var gDisableAJAXcalls = 0; 
 
 var maxHeartbeatsBeforeRefresh = 2400;  //to prevent browser leaks ( possible )
@@ -121,12 +121,13 @@ function processResponse(res)
      {
        //$to do: understand what the error was.
        // alert("truncated process response - eval error :: " + e.description );
-       alert("JSON response was \r\n " + json);
+       //alert("JSON response was \r\n " + json);
        
        //Refresh Story
        //alert("It's possible your session has ended. \r\n\r\n Story page is been auto-refreshed.  \r\n\r\n You may need to relogin to get write and read access rights.");
-       //location.href = location.href;
-       alert(e.description);
+         location.href = location.href;
+         return;
+       //alert(e.description);
         gDisableAJAXcalls = 1;
      }
      

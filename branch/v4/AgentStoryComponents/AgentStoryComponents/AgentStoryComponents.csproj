@@ -98,6 +98,8 @@
     <Compile Include="commands\cmdTakeToPage.cs" />
     <Compile Include="commands\cmdDisplayPageController.cs" />
     <Compile Include="core\TupleElements.cs" />
+    <Compile Include="extAPI\commands\AverageTotaller.cs" />
+    <Compile Include="extAPI\commands\extraTackDieReveal.cs" />
     <Compile Include="extAPI\commands\extraTackDieController.cs" />
     <Compile Include="extAPI\commands\extraStrategicFitSummary.cs" />
     <Compile Include="extAPI\commands\extraStrategicFitController.cs" />
