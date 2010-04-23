@@ -4,7 +4,11 @@
 <head id="Head1" runat="server">
         <title><%= PageTitle %> </title>
     <link rel="stylesheet" type="text/css" href="../style/main.css" />
-    <link rel="stylesheet" type="text/css" href="../extras/SmartOrg/Game.css" /> <!-- $todo: include dynamic -->
+    
+     <!-- $todo: include dynamic -->
+    <link rel="stylesheet" type="text/css" href="../extras/SmartOrg/Game.css" />
+    <link rel="stylesheet" type="text/css" href="../extras/fireworks/style/fireworks.css" />
+    
     <link rel="stylesheet" type="text/css" href="../style/StoryElements.css" />
 </head>
 <body id="TheBod" class="clsBodyStoryEditor"  onunload="storyView.postExitMsg();">
@@ -29,6 +33,7 @@
    <script type="text/javascript" language="JavaScript">
  
     var storyView = null;
+    //var MyFC = null;
     var gViewMode = null;
     var gToolBarVisible = null;
     var gPageCursor = 0;
@@ -45,6 +50,10 @@
  
     window.onload = function()
     {
+    
+    
+        //MyFC = fc;
+    
         var storyJSON = "<%= oStory.GetStoryJSON() %>";
 
         gUserCurrentTxID = "<%= currTx %>";
@@ -82,7 +91,8 @@
   
 </script>
 
-
+<!-- all games could sure use a little fireworks effects -->
+<script src="../extras/fireworks/script/fireworks.js" type="text/javascript"></script>
     
 <script  type="text/javascript" src="../includes/PageUtils.js"></script>
 <script src="../includes/core.js" language="javascript" type="text/javascript"></script>
@@ -112,7 +122,10 @@
 <script src="../includes/corecommands.js" language="javascript" type="text/javascript"></script>
 
 
-
+<div id="fireworks-template">
+<div id="fw" class="firework"></div>
+<div id="fp" class="fireworkParticle"><img src="../extras/fireworks/image/particles.gif" alt="" /></div>
+</div><div id="fireContainer"></div>
     
     <div id ="TheHook" style="left:5;top:0;position:absolute;background-color:Green;width:0px;height:0px;display:block;"></div>
     <div id="MainContent"></div>
@@ -121,6 +134,8 @@
  
     <div id="LogDiv" style="left:1000px;position:absolute;" ></div>
     <div id="divLog" style="left:1000px;position:absolute;" ></div>
+    
+
 
 </body>
 </html>

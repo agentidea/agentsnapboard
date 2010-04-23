@@ -12,7 +12,7 @@ namespace AgentStoryComponents
         public static string protocol = "http";
         public static string host = "localhost:8181";
         public static string app = "";  //virtual dir ...
-        public static int startStoryID = 4;
+        public static int startStoryID = 6;
         public static int startStoryPage = 0;
         public static string aspNetEmailLicensePath = @"C:\Users\Admin2\Documents\Visual Studio 2008\Projects\GameStory\AgentStoryEvolution\AgentStoryHTTP\AgentStoryHTTP\bin\aspNetEmail.xml.lic";
         public static int helpStoryID = 69;
@@ -26,7 +26,7 @@ namespace AgentStoryComponents
         //public static string protocol = "http";
         //public static string host = "hosting.smartorg.com";
         //public static string app = "GameStory";
-        //public static int startStoryID = 5;
+        //public static int startStoryID = 6;
         //public static int startStoryPage = 0;
         //public static string aspNetEmailLicensePath = @"C:\Inetpub\wwwroot\hosting.smartorg.com\GameStory\bin\aspNetEmail.xml.lic";
         //public static int helpStoryID = 69;

@@ -33,7 +33,11 @@ a
 	background-repeat:repeat;
 		
 }
-
+.clsSelect
+{
+ background-color:#ffffCC;	
+ border:single 2 blue;
+}
 .clsBodyStoryEditor
 {
 	background-color:#ffffff;
@@ -55,6 +59,18 @@ a
 	font-size:10pt;
 	padding:9 9 9 9;
 }
+
+.clsActionRequired
+{
+	
+	background-color:#ff6600;
+	font-size:10pt;
+	padding:9 9 9 9;
+	border: groove 3 pink;
+}
+
+
+
 .clsLogArea
 {
 	background-color:Black;
