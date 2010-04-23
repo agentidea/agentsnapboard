@@ -70,6 +70,24 @@ namespace AgentStoryComponents.core
 
 
 
+
+       public static int getStoryTupleIntValue(string code, int storyID, string aSqlConn)
+       {
+           int ret = -1;
+           List<Tuple> tups = getStoryTuples(storyID, aSqlConn);
+
+           foreach (Tuple t in tups)
+           {
+               if (t.code == code)
+               {
+                   ret = Convert.ToInt32(t.valNum);
+                   break;
+               }
+           }
+
+           return ret;
+
+       }
     }
 
 
