@@ -1414,3 +1414,14 @@ function cmdRenderStrategicFitSummary(macro) {
 
 
 }
+function cmdSavedDMdata(macro)
+{
+    var msg = getParameterVal("msg",macro);
+    msg = TheUte().decode64(msg);
+    try {
+        storyView.log(msg);
+    }
+    catch (ex) {
+        alert(msg);
+    }
+}

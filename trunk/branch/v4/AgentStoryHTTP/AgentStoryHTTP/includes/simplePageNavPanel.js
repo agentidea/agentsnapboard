@@ -75,7 +75,7 @@ function simplePageNavigatorPanel( aoStoryController )
         selToc = storyView.StoryController.getTocItems("selToc", this.changeStory, storyView.StoryController.CurrentStory.ID, "clsPageNavPulldownLGE");
         PageNavValues.push(selToc);
 
-       
+
         PageNavValues.push(TheUte().getSpacer(5, 1));
 
         // add names to pulldown - set sel index for curr page.
@@ -86,7 +86,7 @@ function simplePageNavigatorPanel( aoStoryController )
         PageNavValues.push(TheUte().getSpacer(3, 1));
         PageNavValues.push(TheUte().getButton("cmdPreviousPage", "^", "go to previous page", this.page_previous, "clsButtonLGE"));
         PageNavValues.push(TheUte().getButton("cmdNextPage", "v", "go to next page", this.page_next, "clsButtonLGE"));
-        
+
 
 
 
@@ -111,18 +111,26 @@ function simplePageNavigatorPanel( aoStoryController )
             location.href = "./StoryEditor4.aspx?StoryID=" + storyView.StoryController.CurrentStory.ID + "&toolBR=ALL";
         }
 
-        
+
 
         cmdShowAdvancedOptions.ondblclick = function(ev) {
             ev = ev || window.event;
             ev.cancelBubble = true;
         }
 
-        if (bReadOnly == false)
+
+        var cmdTupleMx = TheUte().getButton("cmdAdvancedOptions", "t", "manage story tuples", null, "clsButtonAction2LGE");
+        cmdTupleMx.onclick = function() {
+            location.href = "./storyTupleManagement.aspx?StoryID=" + storyView.StoryController.CurrentStory.ID;
+        }
+
+        if (bReadOnly == false) {
+            PageNavValues.push(cmdTupleMx);
             PageNavValues.push(cmdShowAdvancedOptions);
+        }
 
         PageNavValues.push(TheUte().getSpacer(20, 1));
-        PageNavValues.push(TheUte().getButton("cmdHome", "T", "table of contents", this.home, "clsButtonAction2LGE"));
+        PageNavValues.push(TheUte().getButton("cmdHome", "toc", "table of contents", this.home, "clsButtonAction2LGE"));
 
 
         var PageNavGrid = newGrid2("PageNavGrid", 1, PageNavValues.length, PageNavValues, 0);
