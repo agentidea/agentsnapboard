@@ -45,6 +45,38 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
     var _srcText = TheUte().getTextArea("", "txtSource_" + aID, null, null, "clsSrcCode");
     this.srcText = _srcText;
 
+    var _preJavaScript = TheUte().getTextArea("", "txtPreJavaScript_" + aID, null, null, "clsSrciptCode");
+    _preJavaScript.title = "onLoad Javascript event";
+    this.preJavaScript = _preJavaScript;
+
+    var _postJavaScript = TheUte().getTextArea("", "txtPostJavaScript_" + aID, null, null, "clsSrciptCode");
+    _postJavaScript.title = "onUnload Javascript event";
+    this.postJavaScript = _postJavaScript;
+
+    //focus src code editor ...
+    _srcText.onfocus = function() {
+        _preJavaScript.className = "clsSrciptCode";
+        _postJavaScript.className = "clsSrciptCode";
+        _srcText.className = "clsSrcCode";
+
+    }
+
+    _preJavaScript.onfocus = function() {
+        _preJavaScript.className = "clsSrcCode";
+        _postJavaScript.className = "clsSrciptCode";
+        _srcText.className = "clsSrciptCode";
+
+    }
+
+
+    _postJavaScript.onfocus = function() {
+        _preJavaScript.className = "clsSrciptCode";
+        _postJavaScript.className = "clsSrcCode";
+        _srcText.className = "clsSrciptCode";
+
+    }
+    
+
     this.NewEdit_click = function() {
         storyView.hazeScreen(_GUID, _srcText);
     }
@@ -311,6 +343,20 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
 
     }
 
+    this.updatePreJavaScript = function(val) {
+
+        if (_preJavaScript != null) {
+            _preJavaScript.value = val;
+        }
+    }
+
+    this.updatePostJavaScript = function(val) {
+
+        if (_postJavaScript != null) {
+            _postJavaScript.value = val;
+        }
+    }
+
     this.updateGUID = function(aGUID) {
 
         _GUID = aGUID;
@@ -447,6 +493,12 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
         var sContentVal64 = TheUte().encode64(s);
 
 
+        var preJS64; var postJS64;
+        preJS64 = TheUte().encode64(_preJavaScript.value);
+        postJS64 = TheUte().encode64(_postJavaScript.value);
+
+
+
         if (_dbID == -1) {
 
             //new
@@ -460,6 +512,10 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
             addParam(macroCreateNewPageElementAndMap, "GridY", _y);
             addParam(macroCreateNewPageElementAndMap, "GridZ", _count);
             addParam(macroCreateNewPageElementAndMap, "Value", sContentVal64);
+
+            addParam(macroCreateNewPageElementAndMap, "preJS64", preJS64);
+            addParam(macroCreateNewPageElementAndMap, "postJS64", postJS64);
+            
             addParam(macroCreateNewPageElementAndMap, "tags", "xyz");
             addParam(macroCreateNewPageElementAndMap, "TypeID", 5); //storyView.ThePageElementEditor.TypeID  //"random"
             addParam(macroCreateNewPageElementAndMap, "StoryID", storyView.StoryController.CurrentStory.ID);
@@ -482,6 +538,10 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
             addParam(macroUpdatePageElementAndMap, "GridZ", _count);
             addParam(macroUpdatePageElementAndMap, "StoryID", storyView.StoryController.CurrentStory.ID);
             addParam(macroUpdatePageElementAndMap, "Value", sContentVal64);
+
+            addParam(macroUpdatePageElementAndMap, "preJS64", preJS64);
+            addParam(macroUpdatePageElementAndMap, "postJS64", postJS64);
+            
             addParam(macroUpdatePageElementAndMap, "tags", "xyzR");
             addParam(macroUpdatePageElementAndMap, "TypeID", 5);
             addParam(macroUpdatePageElementAndMap, "StoryOpenedBy", storyView.StoryController.CurrentStory.StoryOpenedBy);
@@ -516,12 +576,18 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
             s = _origVal;
         }
 
+
+
+            
+            
         if (s.trim().length == 0) return;
 
         s = applyHTMLai(s);
 
         var srcEventID = this.id;
-
+        var preJS64; var postJS64;
+        preJS64 = TheUte().encode64(_preJavaScript.value);
+        postJS64 = TheUte().encode64(_postJavaScript.value);
         var srcEventBits = srcEventID.split("_");
         // TheLogger().log("src :: " + srcEventBits[0],"warn");
 
@@ -535,7 +601,7 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
 
 
                 //INSERT NEW story element
-                TheLogger().log("NEW story element@" + _x + "x" + _y, "warn");
+               // TheLogger().log("NEW story element@" + _x + "x" + _y, "warn");
 
                 var currPage = storyView.StoryController.GetPage(storyView.StoryController.getCurrentPageCursor());
 
@@ -546,6 +612,8 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
                 addParam(macroCreateNewPageElementAndMap, "GridX", _x);
                 addParam(macroCreateNewPageElementAndMap, "GridY", _y);
                 addParam(macroCreateNewPageElementAndMap, "GridZ", _count);
+                addParam(macroCreateNewPageElementAndMap, "preJS64", preJS64);
+                addParam(macroCreateNewPageElementAndMap, "postJS64", postJS64);
                 addParam(macroCreateNewPageElementAndMap, "Value", sContentVal64);
                 addParam(macroCreateNewPageElementAndMap, "tags", "xyz");
                 addParam(macroCreateNewPageElementAndMap, "TypeID", 5); //storyView.ThePageElementEditor.TypeID  //"random"
@@ -561,7 +629,7 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
             }
             else {
                 //UPDATE EXISTING page element
-                TheLogger().log("EXISTING story element", "warn");
+               // TheLogger().log("EXISTING story element", "warn");
 
                 var buttonClicked = document.getElementById(srcEventID);
                 buttonClicked.className = "clsButtonActionClicked";
@@ -575,6 +643,8 @@ function storyElemView(aID, aCount, aX, aY, aZ, aGUID, aBY, abShowEditor, aDateA
                 addParam(macroUpdatePageElementAndMap, "GridX", _x);
                 addParam(macroUpdatePageElementAndMap, "GridY", _y);
                 addParam(macroUpdatePageElementAndMap, "GridZ", _count);
+                addParam(macroUpdatePageElementAndMap, "preJS64", preJS64);
+                addParam(macroUpdatePageElementAndMap, "postJS64", postJS64);
                 addParam(macroUpdatePageElementAndMap, "StoryID", storyView.StoryController.CurrentStory.ID);
                 addParam(macroUpdatePageElementAndMap, "Value", sContentVal64);
                 addParam(macroUpdatePageElementAndMap, "tags", "xyzR");
@@ -950,14 +1020,12 @@ function getHandleBar(count, title) {
     return _dv;
 }
 
-
 function getPropertiesPanel(id) {
     var values = new Array();
-
+    values.push(this.preJavaScript);
     values.push(this.srcText);
-
-
-    var oGrid3 = newGrid2(id, 1, 1, values);
+    values.push(this.postJavaScript);
+    var oGrid3 = newGrid2(id, 3, 1, values);
     oGrid3.init(oGrid3);
 
     return oGrid3.gridTable;

@@ -104,6 +104,12 @@
 <script src="../includes/storyElemView.js" type="text/javascript"></script>
 <script type="text/javascript" src="../includes/StoryElementDragOnTop.js" ></script>
 <script type="text/javascript" src="../includes/simplePageNavPanel.js" ></script>
+
+
+<!-- Game Specific includes -->
+<%= GameSpecificIncludes %>
+
+
 <script src="../includes/corecommands.js" language="javascript" type="text/javascript"></script>
 
     

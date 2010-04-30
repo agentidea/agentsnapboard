@@ -29,7 +29,8 @@ var maxHeartbeatsBeforeRefresh = 2400;  //to prevent browser leaks ( possible )
 
 var txSessionID = "not_set_yet";
 
-var _logger = null;
+//old yahoo logger
+//var _logger = null;
 
 //function TheLogger()
 //{

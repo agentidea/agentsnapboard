@@ -901,7 +901,7 @@ namespace AgentStoryComponents
                         {
                             sbJSON.Append("'preJavaScript':");
                             sbJSON.Append("'");
-                            sbJSON.Append(pe.preJavascript);
+                            sbJSON.Append(pe.preJavascript.Trim());
                             sbJSON.Append("'");
                             sbJSON.Append(",");
                         }
@@ -911,7 +911,7 @@ namespace AgentStoryComponents
                         {
                             sbJSON.Append("'postJavaScript':");
                             sbJSON.Append("'");
-                            sbJSON.Append(pe.postJavascript);
+                            sbJSON.Append(pe.postJavascript.Trim());
                             sbJSON.Append("'");
                             sbJSON.Append(",");
                         }

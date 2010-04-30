@@ -88,6 +88,8 @@
     <Content Include="extras\fireworks\sound-config.xml" />
     <Content Include="extras\fireworks\soundcontroller.swf" />
     <Content Include="extras\fireworks\style\fireworks.css" />
+    <Content Include="extras\GS\DiabetesManagement\js\1_game.js" />
+    <Content Include="extras\GS\DiabetesManagement\js\2_data.js" />
     <Content Include="extras\SmartOrg\Game.css" />
     <Content Include="extras\SmartOrg\PortfolioGame\formatting.css" />
     <Content Include="extras\SmartOrg\PortfolioGame\images\20\1.png" />
@@ -149,6 +151,7 @@
     <Content Include="includes\chars.js" />
     <Content Include="includes\ContextMenu.js" />
     <Content Include="includes\AlertArea.js" />
+    <Content Include="includes\DiabetesEntry.js" />
     <Content Include="includes\storyElemViewSlideNav.js" />
     <Content Include="includes\SlideNavigatorNavPanel.js" />
     <Content Include="includes\SlideNavigator.js" />
@@ -503,10 +506,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="extras\GS\DiabetesManagement\DMGameDataCreateTable.sql" />
     <None Include="extras\SmartOrg\PortfolioGame\images\20\Thumbs.db" />
     <None Include="extras\SmartOrg\PortfolioGame\images\6\Thumbs.db" />
     <None Include="extras\SmartOrg\PortfolioGame\images\b4\Thumbs.db" />
     <None Include="extras\SmartOrg\PortfolioGame\images\w4\Thumbs.db" />
+    <None Include="extras\SmartOrg\StrategicFit\StrategicFitGameData.ddl.sql" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
