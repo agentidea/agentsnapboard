@@ -60,6 +60,15 @@ a
 	padding:9 9 9 9;
 }
 
+.clsDM
+{
+	width:500px;
+	height:170px;
+	background-color:#e0e0e0;
+	font-size:13pt;
+	padding:9 9 9 9;
+}
+
 .clsActionRequired
 {
 	
@@ -959,7 +968,7 @@ a
 	width:990px;
 	height:100px;
 	color:black;
-	font-size:16pt;
+	font-size:10pt;
 	
 	font-family:Courier New;
 	padding:13px 13px 13px 13px;
@@ -1461,6 +1470,16 @@ SELECT.clsPageNavPulldownLGE
 .clsInput
 {
 	background-color:#ffffcc;
+	font-size:8pt;
+	width:200px;
+	
+		
+}
+
+.clsInputValidationError
+{
+	background-color:#ff6600;
+	color:White;
 	font-size:8pt;
 	width:200px;
 	

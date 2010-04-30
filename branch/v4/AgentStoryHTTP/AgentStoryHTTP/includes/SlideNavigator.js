@@ -600,13 +600,14 @@ function loadPageElement(oStoryController,oPage,elementOrdinal) {
 
         
 
-        if (preJavaScript != null) {
+        if (preJavaScript != null && preJavaScript.trim().length>0) {
 
             try {
+                
                 eval(preJavaScript);
             }
             catch (preX) {
-                //alert("error evaluation of preJavaScript" + preX.description);
+                alert("error evaluation of preJavaScript" + preX.description);
             }
 
         }

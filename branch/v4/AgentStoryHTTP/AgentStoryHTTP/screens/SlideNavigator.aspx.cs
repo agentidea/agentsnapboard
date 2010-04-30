@@ -44,7 +44,7 @@ namespace AgentStoryHTTP.screens
                 //$TODO: filter? dissallowed chars in <title></title> ?
 
                 // return storyName + " - " + this.currentUser.UserName.ToUpper();
-                return storyName + " by " + this.oStory.by.UserName.ToUpper();
+                return storyName;// +" by " + this.oStory.by.UserName.ToUpper();
             }
         }
 
@@ -78,7 +78,6 @@ namespace AgentStoryHTTP.screens
 
                         //read out all JS file names
                         string pattern = "*.js";
-                        //string[] files = System.IO.Directory.GetFiles(pathToSearch, pattern);
                         DirectoryInfo di = new DirectoryInfo(pathToSearch);
                         FileInfo[] fi = di.GetFiles(pattern);
                         int fileCount = 0;
@@ -86,7 +85,7 @@ namespace AgentStoryHTTP.screens
                         {
                             fileCount++;
                            
-                            //  <script src='../extras/SmartOrg/PortfolioGame/js/jquery.js' type='text/javascript'></script>
+                            
                             sb.AppendFormat("  <script src='../extras{0}{1}' type='text/javascript'></script>", clearIncludeCodeDirPath, info.Name);
                         }
 

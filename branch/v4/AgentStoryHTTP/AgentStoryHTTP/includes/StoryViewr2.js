@@ -733,8 +733,55 @@ function loadPageElements(oStoryController, oPage)
             
             var pageElementValue =  TheUte().decode64( pageElement.Value );
             var newWidget = addNewWidget( pem.X,pem.Y,pem.Z,pageElement.ID,pem.GUID,pageElement.BY, false , pageElement.DateAdded, pageElement.CanEdit );
-            newWidget.updateSrcText( pageElementValue );
-            newWidget.updateViewHTML(newWidget.id);  
+           
+
+
+            // it is here that any pre JS should fire
+            var preJavaScript; var postJavaScript;
+
+            if (pageElement.preJavaScript != null && pageElement.preJavaScript != "AA==") {
+                preJavaScript = TheUte().decode64(pageElement.preJavaScript);
+            }
+            else {
+                preJavaScript = "";
+            }
+            if (pageElement.postJavaScript != null && pageElement.postJavaScript != "AA==") {
+                postJavaScript = TheUte().decode64(pageElement.postJavaScript);
+            }
+            else {
+                postJavaScript = "";
+            }
+            
+
+            if (preJavaScript != null) {
+                newWidget.updatePreJavaScript(preJavaScript);
+            }
+            if (postJavaScript != null) {
+                newWidget.updatePostJavaScript(postJavaScript);
+            }
+            
+            
+             newWidget.updateSrcText( pageElementValue );
+             newWidget.updateViewHTML(newWidget.id);
+
+
+             if (preJavaScript != null) {
+
+                 //preJavaScript = preJavaScript.trim();
+
+                 if (preJavaScript.length > 0) {
+                     try {
+                        // alert("about to eval [" + preJavaScript + "]");
+                         eval(preJavaScript);
+                     }
+                     catch (preX) {
+                         alert("error evaluation of preJavaScript" + preX.description);
+                     }
+                 }
+
+         
+             }
+            
         }  
             
 
@@ -1462,10 +1509,10 @@ function panel( aInputArea,aOutputArea )
         var dvToActOn = document.getElementById( "dvCollapseExpandBody" );
   
   
-        if( !dvToActOn.style.display )
-            TheLogger().log( "display mode not availible ","warn" );
-        else
-            TheLogger().log( "display mode " + dvToActOn.style.display , "warn" );
+//        if( !dvToActOn.style.display )
+//            TheLogger().log( "display mode not availible ","warn" );
+//        else
+//            TheLogger().log( "display mode " + dvToActOn.style.display , "warn" );
   
         if ( ! dvToActOn.style.display || dvToActOn.style.display == "block")
         {

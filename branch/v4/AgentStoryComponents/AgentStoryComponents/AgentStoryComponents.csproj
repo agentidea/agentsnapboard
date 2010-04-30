@@ -99,6 +99,8 @@
     <Compile Include="commands\cmdDisplayPageController.cs" />
     <Compile Include="core\TupleElements.cs" />
     <Compile Include="extAPI\commands\AverageTotaller.cs" />
+    <Compile Include="extAPI\commands\extraDMreport.cs" />
+    <Compile Include="extAPI\commands\extraSetDMdata.cs" />
     <Compile Include="extAPI\commands\extraTackDieReveal.cs" />
     <Compile Include="extAPI\commands\extraTackDieController.cs" />
     <Compile Include="extAPI\commands\extraStrategicFitSummary.cs" />
@@ -119,6 +121,7 @@
     <Compile Include="Emails.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="extAPI\Content.cs" />
+    <Compile Include="extAPI\DMdata.cs" />
     <Compile Include="extAPI\RaiffaGameData.cs" />
     <Compile Include="extAPI\DiceGameData.cs" />
     <Compile Include="extAPI\elements.cs" />
