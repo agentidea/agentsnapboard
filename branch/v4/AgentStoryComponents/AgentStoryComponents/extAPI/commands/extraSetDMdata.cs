@@ -12,7 +12,7 @@ namespace AgentStoryComponents.extAPI.commands
         public MacroEnvelope execute(Macro macro)
         {
 
-
+            int patientID = MacroUtils.getParameterInt("patientID", macro);
             int sugar = MacroUtils.getParameterInt("sugar", macro);
             int insulinA = MacroUtils.getParameterInt("insulinA", macro);
             int insulinB = MacroUtils.getParameterInt("insulinB", macro);
@@ -32,8 +32,8 @@ namespace AgentStoryComponents.extAPI.commands
                 throw new Exception("time format not recognized " + timeExp.Message);
             }
 
-          
-            int meId = macro.RunningMe.ID;
+
+            int meId = patientID; // macro.RunningMe.ID;
 
 
             DMdata dmd = new DMdata(config.conn);
@@ -51,9 +51,9 @@ namespace AgentStoryComponents.extAPI.commands
             msg = TheUtils.ute.encode64(msg);
             
             MacroEnvelope me = new MacroEnvelope();
-            Macro proc = new Macro("DisplayAlert", 2);            
+            Macro proc = new Macro("SavedDMdata", 1);            
             proc.addParameter("msg", msg);
-            proc.addParameter("severity", "1");
+            //proc.addParameter("severity", "1");
             me.addMacro(proc);
 
           

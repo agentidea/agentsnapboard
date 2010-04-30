@@ -15,6 +15,15 @@ function  procNum(s) {
     var DM =
 {
     code: "DiabetesManager",
+
+    StoryPatientID: function() {
+
+        var patientTuple = getTuple("patientID");
+        if (patientTuple == null) throw "patientID tuple needs to be set";
+        var patientID = patientTuple.numValue;
+        return patientID;
+
+    },
     checkNumeric: function(ev) {
 
         ev = ev || window.event;
@@ -48,23 +57,23 @@ function  procNum(s) {
 
 
     },
-    
-    getReport: function(userID,dv) {
 
-    try {
-        var extraDMreport = newMacro("extraDMreport");
-        addParam(extraDMreport, "targetDiv", dv);
-        addParam(extraDMreport, "reportForUserID", userID);
-        processRequest(extraDMreport);
+    getReport: function(userID, dv) {
+
+        try {
+            var extraDMreport = newMacro("extraDMreport");
+            addParam(extraDMreport, "targetDiv", dv);
+            addParam(extraDMreport, "reportForUserID", userID);
+            processRequest(extraDMreport);
 
 
-    }
-    catch (e) {
-        storyView.log("report retrieval error:: " + e.description);
-    }
+        }
+        catch (e) {
+            storyView.log("report retrieval error:: " + e.description);
+        }
 
     },
-    
+
     getInputScreen: function() {
 
 
@@ -75,11 +84,11 @@ function  procNum(s) {
         var _grid = null;
 
         var clsInput = "clsInput";
-        var _sugar = TheUte().getInputBox("", 'txtSugar', null, this.checkNumeric, clsInput, 'sugar level');
-        var _InsulinA = TheUte().getInputBox("", 'txtInsulinA', null, this.checkNumeric, clsInput, 'insulin taken');
-        var _InsulinB = TheUte().getInputBox("", 'txtInsulinB', null, this.checkNumeric, clsInput, 'insulin taken');
-        var _carbs = TheUte().getInputBox("", 'txtCarbs', null, this.checkNumeric, clsInput, 'food carbs taken');
-        var _tim = TheUte().getInputBox(this.localTime(), 'txtCarbs', null, null, clsInput, 'local time stamp');
+        var _sugar = TheUte().getInputBox("", 'txtSugar', null, this.checkNumeric, clsInput, 'blood sugar level');
+        var _InsulinA = TheUte().getInputBox("", 'txtInsulinA', null, this.checkNumeric, clsInput, 'regular insulin taken');
+        var _InsulinB = TheUte().getInputBox("", 'txtInsulinB', null, this.checkNumeric, clsInput, 'basal insulin taken');
+        var _carbs = TheUte().getInputBox("", 'txtCarbs', null, this.checkNumeric, clsInput, 'aprox Carb units');
+        var _tim = TheUte().getInputBox(this.localTime(), 'txtCarbs', null, null, clsInput, 'local time');
         var _comment = TheUte().getTextArea("", "txtComment", null, null, 'clsTupleTextArea');
         var _submit = TheUte().getButton("cmdSubmit", "Save", null, null, 'clsButtonAction2LGE');
         var _reset = TheUte().getButton("cmdReset", "Reset", null, null, 'clsButtonLGE');
@@ -93,14 +102,12 @@ function  procNum(s) {
 
                 addParam(extraSaveDM, "localtime64", TheUte().encode64(_tim.value));
 
-
+                addParam(extraSaveDM, "patientID", DM.StoryPatientID());
                 addParam(extraSaveDM, "sugar", procNum(_sugar.value));
                 addParam(extraSaveDM, "insulinA", procNum(_InsulinA.value));
                 addParam(extraSaveDM, "insulinB", procNum(_InsulinB.value));
                 addParam(extraSaveDM, "carbs", procNum(_carbs.value));
                 addParam(extraSaveDM, "comment64", TheUte().encode64(_comment.value));
-
-                addParam(extraSaveDM, "StoryID", storyView.StoryController.CurrentStory.ID);
                 addParam(extraSaveDM, "tx_id64", TheUte().encode64(gUserCurrentTxID));
 
                 processRequest(extraSaveDM);
@@ -121,15 +128,20 @@ function  procNum(s) {
             _InsulinB.value = "";
             _carbs.value = "";
             _comment.value = "";
+            _tim.value = DM.localTime();
 
         };
+
+
+        var lblInsulinA = TheUte().decode64(getTuple("insulinA").value);
+        var lblInsulinB = TheUte().decode64(getTuple("insulinB").value);
 
         var vals = new Array();
         vals.push(document.createTextNode("blood glucose"));
         vals.push(_sugar);
-        vals.push(document.createTextNode("Insulin A"));
+        vals.push(document.createTextNode(lblInsulinA));
         vals.push(_InsulinA);
-        vals.push(document.createTextNode("Insulin B"));
+        vals.push(document.createTextNode(lblInsulinB));
         vals.push(_InsulinB);
         vals.push(document.createTextNode("Carbs"));
         vals.push(_carbs);

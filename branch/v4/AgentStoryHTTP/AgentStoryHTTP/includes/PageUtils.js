@@ -19,6 +19,25 @@ String.prototype.rtrim = function() {
 
 
 
+function getTuple(code) {
+
+    var retTup = null;
+    
+    var tups = storyView.StoryController.CurrentStory.storyTuples;
+    var len = tups.length;
+    for (var i = 0; i < len; i++) {
+        var t = tups[i];
+        if (t.code == code) {
+            retTup = t;
+            break;
+        }
+    }
+
+    return retTup;
+
+
+}
+
 
 function reflect(o,delim)
 {

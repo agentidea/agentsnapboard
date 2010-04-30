@@ -42,17 +42,61 @@ namespace AgentStoryComponents.extAPI.commands
             System.Text.StringBuilder sbHTML = new StringBuilder();
             sbHTML.Append(@"<table id='tblRaiffaController' class='clsGrid'
                             cellspacing='0' cellpadding='3' border='1'>");
-            sbHTML.Append("<TR class='clsGridHeader'>");
+            sbHTML.Append("<TR class='clsGridHeadRow'>");
+
+   
+            sbHTML.Append("<td>");
+            sbHTML.Append("time");
+            sbHTML.Append("</td>");
+            sbHTML.Append("<td>");
+            sbHTML.Append("sugar");
+            sbHTML.Append("</td>");
+            sbHTML.Append("<td>");
+            sbHTML.Append("carbs");
+            sbHTML.Append("</td>");
+            sbHTML.Append("<td>");
+            sbHTML.Append("insulin");
+            sbHTML.Append("</td>");
+            sbHTML.Append("<td>");
+            sbHTML.Append("base");
+            sbHTML.Append("</td>");
+            sbHTML.Append("<td>");
+            sbHTML.Append("comment");
+            sbHTML.Append("</td>");
+
+            sbHTML.Append("</TR>");
 
 
-           
 
+            int flip = 1;
             //report rows
             while (dbHelper.reader.Read())
             {
+                if (flip == 1)
+                    flip = 2;
+                else
+                    flip = 1;
 
-                sbHTML.Append("<tr class='clsDiceGameRow1'>");
-                sbHTML.AppendFormat("<td>{0}</td>", (int) dbHelper.reader["sugar"]);
+                string comment = string.Empty;
+
+                if (dbHelper.reader["comment"] is DBNull)
+                {
+                }
+                else
+                {
+                    comment = TheUtils.ute.decode64((string)dbHelper.reader["comment"]);
+                }
+
+                sbHTML.AppendFormat("<tr class='clsGridRow{0}'>",flip);
+
+                sbHTML.AppendFormat("<td nowrap>{0}</td><td>{1}</td><td>{2}</td><td>{3}</td><td>{4}</td><td>{5}</td>",
+                    prettyDate(Convert.ToDateTime(dbHelper.reader["when"]))
+                    ,emptyIfNull(dbHelper.reader,"sugar")
+                    ,emptyIfNull(dbHelper.reader,"carbs")
+                    ,emptyIfNull(dbHelper.reader,"insulinA")
+                    ,emptyIfNull(dbHelper.reader,"insulinB")
+                    ,comment
+                    );
                 sbHTML.Append("</tr>");
             }
                 
@@ -61,10 +105,34 @@ namespace AgentStoryComponents.extAPI.commands
 
         }
 
+        private string emptyIfNull(System.Data.OleDb.OleDbDataReader dr, string key)
+        {
+            string ret = string.Empty;
 
-       
+            if (dr[key] is DBNull)
+            {
+                //
+            }
+            else
+            {
+                ret = Convert.ToString(dr[key]);
+
+            }
+            return ret;
+        }
+
+        private string prettyDate(DateTime dt)
+        {
+
+            return dt.ToString("f");
+
+        }
+    
+
+
     }
 
+   
 
 
 }

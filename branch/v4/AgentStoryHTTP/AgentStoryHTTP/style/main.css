@@ -554,6 +554,8 @@ a
 {	
 	font-weight:bolder;
 	font-size:12pt;
+	background-color:Black;
+	color:White;
 }
 
 .clsGrid
@@ -568,6 +570,22 @@ a
 	font-weight:normal;	
 	font-size:8pt;
 }
+
+.clsGridRow1
+{
+	font-weight:normal;	
+	font-size:8pt;
+	background-color:#FFFFCC;
+}
+.clsGridRow2
+{
+	font-weight:normal;	
+	font-size:8pt;
+	background-color:#FFFFFF;
+}
+
+
+
 .clsSponsorRow
 {
 	background-color:#FC7203;
